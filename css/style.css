@@ -1249,7 +1249,7 @@ article .content .caption {
   background-size: cover;
   border-radius: 250px;
   margin: 0 auto;
-  animation: spinsun 80s infinite linear;
+  animation: spinsun 40s infinite linear;
 }
 .planet {
   background-size: cover;
@@ -1272,81 +1272,81 @@ article .content .caption {
   position: absolute;
   width: 300px;
   z-index: 2;
-  animation: orbitmercury 24s infinite linear;
+  animation: orbitmercury 12s infinite linear;
   top: -7.5px; /*half of planets height to keep orbits in line*/
 }
 .mercury .planet {
   width: 25px;
   height: 25px;
   background-image: url("../images/mercury.png");
-  animation: anti-spin 24s infinite linear;
+  animation: anti-spin 12s infinite linear;
 }
 .mercury .shadow {
-  animation: shadow 24s infinite linear;
+  animation: shadow 12s infinite linear;
 }
 .venus {
   position: absolute;
   width: 506px;
   z-index: 3;
-  animation: orbitvenus 30s infinite linear;
+  animation: orbitvenus 15s infinite linear;
   top: -19px;
 }
 .venus .planet {
   width: 48px;
   height: 48px;
   background-image: url("../images/venus.png");
-  animation: anti-spin 30s infinite linear;
+  animation: anti-spin 15s infinite linear;
 }
 .venus .shadow {
-  animation: shadow 30s infinite linear;
+  animation: shadow 15s infinite linear;
 }
 .earth {
   position: absolute;
   width: 610px;
   z-index: 4;
-  animation: orbitearth 40s infinite linear;
+  animation: orbitearth 20s infinite linear;
   top: -20px;
 }
 .earth .planet {
   width: 50px;
   height: 50px;
   background-image: url("../images/earth.png");
-  animation: anti-spin 40s infinite linear;
+  animation: anti-spin 20s infinite linear;
 }
 .earth .shadow {
-  animation: shadow 40s infinite linear;
+  animation: shadow 20s infinite linear;
 }
 .mars {
   position: absolute;
   width: 706px;
   z-index: 5;
-  animation: orbitmars 60s infinite linear;
+  animation: orbitmars 30s infinite linear;
   top: -11px;
 }
 .mars .planet {
   width: 32px;
   height: 32px;
   background-image: url("../images/mars.png");
-  animation: anti-spin 60s infinite linear;
+  animation: anti-spin 30s infinite linear;
 }
 .mars .shadow {
-  animation: shadow 60s infinite linear;
+  animation: shadow 30s infinite linear;
 }
 .jupiter {
   position: absolute;
   width: 1100px;
   z-index: 6;
-  animation: orbitjupiter 100s infinite linear;
+  animation: orbitjupiter 50s infinite linear;
   top: -64px;
 }
 .jupiter .planet {
   width: 110px;
   height: 110px;
   background-image: url("../images/jupiter.png");
-  animation: anti-spin 100s infinite linear;
+  animation: anti-spin 50s infinite linear;
 }
 .jupiter .shadow {
-  animation: shadow 100s infinite linear;
+  animation: shadow 50s infinite linear;
 }
 .banner {
   height: 30vh;
@@ -2034,54 +2034,60 @@ article .content .caption {
   }
 }
 .highlight {
-  color: #c5c8c6;
-  background: #1d1f21;
+  color: #222;
+  background: #272822;
 }
-.highlight .code .comment,
-.highlight .code .quote {
-  color: #969896;
-}
-.highlight .code .variable,
-.highlight .code .template-variable,
 .highlight .code .tag,
-.highlight .code .name,
-.highlight .code .selector-id,
-.highlight .code .selector-class,
-.highlight .code .regexp,
-.highlight .code .deletion {
-  color: #c66;
-}
-.highlight .code .number,
-.highlight .code .built_in,
-.highlight .code .builtin-name,
+.highlight .code .keyword,
+.highlight .code .selector-tag,
 .highlight .code .literal,
-.highlight .code .type,
-.highlight .code .params,
-.highlight .code .meta,
-.highlight .code .link {
-  color: #de935f;
+.highlight .code .strong,
+.highlight .code .name {
+  color: #323232;
 }
-.highlight .code .attribute {
-  color: #f0c674;
+.highlight .code .code {
+  color: #66d9ef;
+}
+.highlight .code .class .title {
+  color: #522;
+}
+.highlight .code .attribute,
+.highlight .code .symbol,
+.highlight .code .regexp,
+.highlight .code .link {
+  color: #5f191b;
 }
 .highlight .code .string,
-.highlight .code .symbol,
 .highlight .code .bullet,
-.highlight .code .addition {
-  color: #b5bd68;
-}
+.highlight .code .subst,
 .highlight .code .title,
-.highlight .code .section {
-  color: #81a2be;
+.highlight .code .section,
+.highlight .code .emphasis,
+.highlight .code .type,
+.highlight .code .built_in,
+.highlight .code .builtin-name,
+.highlight .code .selector-attr,
+.highlight .code .selector-pseudo,
+.highlight .code .addition,
+.highlight .code .variable,
+.highlight .code .template-tag,
+.highlight .code .template-variable {
+  color: #0016e2;
+}
+.highlight .code .comment,
+.highlight .code .quote,
+.highlight .code .deletion,
+.highlight .code .meta {
+  color: #75715e;
 }
 .highlight .code .keyword,
-.highlight .code .selector-tag {
-  color: #b294bb;
-}
-.highlight .code .emphasis {
-  font-style: italic;
-}
-.highlight .code .strong {
+.highlight .code .selector-tag,
+.highlight .code .literal,
+.highlight .code .doctag,
+.highlight .code .title,
+.highlight .code .section,
+.highlight .code .type,
+.highlight .code .selector-id {
   font-weight: bold;
 }
 pre {
