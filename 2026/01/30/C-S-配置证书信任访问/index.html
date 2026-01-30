@@ -14,7 +14,7 @@
 <meta property="og:description" content="C&#x2F;S 配置证书信任访问通过自签证书进行C&#x2F;S 信任访问auther: 3inter.net  2025&#x2F;12&#x2F;19 11:42  #!&#x2F;bin&#x2F;bash  # &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; # CA 管理器脚本 # 版本: 4.2 # 功能：创建根CA、签发客户端证书 # 加密标准：RSA 307">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-01-30T09:17:18.000Z">
-<meta property="article:modified_time" content="2026-01-30T09:19:20.025Z">
+<meta property="article:modified_time" content="2026-01-30T10:19:59.766Z">
 <meta property="article:author" content="3inter">
 <meta name="twitter:card" content="summary">
     
@@ -1136,7 +1136,7 @@ EOF</span>
 
 <h1 id="配置Nginx-服务"><a href="#配置Nginx-服务" class="headerlink" title="配置Nginx 服务"></a>配置Nginx 服务</h1><p>（1）生成服务端证书</p>
 <pre class="line-numbers language-none"><code class="language-none">openssl req -newkey rsa:3072 -nodes -keyout srv.key \
-  -subj &quot;&#x2F;C&#x3D;CN&#x2F;ST&#x3D;Beijing&#x2F;L&#x3D;Beijing&#x2F;O&#x3D;HTX&#x2F;CN&#x3D;10.211.55.8&quot; \
+  -subj &quot;&#x2F;C&#x3D;CN&#x2F;ST&#x3D;Beijing&#x2F;L&#x3D;Beijing&#x2F;O&#x3D;&#x2F;Adsec&#x3D;10.211.55.8&quot; \
   -addext &quot;subjectAltName &#x3D; DNS:127.0.0.1&quot; \
   -addext &quot;keyUsage &#x3D; digitalSignature, keyEncipherment&quot; \
   -addext &quot;extendedKeyUsage &#x3D; serverAuth, clientAuth&quot; \
@@ -1195,8 +1195,8 @@ http &#123;
         # Load configuration files for the default server block.
         include &#x2F;etc&#x2F;nginx&#x2F;default.d&#x2F;*.conf;
 
-        ssl_certificate &#x2F;etc&#x2F;nginx&#x2F;cert&#x2F;htxserver.crt;
-        ssl_certificate_key &#x2F;etc&#x2F;nginx&#x2F;cert&#x2F;htxserver.key;
+        ssl_certificate &#x2F;etc&#x2F;nginx&#x2F;cert&#x2F;adsecserver.crt;
+        ssl_certificate_key &#x2F;etc&#x2F;nginx&#x2F;cert&#x2F;adsecserver.key;
 
         # CA证书用于验证客户端
         ssl_client_certificate &#x2F;etc&#x2F;nginx&#x2F;cert&#x2F;ca.crt;
