@@ -10,6 +10,10 @@
 #   icon: 'fas fa-envelope'
 #   noblank: true            # open link in current tab
 
+- type: wechat
+  icon: fab fa-weixin
+  url: javascript:void(0);
+
 - type: rss
   icon: 'fas fa-rss'
   noblank: true
